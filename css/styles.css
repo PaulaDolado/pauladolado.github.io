@@ -5,8 +5,8 @@
 }
 body {
     font-family: "Poppins";
-  background: linear-gradient(145deg,#0f0f0f);
-  color:#fff;
+    background: linear-gradient(145deg,#0f0f0f);
+    color:#fff;
 }
 .text{
     display: flex;
