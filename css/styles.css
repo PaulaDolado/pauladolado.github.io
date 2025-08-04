@@ -8,12 +8,14 @@ body {
     background: linear-gradient(145deg,#0f0f0f,#1a1a1a);
     color:#fff;
 }
-.text{
+.intro{
     display: flex;
     align-items: center;
     justify-content: center;
     flex-direction: column;
     height: 100vh;
+}
+.text{
     font-size: 5rem;
     font-weight: 800;
     letter-spacing: -1px;
