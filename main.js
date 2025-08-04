@@ -16,7 +16,7 @@ tl.from(splitText.chars,{
     perspective:700,
 }).to(splitText.chars,{
     color:"#6c5ce7",
-    duration:0.9,
+    duration:0.3,
     stagger:0.03,
     ease:"power2.out",
 });
