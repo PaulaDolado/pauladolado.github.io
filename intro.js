@@ -1,13 +1,23 @@
 gsap.registerPlugin(SplitText);
 
 // Dividir texto en letras
-let split = SplitText.create(".text",{type:"chars"});
+const text = document.querySelector(".text");
+const splitText=new SplitText(text, {type: "chars, words"})
 
 // Animar cada letra desde abajo hacia arriba
-gsap.from(split.words,{
-    y: 100,
-  autoAlpha: 0,
-  stagger: 0.05,
-  ease: "power2.out"
-})
+const tl=gsap.timeline();
+tl.from(splitText.chars,{
+    y:100,
+    ratationX:90,
+    opacity:0,
+    color:"#FFFFFF",
+    stagger:0.03,
+    transformOrigin:"center top",
+    perspective:700,
+}).to(splitText.chars,{
+    color:"#6c5ce7",
+    duration:0.9,
+    stagger:0.03,
+    ease:"power2.out",
+});
 
