@@ -6,9 +6,22 @@
   <title>Paula Dolado Aynié</title>
 </head>
 <body>
-  <div class="container">
+  <div class="intro">
     <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
-  <lottie-player src="introjson/IntroPaula.json" background="transparent" speed="1" autoplay></lottie-player>
+  <lottie-player id="animacionIntro" src="introjson/IntroPaula.json" background="transparent" speed="1" autoplay></lottie-player>
   </div>
+  <div id="contenido">
+    <h1>Contenido</h1>
+  </div>
+  <script>
+    const anim = document.getElementById("animacionIntro");
+    const intro = document.getElementById("intro");
+    const contenido = document.getElementById("contenido");
+
+    anim.addEventListener("complete", () => {
+      intro.style.display = "none";
+      contenido.style.display = "block";
+    });
+  </script>
 </body>
 </html>
