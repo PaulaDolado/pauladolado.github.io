@@ -12,12 +12,13 @@ tl.from(splitText.chars,{
     opacity:0,
     color:"#FFFFFF",
     stagger:0.05,
+    duration:0.06,
     transformOrigin:"center top",
     perspective:700,
 }).to(splitText.chars,{
     color:"#6c5ce7",
     stagger:0.05,
-    duration:0.03,
+    duration:0.06,
     ease:"power2.out",
 });
 
