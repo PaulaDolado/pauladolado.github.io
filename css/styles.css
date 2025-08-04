@@ -4,12 +4,17 @@
   box-sizing: border-box;
 }
 body {
-    font-family: "Poppins";
-    background: linear-gradient(145deg,#0f0f0f);
+    font-family: "Poppins", sans-serif;
+    background: linear-gradient(145deg,#0f0f0f,#1a1a1a);
     color:#fff;
 }
 .text{
     display: flex;
     align-items: center;
     justify-content: center;
+    flex-direction: column;
+    height: 100vh;
+    font-size: 5rem;
+    font-weight: 800;
+    letter-spacing: -1px;
 }
