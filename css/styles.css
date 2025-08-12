@@ -26,8 +26,11 @@ body {
     transition: transform 0.2s ease;
 }
 .cursor-punto.on-button {
-    background-color: #2b3042 ;
-    mix-blend-mode: normal ;
+    background-color: white;
+    mix-blend-mode: difference;
+}
+.cursor-punto, .cursor-linia {/* Mejora el rendimiento de las animaciones */
+    will-change: transform; 
 }
 
 .cursor-linia {
@@ -55,9 +58,7 @@ body {
     flex-direction: column;
     height: 100vh;
 }
-.text-wrapper,.subtext-wrapper{
-    overflow: hidden;
-}
+
 .text{
     font-size: 5rem;
     font-weight: 800;
@@ -70,6 +71,9 @@ body {
     font-weight: 400;
     opacity:0.9;
     pointer-events: none;
+}
+.text-wrapper,.subtext-wrapper{
+    overflow: hidden;
 }
 .btn {
     display: flex;
@@ -88,4 +92,16 @@ body {
     font-size: 1rem;
     overflow: hidden;
     transition: all 0.3s ease;
+    display: inline-flex; 
+    align-items: center; 
+    justify-content: center; 
+    gap: 4px;
 }
+.btn button img{
+    width: 20px;
+    height: 20px; 
+    object-fit: contain; 
+    pointer-events: none;
+
+}
+
