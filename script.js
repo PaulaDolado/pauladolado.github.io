@@ -96,7 +96,7 @@ tl.from(splitSubText.words,{
     stagger:0.12,
     duration:0.7,
     ease:"power2.out"
-},"-=0.5")
+},"-=0.3")
 tl.from(splitSubText2.words,{
     y:60,
     opacity:0,
@@ -112,5 +112,5 @@ tl.to(".btn", {
     y: 0,
     duration: 0.8,
     ease: "back.out(1.2)", 
-    delay: 0.2 
+    delay: 0.1 
 }); 
