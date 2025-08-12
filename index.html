@@ -14,11 +14,15 @@
       <p>Ingeniera Informática de Gestión y Sistemas de Información</p>
     </div>
   </div>
+  
+
+
+
   <div class="cursor"></div>
   <script>
     const cursor= document.querySelector('.cursor');
     document.addEventListener('mousemove', e=>{
-      cursor.setAttribute("style", "top:" + (e.pageY -10)+"px; left:"+(e.pageX-10)+"px;")
+      cursor.setAttribute("style", "top:" + (e.pageY-5 )+"px; left:"+(e.pageX-4)+"px;")
     })
     document.addEventListener('click',()=>{
       cursor.classList.add("expand")
@@ -29,6 +33,6 @@
   </script>
   <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/gsap.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/SplitText.min.js"></script>
-  <script src="main.js"></script>
+  <script src="script.js"></script>
 </body>
 </html>
