@@ -12,7 +12,6 @@ tl.from(splitText.chars,{
     opacity:0,
     color:"#FFFFFF",
     stagger:0.05,
-    duration:0.06,
     transformOrigin:"center top",
     perspective:700,
 }).to(splitText.chars,{
