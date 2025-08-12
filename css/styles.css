@@ -26,10 +26,10 @@ body {
     from{
         transform: scale(1);
     }to{
-        transform: scale(.4);
+        transform: scale(.7);
     }
-    
 }
+
 .cursor{
     width:20px;
     height: 20px;
@@ -38,15 +38,18 @@ body {
     position: absolute;
     transition-duration: 200ms;
     transition-timing-function: ease-out;
+    pointer-events: none;
     animation: cursorAnim2 .5s infinite alternate;
 }
 @keyframes cursorAnim2 {
     from{
         transform: scale(1);
     }to{
-        transform: scale(.7);
+        transform: scale(.4);
     }
+    
 }
+
 .expand{
     animation: cursorAnim3 .5s forwards;
     border:1px solid violet
