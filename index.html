@@ -9,12 +9,16 @@
 <body>
   <div class="intro">
     <div class="text">Paula Dolado Aynié</div>
+    <div class="subtext">
+      <p>Técnica en Administración de sistemas informáticos en la red &</p>
+      <p>Ingeniera Informática de Gestión y Sistemas de Información</p>
+    </div>
   </div>
   <div class="cursor"></div>
   <script>
     const cursor= document.querySelector('.cursor');
     document.addEventListener('mousemove', e=>{
-      cursor.setAttribute("style", "top:" + (e.pageY - 10)+"px; left:"+(e.pageX-10)+"px;")
+      cursor.setAttribute("style", "top:" + (e.pageY -10)+"px; left:"+(e.pageX-10)+"px;")
     })
     document.addEventListener('click',()=>{
       cursor.classList.add("expand")
