@@ -21,10 +21,12 @@ window.addEventListener("mousemove", function(e){
     cursorPunto.style.left=`${posX}px`;
     cursorPunto.style.top=`${posY}px`;
 
-    cursorLinia.animate({
-        left:`${posX}px`,
-        top:`${posY}px`
-    },{duration:500, fill:"forwards"});
+    gsap.to(cursorLinia, {
+        left: posX,
+        top: posY,
+        duration: 0.3,
+        ease: "power2.out"
+    });
 });
 //Animación cursor click
 document.addEventListener('mousedown', () => {
@@ -44,30 +46,30 @@ document.addEventListener('mouseup', () => {
 });
 // Animación cursor-botón
 buttons.forEach(button => {
-    button.addEventListener('mouseenter', () => {
-        // Aumenta tamaño
-        gsap.to(cursorPunto, { 
-            scale: 2,
-            duration: 0.2
-        });
-        gsap.to(cursorLinia, {
-            scale: 1.5,
-            duration: 0.3
-        });
+    document.addEventListener('mousemove', (e) => {
+        const isOverButton = e.target.closest('.btn button') !== null;
         
-    });
-    
-    button.addEventListener('mouseleave', () => {
-        // Vuelve al estado normal
-        gsap.to(cursorPunto, {
-            scale: 1,
-            duration: 0.3
-        });
-        gsap.to(cursorLinia, {
-            scale: 1,
-            duration: 0.3
-        });
-       
+        if (isOverButton) {// sobre el botón
+            cursorPunto.classList.add('on-button');
+            gsap.to(cursorPunto, { 
+                scale: 2,
+                duration: 0.2
+            });
+            gsap.to(cursorLinia, {
+                scale: 1.5,
+                duration: 0.3
+            });
+        } else {// no sobre el botón
+            cursorPunto.classList.remove('on-button');
+            gsap.to(cursorPunto, {
+                scale: 1,
+                duration: 0.3
+            });
+            gsap.to(cursorLinia, {
+                scale: 1,
+                duration: 0.3
+            });
+        }
     });
 });
 
