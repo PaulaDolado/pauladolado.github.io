@@ -12,28 +12,41 @@ body {
     color:#fff;
 }
 
-.cursor-punto{
+.cursor-punto {
     width: 10px;
     height: 10px;
     background-color: white;
-}
-.cursor-linia{
-    width: 40px;
-    height: 40px;
-    border: 2px solid gray
-}
-.cursor-punto,.cursor-linia{
     position: fixed;
-    top:0;
-    left:0;
-    transform: translate(-50%,-50%);
+    top: 0;
+    left: 0;
+    transform: translate(-50%, -50%);
     border-radius: 50%;
     z-index: 1;
     pointer-events: none;
+    transition: transform 0.2s ease;
+}
+.cursor-punto.on-button {
+    background-color: #2b3042 ;
+    mix-blend-mode: normal ;
 }
 
-.expand{
-    border:1px solid hsl(267, 61%, 49%);
+.cursor-linia {
+    width: 40px;
+    height: 40px;
+    border: 2px solid gray;
+    position: fixed;
+    top: 0;
+    left: 0;
+    transform: translate(-50%, -50%);
+    border-radius: 50%;
+    z-index: 1;
+    pointer-events: none;
+    transition: transform 0.3s ease, border 0.3s ease;
+}
+.cursor-linia.expand{
+    transform: translate(-50%, -50%) scale(1.8); 
+    border: 2px solid hsl(267, 61%, 49%); 
+    transition: transform 0.1s ease, border 0.1s ease; 
 }
 .intro{
     display: flex;
@@ -58,7 +71,6 @@ body {
     opacity:0.9;
     pointer-events: none;
 }
-
 .btn {
     display: flex;
     gap: 20px;
@@ -75,20 +87,5 @@ body {
     border-radius: 6px;
     font-size: 1rem;
     overflow: hidden;
+    transition: all 0.3s ease;
 }
-.btn button::before {
-    content: "";
-    position: absolute;
-    top: 0; left: 0; right: 0; bottom: 0;
-    background-color: white;
-    mix-blend-mode: difference;
-    opacity: 0;
-    transition: opacity 0.3s;
-    pointer-events: none;
-    border-radius: 6px;
-}
-
-.btn button.hovered::before {
-    opacity: 1;
-}
-

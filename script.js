@@ -7,11 +7,12 @@ const cursorLinia= document.querySelector("[data-linia]");
 const text = document.querySelector(".text");
 const subtext = document.querySelector(".subtext");
 const subtext2 = document.querySelector(".subtext2");
+
+const buttons = document.querySelectorAll(".btn button");
 // Dividir texto en letras y palabras
 const splitText=new SplitText(text, {type: "chars"})
 const splitSubText=new SplitText(subtext, {type: "words"})
 const splitSubText2=new SplitText(subtext2, {type: "words"})
-
 
 //Animación cursor
 window.addEventListener("mousemove", function(e){
@@ -24,23 +25,51 @@ window.addEventListener("mousemove", function(e){
         left:`${posX}px`,
         top:`${posY}px`
     },{duration:500, fill:"forwards"});
+});
+//Animación cursor click
+document.addEventListener('mousedown', () => {
+    gsap.to(cursorLinia, {
+        scale: 1.8,
+        border: '2px solid hsl(267, 61%, 49%)',
+        duration: 0.1
+    });
+});
+
+document.addEventListener('mouseup', () => {
+    gsap.to(cursorLinia, {
+        scale: 1,
+        border: '2px solid gray',
+        duration: 0.3
+    });
+});
+// Animación cursor-botón
+buttons.forEach(button => {
+    button.addEventListener('mouseenter', () => {
+        // Aumenta tamaño
+        gsap.to(cursorPunto, { 
+            scale: 2,
+            duration: 0.2
+        });
+        gsap.to(cursorLinia, {
+            scale: 1.5,
+            duration: 0.3
+        });
+        
+    });
     
-})
-//window.addEventListener("click", () => {
-//    LiniaCursor.classList.add("expand")
-//    LiniaCursor.animate([
-//        { transform: "scale(1)" },
-//        { transform: "scale(3)" },
-//        { transform: "scale(1)" }
-//    ], {
-//        duration: 500,
-//        easing: "ease-out",
-//        fill: "forwards"
-//    });
-//    setTimeout(() => {
-//       LiniaCursor.classList.remove("expand");
-//    }, 300);
-//});
+    button.addEventListener('mouseleave', () => {
+        // Vuelve al estado normal
+        gsap.to(cursorPunto, {
+            scale: 1,
+            duration: 0.3
+        });
+        gsap.to(cursorLinia, {
+            scale: 1,
+            duration: 0.3
+        });
+       
+    });
+});
 
 // Animación letras
 const tl=gsap.timeline();
@@ -79,6 +108,3 @@ tl.from(splitSubText2.words,{
 },"-=1.2"),to(splitSubText.words,{
     filter:"blur(0px)",
 })
-
-
-
