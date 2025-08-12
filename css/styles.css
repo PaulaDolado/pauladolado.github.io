@@ -10,9 +10,7 @@ body {
     font-family: "Poppins", sans-serif;
     background: linear-gradient(145deg,#0f0f0f,#1a1a1a);
     color:#fff;
-}
-
-.cursor-punto {
+}.cursor-punto {
     width: 10px;
     height: 10px;
     background-color: white;
@@ -31,9 +29,7 @@ body {
 }
 .cursor-punto, .cursor-linia {/* Mejora el rendimiento de las animaciones */
     will-change: transform; 
-}
-
-.cursor-linia {
+}.cursor-linia {
     width: 40px;
     height: 40px;
     border: 2px solid gray;
@@ -57,9 +53,9 @@ body {
     justify-content: center;
     flex-direction: column;
     height: 100vh;
-}
-
-.text{
+}.text{
+    font-style: italic;
+    text-align: center;
     font-size: 5rem;
     font-weight: 800;
     line-height: 1.3;
@@ -67,7 +63,9 @@ body {
     pointer-events: none;
 }
 .subtext{
-    font-size: 1.5rem;
+    font-family: 'Courier New', Courier, monospace;
+    text-align: center;
+    font-size: 1.10rem;
     font-weight: 400;
     opacity:0.9;
     pointer-events: none;
@@ -84,9 +82,7 @@ body {
     visibility:hidden;
     transform: translateY(30px);
     transition: none;
-}
-
-.btn button {
+}.btn button {
     position: relative;
     background-color: #2b3042;
     color: white;
@@ -100,6 +96,9 @@ body {
     align-items: center; 
     justify-content: center; 
     gap: 4px;
+}
+#proyectos,#cv{
+    font-family: monospace;
 }
 .btn button img{
     width: 20px;
