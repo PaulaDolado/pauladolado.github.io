@@ -11,13 +11,13 @@ tl.from(splitText.chars,{
     ratationX:90,
     opacity:0,
     color:"#FFFFFF",
-    stagger:0.05,
+    stagger:0.03,
     transformOrigin:"center top",
     perspective:700,
 }).to(splitText.chars,{
     color:"#6c5ce7",
-    stagger:0.05,
-    duration:0.06,
+    stagger:0.03,
+    duration:0.9,
     ease:"power2.out",
 });
 
