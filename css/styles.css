@@ -79,7 +79,11 @@ body {
     display: flex;
     gap: 20px;
     justify-content: center;
-    margin-top: 20px; 
+    margin-top: 20px;
+    opacity: 0; 
+    visibility:hidden;
+    transform: translateY(30px);
+    transition: none;
 }
 
 .btn button {
@@ -102,6 +106,5 @@ body {
     height: 20px; 
     object-fit: contain; 
     pointer-events: none;
-
 }
 

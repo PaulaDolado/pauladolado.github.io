@@ -36,7 +36,6 @@ document.addEventListener('mousedown', () => {
         duration: 0.1
     });
 });
-
 document.addEventListener('mouseup', () => {
     gsap.to(cursorLinia, {
         scale: 1,
@@ -72,12 +71,12 @@ buttons.forEach(button => {
         }
     });
 });
-
-// Animación letras
+gsap.set(".btn", { visibility: "hidden", opacity: 0, y: 30 });
+// Animación título en letras
 const tl=gsap.timeline();
 tl.from(splitText.chars,{
     y:100,
-    ratationX:90,
+    rotationX:90,
     opacity:0,
     color:"#FFFFFF",
     stagger:0.03,
@@ -89,7 +88,7 @@ tl.from(splitText.chars,{
     duration:0.9,
     ease:"power2.out",
 });
-//Animación palabras
+//Animación subtítulo en palabras
 tl.from(splitSubText.words,{
     y:60,
     opacity:0,
@@ -97,16 +96,21 @@ tl.from(splitSubText.words,{
     stagger:0.12,
     duration:0.7,
     ease:"power2.out"
-},"-=1.2"),to(splitSubText.words,{
-    filter:"blur(0px)",
-})
+},"-=0.5")
 tl.from(splitSubText2.words,{
     y:60,
     opacity:0,
     filter:"blur(16px)",
     stagger:0.12,
     duration:0.7,
-    ease:"power2.out"
-},"-=1.2"),to(splitSubText.words,{
-    filter:"blur(0px)",
-})
+    ease: "power2.out"
+}, "-=0.5");
+
+tl.to(".btn", {
+    visibility: "visible",
+    opacity: 1,
+    y: 0,
+    duration: 0.8,
+    ease: "back.out(1.2)", 
+    delay: 0.2 
+}); 
