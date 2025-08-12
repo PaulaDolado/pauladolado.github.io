@@ -1,6 +1,6 @@
 gsap.registerPlugin(SplitText);
 
-// Dividir texto en letras
+// Dividir texto en letras y palabras
 const text = document.querySelector(".text");
 const subtext = document.querySelector(".subtext");
 const subtext2 = document.querySelector(".subtext2");
@@ -8,7 +8,7 @@ const splitText=new SplitText(text, {type: "chars"})
 const splitSubText=new SplitText(subtext, {type: "words"})
 const splitSubText2=new SplitText(subtext2, {type: "words"})
 
-// Animar cada letra desde abajo hacia arriba
+// Animación letras
 const tl=gsap.timeline();
 tl.from(splitText.chars,{
     y:100,
@@ -24,6 +24,7 @@ tl.from(splitText.chars,{
     duration:0.9,
     ease:"power2.out",
 });
+//Animación palabras
 tl.from(splitSubText.words,{
     y:60,
     opacity:0,
@@ -44,4 +45,9 @@ tl.from(splitSubText2.words,{
 },"-=1.2"),to(splitSubText.words,{
     filter:"blur(0px)",
 })
+
+const button= document.createElement('button');
+button.type="button";
+button.innerText="Ver Proyectos";
+document.body.appendChild(button);
 
