@@ -1,9 +1,11 @@
 gsap.registerPlugin(SplitText);
 
-// Dividir texto en letras y palabras
+// Cogemos los elementos
 const text = document.querySelector(".text");
 const subtext = document.querySelector(".subtext");
 const subtext2 = document.querySelector(".subtext2");
+const buttons = document.querySelectorAll('.btn button');
+// Dividir texto en letras y palabras
 const splitText=new SplitText(text, {type: "chars"})
 const splitSubText=new SplitText(subtext, {type: "words"})
 const splitSubText2=new SplitText(subtext2, {type: "words"})
@@ -45,9 +47,14 @@ tl.from(splitSubText2.words,{
 },"-=1.2"),to(splitSubText.words,{
     filter:"blur(0px)",
 })
+//Animación botón
+buttons.forEach(button => {
+  button.addEventListener('mouseenter', () => {
+    button.classList.add('hovered');
+  });
+  button.addEventListener('mouseleave', () => {
+    button.classList.remove('hovered');
+  });
+});
 
-const button= document.createElement('button');
-button.type="button";
-button.innerText="Ver Proyectos";
-document.body.appendChild(button);
 

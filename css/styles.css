@@ -26,9 +26,9 @@ body {
 }
 
 .cursor{
-    width:8px;
-    height: 8px;
-    border: 5px solid white;
+    width:10px;
+    height: 10px;
+    background-color: white;
     border-radius: 50%;
     position: absolute;
     transition-duration: 200ms;
@@ -38,6 +38,7 @@ body {
 .expand{
     animation: cursorAnim3 .5s forwards;
     border:1px solid hsl(267, 61%, 49%);
+    background-color: transparent;
 }
 @keyframes cursorAnim3 {
     0%{
@@ -73,7 +74,37 @@ body {
     opacity:0.9;
     pointer-events: none;
 }
-.btn{
-    display: inline-block;
-    background-color: #fff;
+
+.btn {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    margin-top: 20px; 
 }
+
+.btn button {
+    position: relative;
+    background-color: #2b3042;
+    color: white;
+    padding: 10px 30px;
+    border: none;
+    border-radius: 6px;
+    font-size: 1rem;
+    overflow: hidden;
+}
+.btn button::before {
+    content: "";
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background-color: white;
+    mix-blend-mode: difference;
+    opacity: 0;
+    transition: opacity 0.3s;
+    pointer-events: none;
+    border-radius: 6px;
+}
+
+.btn button.hovered::before {
+    opacity: 1;
+}
+
