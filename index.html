@@ -7,7 +7,35 @@
   <link rel="stylesheet" href="css/styles.css" />
 </head>
 <body>
-  <div class="header"></div>
+  <nav id="navi" class="nav-container">
+    <div class="nav-wrapper">
+      <div class="nav-logo">
+         <a href="#LOGO"></a>
+      </div>
+      <div class="nav-links">
+        <a data-link="color-change" href="#inicio" class="nav-link">
+          <div class="button-label">INICIO</div>
+          <div class="link-bg"></div>
+        </a>
+        <a data-link="color-change" href="#sobremi" class="nav-link">
+          <div class="button-label">SOBRE MI</div>
+          <div class="link-bg"></div>
+        </a>
+        <a data-link="color-change" href="#proyectos" class="nav-link">
+          <div class="button-label">PROYECTOS</div>
+          <div class="link-bg"></div>
+        </a>
+        <a data-link="color-change" href="#trabajo" class="nav-link">
+          <div class="button-label">TRABAJO</div>
+          <div class="link-bg"></div>
+        </a>
+        <a data-link="color-change" href="#contacto" class="nav-link">
+          <div class="button-label">CONTACTO</div>
+          <div class="link-bg"></div>
+        </a>
+      </div>
+    </div>
+  </nav>
   <div class="intro">
     <div class="text">Paula Dolado Aynié</div>
     <div class="subtext">
@@ -15,12 +43,16 @@
       <p>Ingeniera Informática de Gestión y Sistemas de Información</p>
     </div>
     <div class="btn">
-      <button id="proyectos"><img src="img/project_icon.png" id="project">VER PROYECTOS</button>
+      <a href="#proyectos"><button id="proyectos"><img src="img/project_icon.png" id="project">VER PROYECTOS</button></a>
       <button id="cv"><img src="img/download_icon.png" id="download">DESCARGAR CV</button>
     </div>
   </div>
+  <section>
+
+  </section>
   <div class="cursor-punto" data-punto></div>
   <div class="cursor-linia" data-linia></div>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/gsap.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/gsap.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/SplitText.min.js"></script>
   <script src="script.js"></script>
