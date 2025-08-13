@@ -5,25 +5,57 @@
     -webkit-font-smoothing:antialiased;
     -moz-osx-smoothing:grayscale;
 }
+/*Estilos genericos*/
 html, body {
     width: 100vw;
     height: 900vh;
     cursor:none;
-    background: linear-gradient(145deg,#0f0f0f,#1a1a1a);
-    color:#fff;
-
+    background: #ecdfcd;
+    color: white;
     overflow-x: hidden;
     
 }
 img{
-    max-width: 100%;
-    height: auto;
+    position: relative;
+    width: 100%;
+    height: 100%; /*auto*/
     object-fit: cover;
+    will-change: transform;
+}
+h1{
+    font-size:5rem;
+    font-weight: 500;
+    letter-spacing: -0.1rem;
+    line-height: 1.25;
+}
+p{
+    font-size: 1.124rem;
+    font-weight: 400;
+    line-height: 1.25;
+    color: black;
+}
+section {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+}
+.intro,.outro{
+    height: 100svh;
+    padding: 1.5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.intro h1,.outro h1{
+    width: 60%;
+    text-align: center;
+    line-height: 1.1;
 }
 
 /* Contenedor principal */
 .nav-container {
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 0;
   width: 100%;
@@ -33,7 +65,14 @@ img{
   align-items: center;
   z-index:2;
 }
-
+.navi{
+    padding-right: 40px;
+    padding-left: 40px ;
+    width: 100%;
+    max-width: none;
+    margin-left: auto ;
+    margin-right: auto;
+}
 /* Barra de navegación */
 .nav-bar {
   width: 100%;
@@ -53,11 +92,9 @@ img{
   display: flex;
   gap: 10px;
 }
-
-/* Estilo base de cada enlace */
 .nav-link {
   position: relative;
-  padding: 12px 0; 
+  padding: 12px 0;
   width: 230px;
   display: flex;
   justify-content: center;
@@ -65,34 +102,45 @@ img{
   border-radius: 8px;
   overflow: hidden;
   text-decoration: none;
-  background-color: rgba(10, 10, 10, 0.742);
   cursor: none;
+  background: #ecdfcd;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-/* Fondo opaco (inicialmente invisible) */
-.link-bg {
+.nav-link::before {
+  content: '';
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(255, 255, 255, 0.9); /* Blanco opaco */
+  background: rgba(255, 255, 255, 0.9);
   border-radius: 8px;
   transform: scale(0.95);
   opacity: 0;
   transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-  
+  opacity: 0.15;
 }
 
-/* Texto */
+.nav-link:hover::before {
+  opacity: 0.15;
+  transform: scale(1);
+}
+
+
+/* Texto botones */
 .button-label {
-  font-family: "Neue Machina", sans-serif;
-  font-size: 14px;
-  font-weight: 500;
-  color: white;
+  font-family: sans-serif;
+  font-size: 12px;
+  font-weight: bold;
+  letter-spacing: 0.15em;
+  color: #6a8753ff;
   text-align: center;
   width: 100%; /* Ocupa todo el ancho disponible */
 }
+/*
 .intro{
     background-size: cover;
 }
@@ -114,12 +162,80 @@ img{
 .outro p span{
     color: aquamarine;
 }
-/*Secciones*/
-section {
-  position: relative;
-  width: 100%;
-  height: 100vh;
-  overflow: hidden;
+*/
+
+/*Inicio*/
+.intro{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    height: 100vh;
+}.text{
+    font-style: italic;
+    text-align: center;
+    font-size: 5rem;
+    font-weight: 800;
+    line-height: 1.3;
+    letter-spacing: -1px;
+    pointer-events: none;
+}
+.subtext{
+    font-family: 'Courier New', Courier, monospace;
+    text-align: center;
+    font-size: 1.10rem;
+    font-weight: 400;
+    opacity:0.9;
+    pointer-events: none;
+}
+.text-wrapper,.subtext-wrapper{
+    overflow: hidden;
+}
+/*Botones inicio*/
+.btn {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    margin-top: 20px;
+    opacity: 0; 
+    visibility:hidden;
+    transform: translateY(30px);
+    transition: none;
+}.btn button {
+    position: relative;
+    background-color: #6a8753ff;
+    color: white;
+    padding: 10px 30px;
+    border: none;
+    border-radius: 6px;
+    font-size: 1rem;
+    overflow: hidden;
+    transition: all 0.3s ease;
+    display: inline-flex; 
+    align-items: center; 
+    justify-content: center; 
+    gap: 4px;
+}
+#proyectos,#cv{
+    font-family: monospace;
+}
+.btn button img{
+    width: 20px;
+    height: 20px; 
+    object-fit: contain; 
+    pointer-events: none;
+}
+/*Seccion dispositiva sobremi*/
+.dispositivas{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 25svh;
+}
+
+/*Seccion galeria proyecto*/
+.proyectos{
+    background-color: #855f45ff;
 }
 .cartas {
   position: absolute;
@@ -216,6 +332,7 @@ section {
         height: 500px;
     }
 }
+/*Estilo cursor*/
 .cursor-punto {
     width: 10px;
     height: 10px;
@@ -228,14 +345,13 @@ section {
     z-index: 1;
     pointer-events: none;
     transition: transform 0.2s ease;
+    will-change: transform; 
 }
 .cursor-punto.on-button {
     background-color: white;
     mix-blend-mode: difference;
 }
-.cursor-punto, .cursor-linia {/* Mejora el rendimiento de las animaciones */
-    will-change: transform; 
-}.cursor-linia {
+.cursor-linia {
     width: 40px;
     height: 40px;
     border: 2px solid gray;
@@ -247,87 +363,13 @@ section {
     z-index: 1;
     pointer-events: none;
     transition: transform 0.3s ease, border 0.3s ease;
+    will-change: transform; 
 }
 .cursor-linia.expand{
     transform: translate(-50%, -50%) scale(1.8); 
     border: 2px solid hsl(267, 61%, 49%); 
     transition: transform 0.1s ease, border 0.1s ease; 
 }
-.navi{
-    padding-right: 40px;
-    padding-left: 40px ;
-    width: 100%;
-    max-width: none;
-    margin-left: auto ;
-    margin-right: auto;
-}
-.etiqueta{
-    z-index: 2;
-    font-family: "Neue Machina", sans-serif;
-    font-size: 14px;
-    line-height: 1.2;
-    font-weight: 500;
-    letter-spacing: 0.02em;
-    position: relative;
-}
 
-.intro{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-    height: 100vh;
-}.text{
-    font-style: italic;
-    text-align: center;
-    font-size: 5rem;
-    font-weight: 800;
-    line-height: 1.3;
-    letter-spacing: -1px;
-    pointer-events: none;
-}
-.subtext{
-    font-family: 'Courier New', Courier, monospace;
-    text-align: center;
-    font-size: 1.10rem;
-    font-weight: 400;
-    opacity:0.9;
-    pointer-events: none;
-}
-.text-wrapper,.subtext-wrapper{
-    overflow: hidden;
-}
-.btn {
-    display: flex;
-    gap: 20px;
-    justify-content: center;
-    margin-top: 20px;
-    opacity: 0; 
-    visibility:hidden;
-    transform: translateY(30px);
-    transition: none;
-}.btn button {
-    position: relative;
-    background-color: #2b3042;
-    color: white;
-    padding: 10px 30px;
-    border: none;
-    border-radius: 6px;
-    font-size: 1rem;
-    overflow: hidden;
-    transition: all 0.3s ease;
-    display: inline-flex; 
-    align-items: center; 
-    justify-content: center; 
-    gap: 4px;
-}
-#proyectos,#cv{
-    font-family: monospace;
-}
-.btn button img{
-    width: 20px;
-    height: 20px; 
-    object-fit: contain; 
-    pointer-events: none;
-}
+
 
