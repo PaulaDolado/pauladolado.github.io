@@ -1,5 +1,5 @@
 gsap.registerPlugin(SplitText);
-gsap.registerPlugin(ScrollTrigger);
+
 // Cogemos los elementos
 const cursorPunto= document.querySelector("[data-punto]");
 const cursorLinia= document.querySelector("[data-linia]");
@@ -116,7 +116,7 @@ tl.to(".btn", {
 }); 
 //Animacion Secciones proyectos
 document.addEventListener("DOMContentLoaded",()=>{
-    
+    gsap.registerPlugin(ScrollTrigger);
     const lenis= new Lenis();
     lenis.on("scroll", ScrollTrigger.update)
     gsap.ticker.add((time)=>{
@@ -126,7 +126,7 @@ document.addEventListener("DOMContentLoaded",()=>{
 
     const stickySection= document.querySelector(".proyectos");
     const stickyHeight= window.innerHeight * 7;
-    const cartas= document.querySelectorAll(".carta:not(.empty)");
+    const cartas= document.querySelectorAll(".carta");
     const ContenedorContador= document.querySelector(".contenedor-contador");
     const totalcartas= cartas.length ; 
     
@@ -146,7 +146,6 @@ document.addEventListener("DOMContentLoaded",()=>{
     };
     const arcAngulo= Math.PI * 0.4;
     const inicioAngulo= Math.PI / 2 - arcAngulo / 2;
-    
 
     function posicionCartas(progress=0){
         const radio=getRadio();
@@ -154,7 +153,7 @@ document.addEventListener("DOMContentLoaded",()=>{
         const procesoActual = (progress * totalViaje -1)*0.75;
 
         cartas.forEach((carta, i) =>{
-            const procesoNorm = (totalcartas-1-i)/totalcartas;
+            const procesoNorm = (totalcartas -1 -i)/totalcartas;
             const procesCartas = procesoNorm + procesoActual;
             const angulo = inicioAngulo + arcAngulo * procesCartas;
 
@@ -197,5 +196,4 @@ document.addEventListener("DOMContentLoaded",()=>{
     });
     window.addEventListener("resize",()=>posicionCartas(0, cartas.length));
 });
-
 
