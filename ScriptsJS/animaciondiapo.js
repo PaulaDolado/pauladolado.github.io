@@ -21,7 +21,7 @@ document.addEventListener("DOMContentLoaded",()=>{
     });
     const dispoImgWrapper = introDispo.querySelector(".diapositiva-img");
     const dispoImg = introDispo.querySelector(".diapositiva-img img");
-    gsap.set(dispoImgWrapper,{scale:0.5, borderRadius:"400px"});
+    gsap.set(dispoImgWrapper,{scale:0.5, borderRadius:"150px"});
     gsap.set(dispoImg,{scale:1.5});
 
     function animacionContenidoIn(tituloChars, descripcion){
@@ -54,7 +54,7 @@ document.addEventListener("DOMContentLoaded",()=>{
         onUpdate: (self)=>{
             const progress = self.progress;
             const imgScale= 0.5 + progress * 0.5;
-            const borderRadius = 400 - progress*375;
+            const borderRadius = 150 - progress*175;
             const innerImgScale = 1.5 - progress*0.5;
             
             gsap.set(dispoImgWrapper,{
@@ -83,7 +83,7 @@ document.addEventListener("DOMContentLoaded",()=>{
         },
     });
     dispositivas.forEach((dispositiva, index)=>{
-        const ultima = index== dispositivas.length -1;
+        const ultima = index== dispositivas.length-1;
         ScrollTrigger.create({
             trigger: dispositiva,
             start: "top top",
@@ -92,5 +92,5 @@ document.addEventListener("DOMContentLoaded",()=>{
             pin: true,
             pinSpacing: ultima,
         });
-    }); 
+    });
 });
