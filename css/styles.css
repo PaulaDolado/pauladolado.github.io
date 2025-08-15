@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Monsieur+La+Doulaise&display=swap');
 *{
     margin: 0;
     padding: 0;
@@ -284,6 +285,15 @@ section {
     position: relative;
     transform: translateX(40px);
     opacity: 0;
+}
+.diapositiva-titulo h1{
+    font-family: "Monsieur La Doulaise", cursive;
+    font-weight: 550;
+    font-size: 150px;
+    font-style: normal;
+    color: #dcca8f;
+    font-style: bold;
+
 }
 
 /*Seccion galeria proyecto*/
