@@ -237,6 +237,7 @@ section {
     will-change: transform;
     backface-visibility: hidden;
     color: #b0c7e0;
+    margin-right: 3.5rem;
 }
 .diapositiva-wrapper{
     position: relative;
