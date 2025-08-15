@@ -158,6 +158,7 @@ section {
     font-weight: 400;
     opacity:0.9;
     pointer-events: none;
+    color: #b0c7e0;
 }
 .text-wrapper,.subtext-wrapper{
     overflow: hidden;
