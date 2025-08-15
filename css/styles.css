@@ -264,7 +264,7 @@ section {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    transform: scale(1.05); /* Ajustado para efecto parallax */
+    transform: scale(1.05);
     transition: transform 0.3s ease-out;
 }
 .dispositiva-contenido,.dispositiva-titulo{
@@ -284,21 +284,7 @@ section {
     transform: translateX(40px);
     opacity: 0;
 }
-.dispositiva:nth-child(2){
-    margin-top: 50vh;
-}
-@media(max-width: 900px){
-    h1{
-        font-size: 2rem;
-        letter-spacing: 0;
-    }
-    .intro h1,.outro h1{
-        width: 100%;
-    }
-    .dispositiva-contenido,.dispositiva-descripcion{
-        width: 90%;
-    }
-}
+
 
 /*Seccion galeria proyecto*/
 .proyectos{
