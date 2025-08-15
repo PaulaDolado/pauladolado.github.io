@@ -62,15 +62,6 @@ document.addEventListener("DOMContentLoaded",()=>{
                 borderRadius: borderRadius + "px",
             });
             gsap.set(dispoImg,{scale: innerImgScale});
-
-            if (imgScale>=0.5 && imgScale<=0.75){
-                const fadeProgress = (imgScale - 0.5)/(0.75-0.5);
-                gsap.set(marca,{opacity:1 - fadeProgress});
-            }else if(imgScale<0.5){
-                gsap.set(marca,{opacity:1});
-            }else if(imgScale>0.75){
-                gsap.set(marca,{opacity:0});
-            }
             
             if(progress>=1 && !introDispo.contentRevealed){
                 introDispo.contentRevealed=true;
