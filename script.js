@@ -32,7 +32,7 @@ window.addEventListener("mousemove", function(e){
 document.addEventListener('mousedown', () => {
     gsap.to(cursorLinia, {
         scale: 1.8,
-        border: '2px solid #d8d78c',
+        border: '2px solid #632024',
         duration: 0.1
     });
 });
