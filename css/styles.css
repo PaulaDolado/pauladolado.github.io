@@ -288,8 +288,8 @@ section {
 }
 .diapositiva-titulo h1{
     font-family: "Monsieur La Doulaise", cursive;
-    font-weight: 550;
-    font-size: 150px;
+    font-weight: 580;
+    font-size: 180px;
     font-style: normal;
     color: #dcca8f;
     font-style: bold;
@@ -298,7 +298,10 @@ section {
 
 /*Seccion galeria proyecto*/
 .proyectos{
-    background-color: #6F4D38;
+    background-image:url(../img/fondoProy.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
     width: 100%;
     height: 100vh;
     position: relative;
