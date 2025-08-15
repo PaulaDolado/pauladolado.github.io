@@ -202,6 +202,7 @@ section {
     display: flex;
     flex-direction: column;
     overflow-x: hidden;
+    gap: 25svh;
 }
 .diapositiva{
     position: relative;
@@ -211,6 +212,28 @@ section {
     justify-content: center;
     align-items: center;
     padding: 0 1vw;
+}
+.diapositiva-marca{
+    width: 100%;
+    position: absolute;
+    top: 50%;
+    left:0;
+    transform: translateY(-50%);
+    overflow: hidden;
+    display: flex;
+    gap: 30px;
+}
+.marca{
+    display: flex;
+    flex-shrink: 0; 
+    align-items: center;
+}
+.marca h1{
+    white-space: nowrap;
+    font-size: 10vw;
+    font-weight: 600;
+    will-change: transform;
+    backface-visibility: hidden;
 }
 .diapositiva-wrapper{
     position: relative;
