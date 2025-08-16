@@ -1,6 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Monsieur+La+Doulaise&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&display=swap');
-/*@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&family=Permanent+Marker&display=swap');*/
 *{
     margin: 0;
     padding: 0;
@@ -54,7 +53,7 @@ section {
 
 /* Contenedor principal */
 .nav-container {
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 0;
   width: 100%;
@@ -62,6 +61,7 @@ section {
   display: flex;
   justify-content: center;
   align-items: center;
+  z-index: 3;
 }
 /* Barra de navegación */
 .navi{
@@ -85,7 +85,7 @@ section {
 }
 .nav-link {
   position: relative;
-  padding: 12px;
+  padding: 9px;
   width: 230px;
   display: flex;
   justify-content: center;
@@ -93,9 +93,8 @@ section {
   border-radius: 8px;
   text-decoration: none;
   cursor: none;
-  background: #d8d78c; /*TRANSPARENTE!!!*/
+  background: rgba(255, 255, 255, 0.5); /*bck dinamico*/
 }
-
 
 /* Texto botones */
 .button-label {
@@ -103,7 +102,7 @@ section {
   font-size: 12px;
   font-weight: bold;
   letter-spacing: 0.15em;
-  color: #25344f;
+  color: #0f0f0f;
   text-align: center;
   width: 100%; /* Ocupa todo el ancho disponible */
 }
@@ -125,7 +124,7 @@ section {
     color: #b0c7e0;
 }
 .subtext{
-    font-family:'Times New Roman';
+    font-family: sans-serif;
     letter-spacing: 1px;
     text-align: center;
     opacity:0.9;
@@ -194,8 +193,6 @@ section {
     overflow: hidden;
 }
 
-
-
 /*Seccion galeria proyecto*/
 .proyectos{
     background-color: #d5b893;
@@ -245,6 +242,9 @@ section {
     font-size: 16px;
     font-weight: 500;
     line-height: 1.25;
+}
+.titulo-proyecto{
+    margin-top: 5px;
 }
 .contador-proyecto{
     position: absolute;
@@ -341,5 +341,3 @@ section {
     border: 2px solid #c9a689; 
     transition: transform 0.1s ease, border 0.1s ease; 
 }
-
-
