@@ -8,4 +8,15 @@ function efectoTextTyping(elemento,texto,i=0){
 
     setTimeout(() => efectoTextTyping(div,texto,i+1),100);
 }
-efectoTextTyping(div,texto);
+const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            div.textContent = "";
+            efectoTextTyping(div, texto);
+            observer.unobserve(div);
+        }
+    });
+}, {
+    threshold: 0.5 // Se muestra cuando el 50% de la seccion está visible
+});
+observer.observe(div);
