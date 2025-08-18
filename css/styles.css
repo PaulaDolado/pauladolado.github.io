@@ -35,8 +35,10 @@ p{
     line-height: 1.25;
 }*/
 section {
-  position: relative;
-  width: 100vw;
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
 }
 /* .intro,.outro{   TODAVIA NO IMPLEMENTADO!!
     height: 100svh;
@@ -171,8 +173,6 @@ section {
 /*Seccion dispositiva sobremi*/
 .diapositiva{
     background-color: #617891;
-    width: 100%;
-    height: 100vh;
     flex-direction: column;
     align-items: flex-end;
     align-items: center;
@@ -332,20 +332,9 @@ section {
     width: 100%;
 }
 
-
-
-
-
 /*Seccion galeria proyecto*/
 .proyectos{
     background-color: #d5b893;
-    /*background-image:url(../img/fondoProy.png);
-    background-size: cover;
-    background-repeat: no-repeat;*/
-    background-position: center;
-    width: 100%;
-    height: 100vh;
-    position: relative;
 }
 .cartas {
   position: absolute;
@@ -446,6 +435,15 @@ section {
         height: 500px;
     }
 }
+/*Seccion experiencia*/
+.trabajo{
+    background-image:url(../img/fondoProy.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    
+}
+
 /*Estilo cursor*/
 .cursor-punto {
     width: 10px;
