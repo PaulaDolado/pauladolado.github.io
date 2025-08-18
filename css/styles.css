@@ -218,7 +218,6 @@ section {
 }
         
 /* Tabla de habilidades */
-
 .tech-table {
     width: 100%;
     border-collapse: collapse;
@@ -227,29 +226,49 @@ section {
     table-layout: fixed;
     grid-template-columns: repeat(3, 1fr);
 }
-
 .skill-title{
     color: white;
     text-align: left;
     padding-left: 10px;
     font-size: large;
-}
-                
+}           
 .skill-item {
     display: block;
     margin: 0.5rem;
-    background-color: #3a4d6b;
     color: white;
     border-radius: 4px;
     font-size: 1.1rem;
     transition: all 0.3s ease;
+
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
 }
-        
 .skill-item:hover {
-    background-color: #b0c7e0;
-    color: #25344f;
-    transform: translateY(-3px);
+    animation: desaparecer-aparecer 1s ease-in-out forwards;
 }
+
+/* Animación skills */
+@keyframes desaparecer-aparecer {
+    0% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+    40% {
+        transform: translateY(-100%);
+        opacity: 0;
+    }
+    41% {
+        transform: translateY(100%);
+        opacity: 0;
+    }
+    100% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+
         
 /* Responsive!!!!!!!!!!!!!!!!!!! */
 
