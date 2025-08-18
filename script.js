@@ -71,6 +71,34 @@ buttons.forEach(button => {
         }
     });
 });
+//Cursor con Boton de ver mas
+buttons.forEach(button => {
+    document.addEventListener('mousemove', (e) => {
+        const isOverButton = e.target.closest('.lkn') !== null;
+        
+        if (isOverButton) {// sobre el botón
+            cursorPunto.classList.add('on-button');
+            gsap.to(cursorPunto, { 
+                scale: 2,
+                duration: 0.2
+            });
+            gsap.to(cursorLinia, {
+                scale: 1.5,
+                duration: 0.3
+            });
+        } else {// no sobre el botón
+            cursorPunto.classList.remove('on-button');
+            gsap.to(cursorPunto, {
+                scale: 1,
+                duration: 0.3
+            });
+            gsap.to(cursorLinia, {
+                scale: 1,
+                duration: 0.3
+            });
+        }
+    });
+});
 
 // Animación título en letras
 const tl=gsap.timeline();
