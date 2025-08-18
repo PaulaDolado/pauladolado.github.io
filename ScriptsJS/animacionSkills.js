@@ -18,7 +18,7 @@ document.addEventListener("DOMContentLoaded", () => {
       timeout = setTimeout(() => {
         clearInterval(interval);
         item.innerText = originalText; // Restaura el texto original
-      }, 500);
+      }, 800);
 
       const interval = setInterval(() => {
         item.innerText = originalValue
