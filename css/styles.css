@@ -219,26 +219,20 @@ section {
         
 /* Tabla de habilidades */
 
-.skills-table {
+.tech-table {
     width: 100%;
     border-collapse: collapse;
     margin-top: 2rem;
+    font-family:  sans-serif;
+    table-layout: fixed;
+    grid-template-columns: repeat(3, 1fr);
 }
-        
-.skills-table th {
-    background-color: #25344f;
-    color: white;
-    padding: 1rem;
-    font-size: 1rem;
-    font-weight: 500;
-    letter-spacing: 1.2rem;
-}
+
 .skill-title{
     color: white;
     text-align: left;
     padding-left: 10px;
     font-size: large;
-    letter-spacing: 0.05rem;
 }
                 
 .skill-item {
