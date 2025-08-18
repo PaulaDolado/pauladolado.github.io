@@ -23,7 +23,7 @@ img{
     object-fit: cover;
     will-change: transform;
 }
-h1{
+/* h1{
     font-size:5rem;
     font-weight: 500;
     letter-spacing: -0.1rem;
@@ -33,7 +33,7 @@ p{
     font-size: 1.124rem;
     font-weight: 400;
     line-height: 1.25;
-}
+}*/
 section {
   position: relative;
   width: 100vw;
@@ -194,52 +194,58 @@ section {
     padding: 1rem;
     overflow: hidden;
 }
-/*.indiduales{
-    width: 60px;
-    height: 40px;
-    background-color: red;
-}*/
 .info-container {
-    width: 40%;
     gap: 2rem;
-    max-width: 600px;
-    margin-left: auto; 
+    max-width: 1200px;
+    margin-top: 2rem;
+    margin-left: 5rem; 
     margin-right: 5%; 
     display: flex;
+    font-family:  sans-serif;
+    justify-content: space-between;
+
+} 
+.individuales{
+    display: flex;
     flex-direction: column;
-    align-self: flex-end;
-}     
-.texto-descripcion {
+    flex: 1; 
+    gap: 1rem;
+}
+.aboutme,.soft,.tech{
+    height: 120%;
+    margin-top: 2rem;
+    background-color: rgba(255, 255, 255, 0.1); 
+    border-radius: 12px; 
+    padding: 1rem;
+    flex: 1;
+}   
+.idv-title,.skill-title{
     color: white;
-    font-size: 1.2rem;
-    line-height: 1.6;
-    max-width: 800px;
-    margin: 0 auto;
+    font-size: 1.1rem ;
+    font-family:  sans-serif ;
+    padding-left: 7px;
+    padding-bottom: 10px;
+    font-weight: normal;
+    line-height: 1.5 ;
 }
         
 /* Tabla de habilidades */
 .tech-table {
     width: 100%;
-    border-collapse: collapse;
-    margin-top: 4rem;
-    font-family:  sans-serif;
-    table-layout: fixed;
-    grid-template-columns: repeat(3, 1fr);
-}
-.skill-title{
     color: white;
     text-align: left;
-    padding-left: 10px;
-    font-size: large;
-}           
+    border-collapse: collapse;
+    margin-top: 1.5rem;
+    table-layout: fixed;
+    grid-template-columns: repeat(3, 1fr);
+}        
 .skill-item {
     display: block;
     margin: 0.5rem;
     color: white;
     border-radius: 4px;
     font-size: 1.1rem;
-    transition: all 0.3s ease;
-
+    transition: all 0.05s ease;
     position: relative;
     overflow: hidden;
     z-index: 1;
@@ -267,10 +273,67 @@ section {
         opacity: 1;
     }
 }
+.lkn {
+    color: white;
+    font-size: 1.2rem;
+    font-family: sans-serif;
+    margin-top: auto;
+    display: inline-flex;
+    align-items: center;
+    text-decoration: none;
+    z-index: 10;
+    cursor: none;
+    position: relative;
+    white-space: nowrap; 
+    letter-spacing: 0;
+    transition: letter-spacing 280ms ease-in-out;
+    padding: 0.5rem;
+}
+#lkn-img {
+    margin-left: 8px;
+    width: 35px;    
+    height: 35px;
+    pointer-events: none; 
+}
+
+/* Efecto botón linkedin */
+.lkn:hover,
+.lkn:active {
+    letter-spacing: 3px; 
+}
+.lkn:after,
+.lkn:before {
+    -webkit-backface-visibility: hidden;
+            backface-visibility: hidden;
+    border: 1px solid #b0c7e0;
+    bottom: 0px;
+    content: " ";
+    display: block;
+    margin: 0 auto;
+    position: absolute; /* Cambiado de relative a absolute */
+    -webkit-transition: all 280ms ease-in-out;
+            transition: all 280ms ease-in-out;
+    width: 0;
+    left: 50%; /* Centrado */
+    transform: translateX(-50%); /* Centrado preciso */
+}
+.lkn:hover:after,
+.lkn:hover:before {
+    -webkit-backface-visibility: hidden;
+            backface-visibility: hidden;
+    border-color: #b0c7e0;
+    -webkit-transition: width 350ms ease-in-out;
+            transition: width 350ms ease-in-out;
+    width: 100%;
+}
+.lkn:hover:before {
+    bottom: auto;
+    top: 0;
+    width: 100%;
+}
 
 
-        
-/* Responsive!!!!!!!!!!!!!!!!!!! */
+
 
 
 /*Seccion galeria proyecto*/
