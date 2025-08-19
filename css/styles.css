@@ -161,6 +161,42 @@ section {
     object-fit: contain; 
     pointer-events: none;
 }
+/* RESPONSIVE */
+ @media (max-width: 768px) {
+    .btn {
+        flex-direction: row;
+        justify-content: space-around;
+        gap: 15px;
+        max-width: 100%;
+    }
+    .btn button {
+        width: 100%;
+    }
+    .text {
+        line-height: 1.2;
+        margin-bottom: 10px;
+        }
+}
+@media (max-width: 480px) {
+    .intro {
+        padding: 15px;
+    }
+    .text {
+        font-size: 2.8rem;
+        letter-spacing: -0.5px;
+    }
+    .subtext{
+        font-size: 1rem;
+    }
+    .btn {
+        flex-direction: row;
+        justify-content: space-between;
+    }
+    .btn button {
+        padding: 10px 20px;
+        font-size: 0.9rem;
+    }
+}
 /*Seccion dispositiva sobremi*/
 .diapositiva{
     background-color: #617891;
@@ -182,12 +218,10 @@ section {
     line-height: 1.5;
     max-width: 700px;
     font-size: 3rem;
-    padding: 1rem;
     overflow: hidden;
 }
 .info-container {
     gap: 2rem;
-    max-width: 1200px;
     margin-top: 2rem;
     margin-left: 5rem; 
     margin-right: 5%; 
@@ -203,7 +237,6 @@ section {
     gap: 1rem;
 }
 .aboutme,.soft,.tech{
-    height: 120%;
     margin-top: 2rem;
     background-color: rgba(255, 255, 255, 0.1); 
     border-radius: 12px; 
@@ -230,6 +263,7 @@ section {
     table-layout: fixed;
     grid-template-columns: repeat(3, 1fr);
 }        
+
 .skill-item {
     display: block;
     margin: 0.5rem;
@@ -322,6 +356,30 @@ section {
     top: 0;
     width: 100%;
 }
+        
+@media (max-width: 768px) {
+    .diapositiva{
+        height: 100%;
+    }
+    .info-container {
+        flex-direction: column; /* Apila los elementos uno debajo del otro */
+        margin-left: 1rem; /* Ajusta los márgenes para pantallas pequeñas */
+        margin-right: 1rem;
+        gap: 1.5rem; /* Ajusta el espacio entre los cuadros apilados */
+    }
+
+    .aboutme, .soft, .tech {
+        flex: unset; /* Desactiva el 'flex: 1' para que no intenten expandirse horizontalmente */
+        width: 100%; /* Hace que cada cuadro ocupe el ancho completo disponible */
+        max-width: none; /* Asegura que no haya un límite de ancho que impida que ocupen el 100% */
+        margin-top: 1rem; /* Reduce el margen superior entre los cuadros */
+    }
+
+    .diapositiva-titulo {
+        font-size: 2rem; /* Reduce el tamaño del título para pantallas pequeñas */
+    }
+}
+
 
 /*Seccion galeria proyecto*/
 .proyectos{
@@ -426,6 +484,8 @@ section {
         height: 500px;
     }
 }
+
+        
 /*Seccion experiencia*/
 .trabajo{
     background-image:url(../img/fondoProy.png);
@@ -512,56 +572,47 @@ section {
 }
 
 /* Media Queries para Responsividad */
-        @media (max-width: 1024px) {
-            .contenedor-contacto {
-                gap: 2rem;
-            }
+@media (max-width: 1024px) {
+    .contenedor-contacto {
+        gap: 2rem;
+    }
+    .outro h1 {
+        font-size: 4rem;
+    }
             
-            .outro h1 {
-                font-size: 4rem;
-            }
-            
-            #contact-form {
-                width: 50%;
-            }
-        }
+    #contact-form {
+        width: 50%;
+    }
+}
         
-        @media (max-width: 768px) {
-            .contenedor-contacto {
-                flex-direction: column;
-            }
-            
-            .texto-contacto, #contact-form {
-                width: 100%;
-            }
-            
-            .outro h1 {
-                font-size: 3.5rem;
-            }
-            
-            #contact-form input,
-            #contact-form textarea {
-                width: 100%;
-            }
-        }
-        
-        @media (max-width: 480px) {
-            .outro {
-                padding: 1rem;
-            }
-            
-            .outro h1 {
-                font-size: 2.5rem;
-            }
-            
-            .outro h2 {
-                font-size: 1.1rem;
-            }
-            
-            #contact-form {
-                padding: 1.5rem;
-            }
-        }
+@media (max-width: 768px) {
+    .contenedor-contacto {
+        flex-direction: column;
+    }
+    .texto-contacto, #contact-form {
+        width: 100%;
+    }
+    .outro h1 {
+        font-size: 3.5rem;
+    }
+     #contact-form input,#contact-form textarea {
+            width: 100%;
+    }
+}
+@media (max-width: 480px) {
+    .outro {
+        padding: 1rem;
+    }
+    .outro h1 {
+        font-size: 2.5rem;
+    }
+    .outro h2 {
+        font-size: 1.1rem;
+    }
+    #contact-form {
+        padding: 1.5rem;
+    }
+}
 
 /*Estilo cursor*/
 .cursor-punto {
