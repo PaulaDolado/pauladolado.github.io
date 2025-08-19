@@ -26,8 +26,9 @@ document.addEventListener('DOMContentLoaded', function() {
     });
     // Scroll smooth
 const proyectosLink = document.querySelector('.nav-link[href="#proyectos"]');
+const proyectosLink2 = document.querySelector('.proyectos-button');
 
-if (proyectosLink) {
+if (proyectosLink || proyectosLink2) {
     proyectosLink.addEventListener('click', function(e) {
         e.preventDefault();
 
