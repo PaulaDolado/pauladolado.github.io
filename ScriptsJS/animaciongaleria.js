@@ -1,12 +1,13 @@
 //Animacion Seción proyectos
+const lenis= new Lenis();
+
 document.addEventListener("DOMContentLoaded",()=>{
     gsap.registerPlugin(ScrollTrigger);
-    const lenis= new Lenis();
     lenis.on("scroll", ScrollTrigger.update)
     gsap.ticker.add((time)=>{lenis.raf(time*1000);});
     gsap.ticker.lagSmoothing(0);
 
-    const stickySection= document.querySelector(".proyectos");
+    const stickySection= document.querySelector(".proyecto");
     const stickyHeight= window.innerHeight * 7;
     const cartas= document.querySelectorAll(".carta");
     const ContenedorContador= document.querySelector(".contenedor-contador");
