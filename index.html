@@ -151,24 +151,22 @@
   </section>
   
   <section class="outro" id="contacto">
-      <h1>Contacto</h1>
-      <h2>¿Tienes un proyecto en mente? Trabajemos juntos para hacerlo realidad.</h2>
+    <div class="contenedor-contacto">
+      <div class="texto-contacto">
+        <h1>Contacto</h1>
+        <h2>¿Tienes un proyecto en mente? Trabajemos juntos para hacerlo realidad.</h2>
+      </div>
       <form action="https://formsubmit.co/pauladolado3@gmail.com" method="POST" id="contact-form">
-        <div>
-          <input type="text" id="name" name="name" placeholder="Nombre"required />
-        </div>
-        <div>
-          <input type="email" id="email" name="email" placeholder="Correo" required />
-        </div>
-        <div>
-          <textarea id="message" name="message" rows="5" placeholder="Mensaje" required></textarea>
-        </div>
-        <input type="submit" value="Enviar"></input>
-        <input type="hidden" name="_next" value=""></input>
+        <input type="text" id="name" name="name" placeholder="Nombre" required />
+        <input type="email" id="email" name="email" placeholder="Correo" required />
+        <textarea id="message" name="message" rows="5" placeholder="Mensaje" required></textarea>
+        <input type="submit" value="Enviar">
+        <input type="hidden" name="_next" value="https://pauladolado.github.io/#contacto">
       </form>
-      
-    <p id="form-response" style="margin-top:10px; color:green;"></p>
+    </div>
+    <p id="form-response"></p>
   </section>
+
     
   <div class="cursor-punto" data-punto></div>
   <div class="cursor-linia" data-linia></div>
