@@ -50,7 +50,7 @@ section {
     display: flex;
     justify-content: center;
     align-items: center;
-    z-index: 15;
+    z-index: 5;
     transition: all 0.4s ease;
 }
 /* Barra de navegación */
@@ -60,7 +60,7 @@ section {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    }
+}
 
 
 /* Logo 
@@ -95,7 +95,7 @@ section {
     height: 18px;
     cursor: none;
     z-index: 20;
-     position: relative;
+    position: relative;
 }
 .hamburger span {
     height: 3px;
@@ -189,7 +189,6 @@ section {
 }
 /*Botones inicio*/
 .btn {
-    display: flex;
     gap: 20px;
     justify-content: center;
     margin-top: 20px;
@@ -198,21 +197,20 @@ section {
     transform: translateY(30px);
     transition: none;
 }.btn button {
-    position: relative;
     background-color: #617891;
     color: #b0c7e0;
     padding: 10px 30px;
     border: none;
     border-radius: 6px;
     font-size: 1rem;
-    overflow: hidden;
     transition: all 0.3s ease;
     display: inline-flex; 
     align-items: center; 
     justify-content: center; 
     gap: 4px;
+    cursor: none;
 }
-#proyectos,#cv{
+#proyectos-button,#cv{
     font-family: monospace;
 }
 .btn button img{
@@ -282,28 +280,37 @@ section {
 }
 .info-container {
     gap: 2rem;
-    margin-top: 2rem;
     margin-left: 5rem; 
-    margin-right: 5%; 
+    margin-right: 5rem; 
     display: flex;
     font-family:  sans-serif;
     justify-content: space-between;
-
+    margin-top: 2.5rem;
 } 
 .individuales{
     display: flex;
     flex-direction: column;
     flex: 1; 
     gap: 1rem;
+    height: 130%;
 }
 .aboutme,.soft,.tech{
-    margin-top: 2rem;
     background-color: rgba(255, 255, 255, 0.1); 
     border-radius: 12px; 
     padding: 1rem;
     flex: 1;
+    height: auto;
 }   
-.idv-title,.skill-title{
+.tech{
+    height: 130%;
+}
+.idv-title{
+    color: #25344f;
+    padding: 2px;
+    margin-top: 2px;
+    margin-bottom: 3px;
+}
+.skill-title{
     color: white;
     font-size: 1.1rem ;
     font-family:  sans-serif ;
@@ -311,16 +318,24 @@ section {
     padding-bottom: 10px;
     font-weight: normal;
     line-height: 1.5 ;
+    justify-content: left;
 }
+.extra{
+    text-align: center;
+    font-size: 2rem ;
+}
+
         
 /* Tabla de habilidades */
 .tech-table {
-    width: 100%;
+    width: 80%;          /* menos del 100% para poder centrar */
+    margin: 1.5rem auto 0 auto;
     color: white;
     text-align: left;
     border-collapse: collapse;
     margin-top: 1.5rem;
     table-layout: fixed;
+    padding-top: 1.5rem;
     grid-template-columns: repeat(3, 1fr);
 }        
 
@@ -358,6 +373,33 @@ section {
         opacity: 1;
     }
 }
+
+.soft-texto {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    justify-content: center;
+    color: white;
+    padding-top: 15px;
+}
+
+.soft-texto p {
+    background: rgba(255, 255, 255, 0.15);
+    padding: 0.5rem;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+    text-align: center;
+    font-size: 1.1rem;
+    flex: 1;
+    min-width: 150px;
+}
+
+.soft-texto p:hover {
+    background: rgba(255, 255, 255, 0.25);
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
 .lkn {
     color: white;
     font-size: 1.2rem;
@@ -680,14 +722,14 @@ section {
     left: 0;
     transform: translate(-50%, -50%);
     border-radius: 50%;
-    z-index: 100;
+    z-index: 1;
     pointer-events: none;
     transition: transform 0.2s ease;
     will-change: transform; 
 }
 .cursor-punto.on-button {
     background-color: white;
-    mix-blend-mode: difference;
+    mix-blend-mode: exclusion;
 }
 .cursor-linia {
     width: 40px;
@@ -701,7 +743,7 @@ section {
     pointer-events: none;
     transition: transform 0.3s ease, border 0.3s ease;
     will-change: transform;
-    z-index: 100; 
+    z-index: 1; 
 }
 .cursor-linia.expand{
     transform: translate(-50%, -50%) scale(1.8); 
