@@ -46,8 +46,8 @@ document.addEventListener("DOMContentLoaded", () => {
         observer.unobserve(entry.target); // Solo una vez
         }
     });
-    },{threshold: 1.0}
-    ); // 1.0 = 100% visible en pantalla
+    },{threshold: 1.0}// 1.0 = 100% visible en pantalla
+    ); 
     
     if (table) {
         observer.observe(table);

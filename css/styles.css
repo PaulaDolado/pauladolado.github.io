@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Monsieur+La+Doulaise&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap');
 *{
     margin: 0;
     padding: 0;
@@ -40,13 +41,15 @@ section {
     height: 100vh;
     overflow: hidden;
 }
-/* .intro,.outro{   TODAVIA NO IMPLEMENTADO!!
+.outro{ 
     height: 100svh;
     padding: 1.5rem;
     display: flex;
     justify-content: center;
     align-items: center;
+    background-color: #632024;
 }
+/*
 .intro h1,.outro h1{
     width: 60%;
     text-align: center;
@@ -441,8 +444,29 @@ section {
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
-    
+    padding: 20px;
 }
+.experiencia{
+    width: 100%;
+    display: block;
+    align-items: center;
+    text-align: center;
+    font-family: "Space Mono", monospace;
+    font-style: italic;
+    justify-content: center;
+    font-size: small;
+}
+.experiencia-titulo{
+    color: #dcca8f;
+    margin-top: 25px;
+    font-weight: 700;
+    font-style: normal;
+    line-height: 1.5;
+    font-size: 3rem;
+    padding: 0.5rem;
+    overflow: hidden;
+}
+
 
 /*Estilo cursor*/
 .cursor-punto {

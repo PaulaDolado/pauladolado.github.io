@@ -124,7 +124,7 @@ tl.from(splitSubText.words,{
     stagger:0.12,
     duration:0.7,
     ease:"power2.out"
-},"-=0.3")
+},"-=0.8")
 tl.from(splitSubText2.words,{
     y:60,
     opacity:0,
