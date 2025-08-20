@@ -285,14 +285,14 @@ section {
     display: flex;
     font-family:  sans-serif;
     justify-content: space-between;
-    margin-top: 2.5rem;
+    margin-top: 1.5rem;
 } 
 .individuales{
     display: flex;
     flex-direction: column;
     flex: 1; 
     gap: 1rem;
-    height: 130%;
+    height: 110%;
 }
 .aboutme,.soft,.tech{
     background-color: rgba(255, 255, 255, 0.1); 
@@ -302,7 +302,7 @@ section {
     height: auto;
 }   
 .tech{
-    height: 130%;
+    height: 110%;
 }
 .idv-title{
     color: #25344f;
@@ -319,17 +319,19 @@ section {
     font-weight: normal;
     line-height: 1.5 ;
     justify-content: left;
+    padding-top: 10px;
 }
 .extra{
     text-align: center;
     font-size: 2rem ;
+    margin-top: 15px;
 }
 
         
 /* Tabla de habilidades */
 .tech-table {
     width: 80%;          /* menos del 100% para poder centrar */
-    margin: 1.5rem auto 0 auto;
+    margin: 1.5rem auto 0;
     color: white;
     text-align: left;
     border-collapse: collapse;
@@ -668,6 +670,38 @@ section {
   font-size: 1rem;
   font-family: "Bodoni Moda", serif;
 }
+
+.iconos-contacto{
+    margin-top: 20px;
+    display: inline-flex; 
+    align-items: center; 
+    justify-content: center; 
+    cursor: none;
+    gap: 20px;
+    width: 100%;
+}
+.iconos{cursor: none;}
+.iconos img{
+    width: 40px;
+    height: 40px; 
+    object-fit: contain; 
+    pointer-events: none;
+    
+}
+.iconos:hover {
+    transform: translateY(-5px);
+}      
+#git:hover img {
+    filter: brightness(0); 
+    opacity: 0.7; 
+}
+#disc:hover img {
+    filter: brightness(0) saturate(100%) invert(15%) sepia(85%) saturate(600%) hue-rotate(250deg) brightness(60%) contrast(90%);
+}
+#lin:hover img {
+    filter: brightness(0) saturate(100%) invert(12%) sepia(90%) saturate(600%) hue-rotate(200deg) brightness(50%) contrast(95%);
+}
+
 
 /* Media Queries para Responsividad */
 @media (max-width: 1024px) {
