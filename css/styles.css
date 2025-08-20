@@ -249,6 +249,7 @@ section {
     .btn {
         flex-direction: row;
         justify-content: space-between;
+        
     }
     .btn button {
         padding: 10px 20px;
@@ -705,7 +706,6 @@ section {
     cursor: none;
 }
 
-
 /* Media Queries para Responsividad */
 @media (max-width: 1024px) {
     .contenedor-contacto {
@@ -759,7 +759,7 @@ section {
     left: 0;
     transform: translate(-50%, -50%);
     border-radius: 50%;
-    z-index: 1;
+    z-index: 100;
     pointer-events: none;
     transition: transform 0.2s ease;
     will-change: transform; 
@@ -780,7 +780,7 @@ section {
     pointer-events: none;
     transition: transform 0.3s ease, border 0.3s ease;
     will-change: transform;
-    z-index: 1; 
+    z-index: 100; 
 }
 .cursor-linia.expand{
     transform: translate(-50%, -50%) scale(1.8); 
