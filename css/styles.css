@@ -701,6 +701,9 @@ section {
 #lin:hover img {
     filter: brightness(0) saturate(100%) invert(12%) sepia(90%) saturate(600%) hue-rotate(200deg) brightness(50%) contrast(95%);
 }
+.send{
+    cursor: none;
+}
 
 
 /* Media Queries para Responsividad */
