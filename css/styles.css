@@ -253,7 +253,7 @@ section {
         line-height: 1.1;
     }
     .subtext{
-        font-size: 0.9 rem;
+        font-size: 0.5rem;
     }
     .btn {
         flex-direction: row;
