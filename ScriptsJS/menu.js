@@ -52,6 +52,49 @@ if (proyectosLink || proyectosLink2) {
         }
     });
 }
+const inicioLink = document.querySelector('.nav-link[href="#inicio"]');
+const acercademiLink = document.querySelector('.nav-link[href="#acercademi"]');
+const experienciaLink = document.querySelector('.nav-link[href="#experiencia"]');
+const contactoLink = document.querySelector('.nav-link[href="#contacto"]');
 
+  // Función para el scroll suave
+  const smoothScroll = (targetId) => {
+    const targetSection = document.getElementById(targetId);
+    if (targetSection) {
+      targetSection.scrollIntoView({
+        behavior: 'smooth',
+        block: 'start'
+      });
+    }
+  };
+
+  // Asignar el evento a cada enlace
+  if (inicioLink) {
+    inicioLink.addEventListener('click', (e) => {
+      e.preventDefault();
+      smoothScroll('inicio');
+    });
+  }
+
+  if (acercademiLink) {
+    acercademiLink.addEventListener('click', (e) => {
+      e.preventDefault();
+      smoothScroll('acercademi');
+    });
+  }
+
+  if (experienciaLink) {
+    experienciaLink.addEventListener('click', (e) => {
+      e.preventDefault();
+      smoothScroll('experiencia');
+    });
+  }
+
+  if (contactoLink) {
+    contactoLink.addEventListener('click', (e) => {
+      e.preventDefault();
+      smoothScroll('contacto');
+    });
+  }
     
 });
