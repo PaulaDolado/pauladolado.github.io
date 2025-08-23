@@ -701,6 +701,14 @@ section {
 }
 
 /* Responsive */
+@media (max-width: 767px) {
+  .timeline {
+    padding-bottom: 7rem;
+  }
+  .timeline .experience-item:last-child {
+    margin-bottom: 5rem;
+  }
+}
 @media (min-width: 768px) {
     .timeline {
         align-items: center; /* Vuelve a centrar en pantallas grandes */
