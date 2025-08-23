@@ -671,7 +671,7 @@ section {
 
 .experience-item.izquierda, .experience-item.derecha {
     align-self: flex-start;
-    padding-left: 3.5rem; /* Espacio para el punto y la línea */
+    padding-left: 1.5rem; /* Espacio para el punto y la línea */
     margin: 0; /* Elimina los márgenes fijos */
     text-align: left; /* Alinea todo el texto a la izquierda */
 }
@@ -700,7 +700,7 @@ section {
     box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
 }
 
-/* Regla para pantallas grandes (tablet y desktop) */
+/* Responsive */
 @media (min-width: 768px) {
     .timeline {
         align-items: center; /* Vuelve a centrar en pantallas grandes */
@@ -718,27 +718,27 @@ section {
 
     .experience-item.izquierda {
         align-self: flex-start;
-        padding-right: 3rem;
+        padding-right: 1.5rem;
         padding-left: 0;
-        margin-left: 90px;
+        margin-left: 120px;
         text-align: right;
     }
 
     .experience-item.derecha {
         align-self: flex-end;
-        padding-left: 3rem;
+        padding-left: 2rem;
         padding-right: 0;
-        margin-right: 90px;
+        margin-right: 120px;
         text-align: left;
     }
 
     .experience-item.izquierda::before {
-        right: -65px;
+        right: -31.5px;
         left: auto;
     }
 
     .experience-item.derecha::before {
-        left: -65px;
+        left: -31.5px;
         right: auto;
     }
 }
