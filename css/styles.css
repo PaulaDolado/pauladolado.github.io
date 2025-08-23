@@ -635,7 +635,90 @@ section {
     padding: 0.5rem;
     overflow: hidden;
 }
-/*Secciond e contacto final*/
+.contenido-experiencia{
+    margin-top: 15px;
+    text-align: center;
+}
+
+.timeline {
+    position: relative;
+    margin-left: 2rem;
+    padding-left: 2rem;
+    border-left: 2px solid #c9a689;
+}
+
+/* Cada item */
+.experience-item {
+    position: relative;
+    margin-bottom: 3rem;
+}
+
+.experience-item::before {
+  content: "";
+  position: absolute;
+  left: -41px; 
+  top: 2em;         
+  transform: translateY(-50%);
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  border: 3px solid white;
+}
+
+.experience-content {
+    background: #f9f9f9;
+    padding: 1rem 1.25rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+}
+
+/* Textos */
+.job-title {
+    font-size: 1.25rem;
+    margin: 0;
+}
+
+.job-duration {
+    font-size: 0.95rem;
+    color: #777;
+    margin: 0.25rem 0 0.5rem;
+}
+
+.company-name {
+    font-weight: 600;
+    margin: 0;
+}
+
+.job-type {
+    font-size: 0.9rem;
+    color: #666;
+    margin: 0.25rem 0 1rem;
+}
+
+.job-description {
+    line-height: 1.6;
+    margin-bottom: 1rem;
+    color: #333;
+}
+
+/* Lista de tecnologías */
+.tech-list {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
+.tech-list li {
+    background: #eef;
+    color: #333;
+    padding: 0.3rem 0.6rem;
+    border-radius: 4px;
+    font-size: 0.9rem;
+}
+
+/*Seccion de contacto final*/
 .outro {
     width: 100%;
     min-height: 100svh;
