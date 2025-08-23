@@ -530,7 +530,7 @@ section {
     height: 60px;
 }
 .carta-contenido p{
-    text-align: left;
+    text-align: center;
     color: #6c4c36;
     font-size: 16px;
     font-weight: 500;
@@ -545,9 +545,9 @@ section {
     flex-direction: column;
     margin: 2em;
 }
-.titulo-contenido, .contador{
+.titulo-proyecto, .contador{
     position: relative;
-    width: 1200px;
+    width: 700px;
     height: 150px;
     clip-path: polygon(0 0,100% 0, 100% 100%, 0% 100%);
     overflow: hidden;
@@ -594,6 +594,15 @@ section {
     .carta{
         width: 375px;
         height: 500px;
+    }
+}
+@media (max-width: 480px) {
+    .titulo-proyecto  {
+        width: 480px;
+    }
+    .carta-contenido{
+        margin-left: 20px;
+        padding: 5px;
     }
 }
    
