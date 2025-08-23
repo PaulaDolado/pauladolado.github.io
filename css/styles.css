@@ -640,12 +640,12 @@ section {
     text-align: center;
 }
 
-/* Estilos por defecto para móviles */
+/* Estilos por defecto -> móviles */
 .timeline {
     position: relative;
     display: flex;
     flex-direction: column;
-    align-items: flex-start; /* Alinea los ítems a la izquierda */
+    align-items: flex-start; 
     padding: 0 1rem;
 }
 
@@ -656,24 +656,24 @@ section {
     background-color: #c9a689;
     top: 0;
     bottom: 0;
-    left: 1.5rem; /* Posiciona la línea a la izquierda para móviles */
-    transform: none; /* Elimina la transformación de centrado */
+    left: 1.5rem; 
+    transform: none; 
     z-index: 1;
 }
+
 
 /* Cada item */
 .experience-item {
     position: relative;
-    width: 100%; /* Ocupa todo el ancho en móviles */
-    margin-bottom: 2rem;
+    width: 100%; 
+    margin-bottom: 3rem;
     z-index: 2;
 }
 
 .experience-item.izquierda, .experience-item.derecha {
     align-self: flex-start;
-    padding-left: 1.5rem; /* Espacio para el punto y la línea */
-    margin: 0; /* Elimina los márgenes fijos */
-    text-align: left; /* Alinea todo el texto a la izquierda */
+    padding-left: 1.5rem; 
+    text-align: left; 
 }
 
 .experience-item::before {
@@ -682,14 +682,14 @@ section {
     width: 10px;
     height: 10px;
     border-radius: 50%;
-    background-color: #c9a689; /* Color para que sea visible */
-    top: 1.25rem; /* Ajuste para alinear con el inicio del contenido */
-    transform: none; /* Elimina la transformación de centrado */
+    background-color: #c9a689; 
+    top: 1.25rem; 
+    transform: none; 
     z-index: 3;
 }
 
 .experience-item.izquierda::before, .experience-item.derecha::before {
-    left: 1rem; /* Posiciona el punto en la línea para móviles */
+    left: 0.25rem; 
     right: auto;
 }
 
@@ -705,25 +705,25 @@ section {
     .timeline {
         align-items: center; /* Vuelve a centrar en pantallas grandes */
     }
-
     .timeline::after {
+        margin-top: 10px;
         left: 50%; /* Vuelve a centrar la línea */
         transform: translateX(-50%);
+        height: 100%;
     }
-
     .experience-item {
         width: 40%; /* Vuelve al ancho original */
-        margin-bottom: 3rem;
+        margin: 0;
     }
 
     .experience-item.izquierda {
+        margin-top: 15px;
         align-self: flex-start;
         padding-right: 1.5rem;
         padding-left: 0;
         margin-left: 120px;
         text-align: right;
     }
-
     .experience-item.derecha {
         align-self: flex-end;
         padding-left: 2rem;
@@ -731,12 +731,10 @@ section {
         margin-right: 120px;
         text-align: left;
     }
-
     .experience-item.izquierda::before {
         right: -31.5px;
         left: auto;
     }
-
     .experience-item.derecha::before {
         left: -31.5px;
         right: auto;
