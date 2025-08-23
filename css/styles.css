@@ -598,7 +598,7 @@ section {
 }
 @media (max-width: 480px) {
     .titulo-proyecto  {
-        width: 480px;
+        width: 400px;
     }
     .carta-contenido{
         margin-left: 20px;
