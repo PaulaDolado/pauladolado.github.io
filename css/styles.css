@@ -585,12 +585,17 @@ section {
     .titulo-proyecto  {
         width: 100%; 
     }
+    .contador-proyecto{
+        margin: 5px;
+    }
+    .contador{
+        top:-50px;
+        height: 80px;
+    }
     .titulo-proyecto h1, .contenedor-contador h1{
         font-size: 75px;
     }
-    .contenedor-contador h1{
-        height: auto;
-    }
+
     .cartas{
         top:27.5%
     }
