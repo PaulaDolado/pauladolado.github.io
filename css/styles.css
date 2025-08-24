@@ -222,8 +222,9 @@ section {
 }
 /* RESPONSIVE */
 @media (max-width: 768px) {
-    .intro {
-        justify-content: flex-start;   
+    .intro{
+        padding: 15px;
+        justify-content: center;  
     }
     .text {
         font-size: 3.5rem;
@@ -247,7 +248,7 @@ section {
 }
 @media (max-width: 480px) {
     .intro {
-        padding: 15px;
+        padding: 40px;
         justify-content: center;  
     }
     .text {
