@@ -618,6 +618,7 @@ section {
     background-repeat: no-repeat;
     background-position: center;
     padding: 20px;
+    height: auto;
 }
 .experiencia{
     width: 100%;
@@ -659,7 +660,7 @@ section {
     width: 2px;
     background-color: #c9a689;
     top: 0;
-    bottom: 0;
+    bottom: 45px;
     left: 1.5rem; 
     transform: none; 
     z-index: 1;
@@ -705,14 +706,7 @@ section {
 }
 
 /* Responsive */
-@media (max-width: 767px) {
-  .timeline {
-    padding-bottom: 7rem;
-  }
-  .timeline .experience-item:last-child {
-    margin-bottom: 5rem;
-  }
-}
+
 @media (min-width: 768px) {
     .timeline {
         align-items: center; /* Vuelve a centrar en pantallas grandes */
