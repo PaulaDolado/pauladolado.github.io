@@ -248,7 +248,6 @@ section {
 }
 @media (max-width: 480px) {
     .intro {
-        padding: 40px;
         justify-content: center;  
     }
     .text {
@@ -341,8 +340,10 @@ section {
     font-size: 2rem ;
     margin-top: 15px;
 }
-
-        
+.descripcion-mia{
+    color: white;
+    text-align: justify;
+}        
 /* Tabla de habilidades */
 .tech-table {
     width: 80%;          /* menos del 100% para poder centrar */
@@ -482,15 +483,13 @@ section {
     }
     .info-container {
         flex-direction: column; 
-        margin-left: 1rem; 
-        margin-right: 1rem;
-        gap: 1.5rem; 
+        margin: 1rem; 
+        gap: 1rem; 
     }
     .aboutme, .soft, .tech {
-        flex: unset;
         width: 100%; 
         max-width: none;
-        margin-top: 1rem; 
+        margin-top: 0.5rem; 
     }
     .diapositiva-titulo {
         font-size: 2rem; 
@@ -595,7 +594,6 @@ section {
     .titulo-proyecto h1, .contenedor-contador h1{
         font-size: 75px;
     }
-
     .cartas{
         top:27.5%
     }
