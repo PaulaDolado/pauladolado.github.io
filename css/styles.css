@@ -582,15 +582,14 @@ section {
     opacity: 0;
 }
 @media(max-width:900px){
-    .titulo-contenido{
-        height: 30px;
+    .titulo-proyecto  {
+        width: 100%; 
     }
-    .titulo-contenido h1{
-        font-size: 30px;
+    .titulo-proyecto h1{
+        font-size: 85px;
     }
-    .contador{
-        top:0px;
-        left:-10px
+    .contenedor-contador{
+        height: auto;
     }
     .cartas{
         top:27.5%
@@ -600,18 +599,7 @@ section {
         height: 500px;
     }
 }
-@media (max-width: 480px) {
-    .titulo-proyecto, .contador  {
-        width: 100%; 
-    }
-    .contador-proyecto h1 {
-    font-size: 40px;
-  }
-    .carta-contenido{
-        margin-left: 20px;
-        padding: 5px;
-    }
-}
+
    
 /*Seccion experiencia*/
 .trabajo{
