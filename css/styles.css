@@ -585,10 +585,10 @@ section {
     .titulo-proyecto  {
         width: 100%; 
     }
-    .titulo-proyecto h1{
-        font-size: 85px;
+    .titulo-proyecto h1, .contenedor-contador h1{
+        font-size: 75px;
     }
-    .contenedor-contador{
+    .contenedor-contador h1{
         height: auto;
     }
     .cartas{
