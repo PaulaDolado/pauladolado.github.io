@@ -619,6 +619,7 @@ section {
     background-position: center;
     padding: 20px;
     height: auto;
+    padding-bottom: 15px;
 }
 .experiencia{
     width: 100%;
@@ -643,6 +644,7 @@ section {
 .contenido-experiencia{
     margin-top: 15px;
     text-align: center;
+    padding-bottom: 20px;
 }
 
 /* Estilos por defecto -> móviles */
@@ -652,8 +654,8 @@ section {
     flex-direction: column;
     align-items: flex-start; 
     padding: 0 1rem;
+    
 }
-
 .timeline::after {
     content: '';
     position: absolute;
@@ -665,8 +667,6 @@ section {
     transform: none; 
     z-index: 1;
 }
-
-
 /* Cada item */
 .experience-item {
     position: relative;
@@ -674,13 +674,11 @@ section {
     margin-bottom: 3rem;
     z-index: 2;
 }
-
 .experience-item.izquierda, .experience-item.derecha {
     align-self: flex-start;
     padding-left: 1.5rem; 
     text-align: left; 
 }
-
 .experience-item::before {
     content: "";
     position: absolute;
@@ -705,23 +703,64 @@ section {
     box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
 }
 
-/* Responsive */
+/* Textos */
+.job-title {
+    font-size: 1.25rem;
+    margin: 0;
+    color: #dcca8f;
+}
+.job-duration {
+    font-size: 0.95rem;
+    color: #777;
+    margin: 0.25rem 0 0.5rem;
+}
+.company-name {
+    font-weight: 600;
+    margin: 0;
+    color: #dcca8f;
+}
+.job-type {
+    font-size: 0.9rem;
+    color: #666;
+    margin: 0.25rem 0 1rem;
+}
+.job-description {
+    line-height: 1.6;
+    margin-bottom: 1rem;
+    color: #333;
+}
 
+/* Lista de tecnologías */
+.tech-list {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+.tech-list li {
+    background: #eef;
+    color: #333;
+    padding: 0.3rem 0.6rem;
+    border-radius: 4px;
+    font-size: 0.9rem;
+}
+/* Responsive pantalla grande*/
 @media (min-width: 768px) {
+
     .timeline {
-        align-items: center; /* Vuelve a centrar en pantallas grandes */
+        align-items: center;
     }
     .timeline::after {
         margin-top: 10px;
-        left: 50%; /* Vuelve a centrar la línea */
+        left: 50%; 
         transform: translateX(-50%);
         height: 100%;
     }
     .experience-item {
-        width: 40%; /* Vuelve al ancho original */
+        width: 40%; 
         margin: 0;
     }
-
     .experience-item.izquierda {
         margin-top: 15px;
         align-self: flex-start;
@@ -747,52 +786,6 @@ section {
     }
 }
 
-/* Textos */
-.job-title {
-    font-size: 1.25rem;
-    margin: 0;
-}
-
-.job-duration {
-    font-size: 0.95rem;
-    color: #777;
-    margin: 0.25rem 0 0.5rem;
-}
-
-.company-name {
-    font-weight: 600;
-    margin: 0;
-}
-
-.job-type {
-    font-size: 0.9rem;
-    color: #666;
-    margin: 0.25rem 0 1rem;
-}
-
-.job-description {
-    line-height: 1.6;
-    margin-bottom: 1rem;
-    color: #333;
-}
-
-/* Lista de tecnologías */
-.tech-list {
-    list-style: none;
-    padding: 0;
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.5rem;
-}
-
-.tech-list li {
-    background: #eef;
-    color: #333;
-    padding: 0.3rem 0.6rem;
-    border-radius: 4px;
-    font-size: 0.9rem;
-}
-
 /*Seccion de contacto final*/
 .outro {
     width: 100%;
@@ -804,7 +797,6 @@ section {
     background-color: #632024;
     color: #c9a689;
 }
-        
 .contenedor-contacto {
     display: flex;
     flex-wrap: wrap;
@@ -814,7 +806,6 @@ section {
     margin: 0 auto;
     width: 100%;
 }
-        
 .texto-contacto {
     flex: 1;
     min-width: 300px;
