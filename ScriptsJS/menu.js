@@ -25,33 +25,10 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
     // Scroll smooth
+
+
 const proyectosLink = document.querySelector('.nav-link[href="#proyectos"]');
-const proyectosLink2 = document.querySelector('.proyectos-button');
-
-if (proyectosLink || proyectosLink2) {
-    proyectosLink.addEventListener('click', function(e) {
-        e.preventDefault();
-
-        const allSections = document.querySelectorAll('section');
-        let previousSection = null;
-
-        for (let i = 0; i < allSections.length; i++) {
-            if (allSections[i].id === 'proyectos') {
-                if (i > 0) {
-                    previousSection = allSections[i - 1];
-                }
-                break;
-            }
-        }
-
-        if (previousSection) {
-            window.scrollTo({
-                top: previousSection.offsetTop + previousSection.offsetHeight,
-                behavior: 'smooth'
-            });
-        }
-    });
-}
+const proyectosLink2 = document.querySelector('.nav2-link[href="#proyectos-button"]');
 const inicioLink = document.querySelector('.nav-link[href="#inicio"]');
 const acercademiLink = document.querySelector('.nav-link[href="#acercademi"]');
 const experienciaLink = document.querySelector('.nav-link[href="#experiencia"]');
@@ -69,6 +46,12 @@ const contactoLink = document.querySelector('.nav-link[href="#contacto"]');
   };
 
   // Asignar el evento a cada enlace
+  if (proyectosLink) {
+    proyectosLink.addEventListener('click', (e) => {
+      e.preventDefault();
+      smoothScroll('proyectos');
+    });
+  }
   if (inicioLink) {
     inicioLink.addEventListener('click', (e) => {
       e.preventDefault();

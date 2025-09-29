@@ -201,6 +201,9 @@ section {
 #proyectos-button,#cv{
     font-family: monospace;
 }
+#proyectos-button{
+    scroll-behavior: smooth;
+}
 .btn button img{
     width: 20px;
     height: 20px; 
@@ -393,8 +396,8 @@ section {
 }
 
 .avatar-circle {
-    width: 6rem;
-    height: 6rem;
+    width: 10rem;
+    height: 10rem;
     background: linear-gradient(135deg, rgba(251, 191, 36, 0.2) 0%, rgba(100, 116, 139, 0.2) 100%);
     border-radius: 50%;
     border: 2px solid rgba(251, 191, 36, 0.3);
@@ -413,17 +416,20 @@ section {
 
 @media (min-width: 768px) {
     .avatar-circle {
-        width: 10rem;
-        height: 10rem;
+        width: 13rem;
+        height: 13rem;
     }
 }
 
 .avatar-circle:hover {
     transform: scale(1.05);
 }
-
-.avatar-emoji {
-    font-size: 1.5rem;
+.avatar-image {
+    width: 80%;
+    height: 100%;
+    border-radius: 35%;
+    padding-bottom: 4px;
+    transition: transform 0.3s ease;
 }
 
 @media (min-width: 640px) {
@@ -748,6 +754,7 @@ section {
         height: 500px;
     }
 }
+
 
 /*Seccion experiencia*/
 .trabajo{
@@ -1096,3 +1103,5 @@ section {
     border: 2px solid #c9a689; 
     transition: transform 0.1s ease, border 0.1s ease; 
 }
+
+
