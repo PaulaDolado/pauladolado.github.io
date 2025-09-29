@@ -74,9 +74,15 @@ buttons.forEach(button => {
 //Cursor con Boton de ver mas
 buttons.forEach(button => {
     document.addEventListener('mousemove', (e) => {
-        const isOverButton = e.target.closest('.lkn') !== null;
+        // Detectar múltiples tipos de elementos interactivos
+        const isOverInteractiveElement = 
+            e.target.closest('.lkn') !== null ||
+            e.target.closest('.nav-link') !== null ||
+            e.target.closest('.btn button') !== null ||
+            e.target.closest('.send') !== null ||
+            e.target.closest('.iconos') !== null;
         
-        if (isOverButton) {// sobre el botón
+        if (isOverInteractiveElement) {// sobre cualquier elemento interactivo
             cursorPunto.classList.add('on-button');
             gsap.to(cursorPunto, { 
                 scale: 2,
@@ -86,7 +92,7 @@ buttons.forEach(button => {
                 scale: 1.5,
                 duration: 0.3
             });
-        } else {// no sobre el botón
+        } else {// no sobre ningún elemento interactivo
             cursorPunto.classList.remove('on-button');
             gsap.to(cursorPunto, {
                 scale: 1,
@@ -144,3 +150,96 @@ tl.to(".btn", {
     ease: "back.out(1.2)", 
     delay: 0.1 
 }); 
+
+document.addEventListener('DOMContentLoaded', function() {
+    initAboutAnimations();
+    initHoverEffects();
+});
+
+function initAboutAnimations() {
+    let ctx = gsap.context(() => {
+        // Animate description card
+        gsap.fromTo("#about-description .card", 
+            {
+                opacity: 0,
+                y: 60,
+                scale: 0.9
+            },
+            {
+                opacity: 1,
+                y: 0,
+                scale: 1,
+                duration: 1,
+                ease: "power3.out",
+                scrollTrigger: {
+                    trigger: "#about-description",
+                    start: "top 85%",
+                    toggleActions: "play none none reverse"
+                }
+            }
+        );
+        // Animate skills cards
+        gsap.fromTo("#about-skills .card", 
+            {
+                opacity: 0,
+                x: -60,
+                scale: 0.9
+            },
+            {
+                opacity: 1,
+                x: 0,
+                scale: 1,
+                duration: 1,
+                stagger: 0.2,
+                ease: "power3.out",
+                scrollTrigger: {
+                    trigger: "#about-skills",
+                    start: "top 85%",
+                    toggleActions: "play none none reverse"
+                }
+            }
+        );
+    });
+    // Cleanup 
+    return () => ctx.revert();
+}
+
+function initHoverEffects() {
+    // Avatar circle hover 
+    const avatarCircle = document.querySelector('.avatar-circle');
+    if (avatarCircle) {
+        avatarCircle.addEventListener('mouseenter', () => {
+            gsap.to(avatarCircle, {
+                scale: 1.1,
+                duration: 0.3,
+                ease: "power2.out"
+            });
+        });
+        avatarCircle.addEventListener('mouseleave', () => {
+            gsap.to(avatarCircle, {
+                scale: 1,
+                duration: 0.3,
+                ease: "power2.out"
+            });
+        });
+    }
+    // Card hover
+    const cards = document.querySelectorAll('.card');
+    cards.forEach(card => {
+        card.addEventListener('mouseenter', () => {
+            gsap.to(card, {
+                y: -8,
+                duration: 0.3,
+                ease: "power2.out"
+            });
+        });
+        card.addEventListener('mouseleave', () => {
+            gsap.to(card, {
+                y: 0,
+                duration: 0.3,
+                ease: "power2.out"
+            });
+        });
+    });
+}
+

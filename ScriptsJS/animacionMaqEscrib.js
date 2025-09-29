@@ -1,4 +1,4 @@
-const div=document.querySelector(".diapositiva-titulo"),
+const div=document.querySelector("#about-title"),
 texto="Acerca de mí.";
 
 function efectoTextTyping(elemento,texto,i=0){
