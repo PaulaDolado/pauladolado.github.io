@@ -329,6 +329,9 @@ h4{
     margin-bottom: 0.75rem;
     line-height: 1.5;
 }
+.description-text{
+        text-align: justify;
+    }
 .description-avatar {
     display: flex;
     justify-content: center;
@@ -527,11 +530,12 @@ h4{
         margin-bottom: 1rem;
     }
     .description-grid {
-        grid-template-columns: 2fr 1fr;
-        gap: 1rem;
+        grid-template-columns: 3fr 1fr;
+        gap: 0rem;
     }
+    
     .description-avatar {
-        margin-top: 0;
+        margin: 0;
     }
     .avatar-circle {
         width: 13rem;
