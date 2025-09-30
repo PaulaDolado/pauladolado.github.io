@@ -410,23 +410,17 @@ h4{
     font-size: clamp(0.75rem, 2vw, 0.875rem);
     white-space: nowrap;
 }
-
-/* Animation states */
 .letter {
     display: inline-block;
 }
-
-/* Scroll animations */
 .fade-in {
     opacity: 0;
     transform: translateY(50px);
 }
-
 .scale-in {
     opacity: 0;
     transform: scale(0.9);
 }
-
 .lkn {
     color: white;
     font-size: clamp(1rem, 3vw, 1.2rem);
@@ -451,7 +445,6 @@ h4{
     height: 25px;
     pointer-events: none; 
 }
-
 /* Efecto botón linkedin */
 .lkn:hover,
 .lkn:active {
@@ -473,7 +466,6 @@ h4{
     left: 50%; 
     transform: translateX(-50%); 
 }
-
 .lkn:hover:after,
 .lkn:hover:before {
     -webkit-backface-visibility: hidden;
@@ -483,7 +475,6 @@ h4{
             transition: width 350ms ease-in-out;
     width: 100%;
 }
-
 .lkn:hover:before {
     bottom: auto;
     top: 0;
@@ -496,7 +487,6 @@ h4{
         gap: 1rem;
     }
 }
-
 @media (min-width: 640px) {
     .container {
         padding: 0 2rem;
@@ -565,9 +555,18 @@ h4{
         height: 35px;
     }
 }
-@media (min-width: 1024px) {
+
+/* 🖥️ Escritorio Extra Grande*/
+@media (min-width: 1440px) {
     .container {
-        padding: 0 1rem;
+        max-width: 1600px;
+    }
+    .section-title {
+        font-size: 4rem;
+    }
+    .avatar-circle {
+        width: 18rem;
+        height: 18rem;
     }
 }
 /*Seccion galeria proyecto*/
