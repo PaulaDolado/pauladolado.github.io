@@ -184,7 +184,6 @@ h4{
     visibility:hidden;
     transform: translateY(30px);
     cursor: none;
-    z-index: 10;
     
 }.btn button {
     background-color: #617891;
@@ -199,7 +198,6 @@ h4{
     justify-content: center; 
     gap: 4px;
     cursor: none;
-    z-index: 10;
 }
 #proyectos-button,#cv{
     font-family: monospace;
