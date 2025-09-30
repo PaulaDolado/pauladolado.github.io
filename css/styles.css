@@ -820,6 +820,7 @@ h4{
     }
     .timeline {
         align-items: center;
+        margin-top: 2.25rem;
     }
     .timeline::after {
         margin-top: 10px;
