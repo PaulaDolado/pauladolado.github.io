@@ -556,19 +556,6 @@ h4{
     }
 }
 
-/* 🖥️ Escritorio Extra Grande*/
-@media (min-width: 1440px) {
-    .container {
-        max-width: 1600px;
-    }
-    .section-title {
-        font-size: 4rem;
-    }
-    .avatar-circle {
-        width: 18rem;
-        height: 18rem;
-    }
-}
 /*Seccion galeria proyecto*/
 .proyecto{
     background-color: #d5b893;
