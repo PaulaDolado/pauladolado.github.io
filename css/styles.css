@@ -523,7 +523,7 @@ h4{
 }
 @media (min-width: 768px) {
     .section-title {
-        margin-top: 2rem;
+        margin-top: 1.5rem;
         margin-bottom: 1rem;
     }
     .description-grid {
@@ -536,9 +536,6 @@ h4{
     .avatar-circle {
         width: 13rem;
         height: 13rem;
-    }
-    .avatar-emoji {
-        font-size: 2.5rem;
     }
     .about-description {
         margin-bottom: 1rem;
@@ -553,6 +550,25 @@ h4{
     #lkn-img {
         width: 35px;    
         height: 35px;
+    }
+    .lkn {
+        margin-bottom: 0;
+    }
+}
+@media (min-width: 1600px) {
+    .about-section{
+        height: 925px;  
+    }
+    .container {
+        padding: 0 0rem;
+    }
+    .section-title {
+        margin-top: 0;
+        margin-bottom: 2rem;
+    }
+    .lkn {
+        margin-top: 2rem;
+        margin-bottom: 0rem;
     }
 }
 
@@ -662,7 +678,6 @@ h4{
         height: 500px;
     }
 }
-
 
 /*Seccion experiencia*/
 .trabajo{
@@ -841,6 +856,40 @@ h4{
     }
 }
 
+@media (min-width: 1600px) {
+    .timeline {
+        margin-top: 5rem;
+    }
+    .experience-item.izquierda {
+        margin-left: 120px; 
+        padding-right: 0rem; 
+    }
+    .experience-item.derecha {
+        margin-right: 120px; 
+        padding-left: 0rem; 
+    }
+    .experience-item.izquierda::before {
+        right: -69.9px; 
+    }
+    .experience-item.derecha::before {
+        left: -69.9px; 
+    }
+    .job-title {
+        font-size: 1.5rem; 
+    }
+    .job-duration, .company-name {
+        font-size: 1.1rem; 
+    }
+    .job-description {
+        font-size: 1rem;
+    }
+    .tech-list li {
+        font-size: 1rem; 
+    }
+    .experience-content {
+        padding: 1.5rem;
+    }
+}
 /*Seccion de contacto final*/
 .outro {
     width: 100%;
@@ -941,8 +990,7 @@ h4{
     #contact-form {
         width: 50%;
     }
-}
-        
+}     
 @media (max-width: 768px) {
     .contenedor-contacto {
         flex-direction: column;
@@ -970,6 +1018,9 @@ h4{
     #contact-form {
         padding: 1.5rem;
     }
+}
+@media (min-width: 1200px) {
+
 }
 
 /*Estilo cursor*/
