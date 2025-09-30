@@ -900,6 +900,7 @@ h4{
     width: 100%;
     min-height: 100svh;
     padding: 1.5rem;
+    padding-right: 3rem;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -1013,16 +1014,14 @@ h4{
         padding: 1.5rem;
     }
 }
-@media (max-width: 1024px) {
+@media (max-width: 1440px) {
     .contenedor-contacto {
         gap: 2rem;
     }
     .outro h1 {
         font-size: 4rem;
     }     
-    #contact-form {
-        width: 50%;
-    }
+    
 }  
 @media (min-width: 1600px) {
     .outro h1 {
