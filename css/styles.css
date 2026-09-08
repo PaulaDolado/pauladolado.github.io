@@ -85,9 +85,6 @@ section {
     overflow: hidden;
     scroll-behavior: smooth;
 }
-h4{
-    text-align: justify;
-}
 
 /* Contenedor principal */
 .nav-container {
@@ -532,7 +529,7 @@ h4{
 .description-text{
         text-align: justify;
         align-self: flex-end;
-        max-width: 78%;
+        max-width: 92%;
     }
 .description-avatar {
     display: flex;
