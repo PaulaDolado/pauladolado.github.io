@@ -574,7 +574,7 @@ section {
 .skill-groups {
     display: grid;
     grid-template-columns: minmax(0, 1fr);
-    gap: 1.75rem 2.25rem;
+    gap: 1.75rem 3rem;
 }
 @media (min-width: 420px) {
     .skill-groups {
