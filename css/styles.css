@@ -464,7 +464,7 @@ h4{
     width: 100%;
     max-width: 1200px;
     margin: 0 auto;
-    padding: 0 1rem;
+    padding: 0 0.5rem;
 }
 .section-title {
     font-size: clamp(1.5rem, 4vw, 3rem);
@@ -496,7 +496,7 @@ h4{
     transform: translateY(-5px);
 }
 .card-content {
-    padding: 1.25rem;
+    padding: 0.85rem;
 }
 /* Dos columnas: habilidades (izquierda) + acerca de mí (derecha) */
 .about-columns {
@@ -716,7 +716,7 @@ h4{
 /*Responsive About me*/
 @media (min-width: 640px) {
     .container {
-        padding: 0 2rem;
+        padding: 0 1rem;
     }
     .tech-tag {
         gap: 0.5rem;
@@ -727,7 +727,7 @@ h4{
         height: 8rem;
     }
     .card-content {
-        padding: 1.25rem;
+        padding: 0.9rem;
     }
     .lkn {
         margin-top: 0.5rem;
@@ -759,7 +759,7 @@ h4{
         margin-bottom: 1rem;
     }
     .card-content {
-        padding: 1.5rem;
+        padding: 1rem;
     }
     #lkn-img {
         width: 30px;
