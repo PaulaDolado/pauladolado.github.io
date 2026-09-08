@@ -745,7 +745,7 @@ section {
         margin-bottom: 1rem;
     }
     .about-columns {
-        grid-template-columns: 1fr 1fr;
+        grid-template-columns: 1fr 1.4fr;
         align-items: start;
     }
     .avatar-circle {
