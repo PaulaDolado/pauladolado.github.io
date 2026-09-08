@@ -621,6 +621,38 @@ section {
     color: var(--accent);
     transform: translateX(3px);
 }
+/* Botón para alternar entre las 4 primeras y las 4 últimas categorías */
+.skills-toggle {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-top: 2rem;
+    padding: 0.6rem 1.1rem;
+    background: transparent;
+    border: 1px solid var(--border-accent);
+    border-radius: var(--radius-sm);
+    color: var(--accent);
+    font-family: var(--font-mono);
+    font-size: 0.8rem;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    cursor: none;
+    transition: all 0.25s ease;
+}
+.skills-toggle:hover {
+    background: var(--accent-soft);
+    border-color: var(--accent);
+    color: var(--accent-dark);
+}
+.skills-toggle svg {
+    width: 14px;
+    height: 14px;
+    transition: transform 0.25s ease;
+}
+.skills-toggle.is-expanded svg {
+    transform: rotate(180deg);
+}
 .tech-tags {
     display: flex;
     flex-wrap: wrap;
@@ -1419,7 +1451,7 @@ section {
     .cursor-punto, .cursor-linia{
         display: none;
     }
-    html, body, .nav-link, .hamburger, .btn button, .lkn, .send, .iconos, #proyectos-button, #cv{
+    html, body, .nav-link, .hamburger, .btn button, .lkn, .send, .iconos, #proyectos-button, #cv, .skills-toggle{
         cursor: auto;
     }
 }
