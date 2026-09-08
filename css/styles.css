@@ -531,6 +531,8 @@ h4{
 }
 .description-text{
         text-align: justify;
+        align-self: flex-end;
+        max-width: 92%;
     }
 .description-avatar {
     display: flex;
@@ -753,19 +755,6 @@ h4{
     }
     .lkn {
         margin-bottom: 0;
-    }
-}
-@media (min-width: 1024px) {
-    /* Avatar y texto lado a lado (en vez de apilados) para que la
-       tarjeta de "acerca de mí" ocupe menos alto */
-    .description-grid {
-        display: grid;
-        grid-template-columns: auto 1fr;
-        align-items: center;
-        gap: 2rem;
-    }
-    .description-avatar {
-        justify-content: flex-start;
     }
 }
 @media (min-width: 1600px) {
