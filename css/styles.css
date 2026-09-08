@@ -464,7 +464,7 @@ h4{
     width: 100%;
     max-width: 1200px;
     margin: 0 auto;
-    padding: 0 0.5rem;
+    padding: 0;
 }
 .section-title {
     font-size: clamp(1.5rem, 4vw, 3rem);
@@ -716,7 +716,7 @@ h4{
 /*Responsive About me*/
 @media (min-width: 640px) {
     .container {
-        padding: 0 1rem;
+        padding: 0;
     }
     .tech-tag {
         gap: 0.5rem;
