@@ -30,14 +30,14 @@ window.addEventListener("mousemove", function(e){
 document.addEventListener('mousedown', () => {
     gsap.to(cursorLinia, {
         scale: 1.8,
-        border: '2px solid #632024',
+        border: '2px solid #4f151d',
         duration: 0.1
     });
 });
 document.addEventListener('mouseup', () => {
     gsap.to(cursorLinia, {
         scale: 1,
-        border: '2px solid gray',
+        border: '2px solid #6f5d4f',
         duration: 0.3
     });
 });
@@ -130,12 +130,12 @@ Promise.all([
         y:100,
         rotationX:90,
         opacity:0,
-        color:"#c3cee0",
+        color:"#efe3d0",
         stagger:0.03,
         transformOrigin:"center top",
         perspective:700,
     },"-=0.3").to(splitText.chars,{
-        color:"#e8caa0",
+        color:"#2b211b",
         stagger:0.03,
         duration:0.9,
         ease:"power2.out",
