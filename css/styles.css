@@ -580,17 +580,7 @@ h4{
     grid-template-columns: 1fr;
     gap: 1.75rem 1.25rem;
 }
-/* Nº de columnas de las categorías de habilidades: depende del ancho
-   real de la columna de habilidades, no solo del viewport. Por debajo
-   de 768px esa columna ocupa el ancho completo (hay sitio de sobra);
-   entre 768-1199px queda apretada a ~1/3 del contenedor (2 columnas);
-   de 1200px en adelante vuelve a haber espacio para 3. */
 @media (min-width: 420px) {
-    .skill-groups {
-        grid-template-columns: repeat(3, 1fr);
-    }
-}
-@media (min-width: 768px) and (max-width: 1199px) {
     .skill-groups {
         grid-template-columns: repeat(2, 1fr);
     }
@@ -606,6 +596,57 @@ h4{
     display: flex;
     flex-direction: column;
     gap: 0.4rem;
+}
+/* "Otras tecnologías": subsección con sus propios subgrupos, más
+   compactos que los dos pilares principales de arriba */
+.skill-subsection {
+    margin-top: 2.5rem;
+    padding-top: 1.75rem;
+    border-top: 1px solid var(--border);
+}
+.skill-subsection-title {
+    font-family: var(--font-mono);
+    font-size: clamp(0.85rem, 2.5vw, 0.95rem);
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--text-muted);
+    font-weight: 700;
+    margin-bottom: 1.25rem;
+}
+.skill-groups-sub {
+    grid-template-columns: 1fr;
+    gap: 1.5rem 1.25rem;
+}
+@media (min-width: 420px) {
+    .skill-groups-sub {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+/* Nº de columnas de los subgrupos: depende del ancho real de la
+   columna de habilidades, no solo del viewport. Por debajo de 768px
+   esa columna ocupa el ancho completo (hay sitio de sobra); entre
+   768-1199px queda apretada a ~1/3 del contenedor (2 columnas); de
+   1200px en adelante vuelve a haber espacio para 3. */
+@media (min-width: 768px) and (max-width: 1199px) {
+    .skill-groups-sub {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+@media (min-width: 1200px), (min-width: 480px) and (max-width: 767px) {
+    .skill-groups-sub {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+.skill-group-sub h5 {
+    color: var(--text-secondary);
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+    font-size: clamp(0.78rem, 2.2vw, 0.85rem);
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+}
+.skill-group-sub .skill-plain-list li {
+    font-size: clamp(0.8rem, 2.2vw, 0.9rem);
 }
 .skill-plain-list li {
     color: var(--text-secondary);
