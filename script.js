@@ -6,13 +6,11 @@ const cursorLinia= document.querySelector("[data-linia]");
 
 const text = document.querySelector(".text");
 const subtext = document.querySelector(".subtext");
-const subtext2 = document.querySelector(".subtext2");
 
 const buttons = document.querySelectorAll(".btn button");
 // Dividir texto en letras y palabras
 const splitText=new SplitText(text, {type: "chars"})
 const splitSubText=new SplitText(subtext, {type: "words"})
-const splitSubText2=new SplitText(subtext2, {type: "words"})
 
 //Animación cursor
 window.addEventListener("mousemove", function(e){
@@ -20,6 +18,8 @@ window.addEventListener("mousemove", function(e){
     const posY= e.clientY;
     cursorPunto.style.left=`${posX}px`;
     cursorPunto.style.top=`${posY}px`;
+    cursorPunto.classList.add("is-visible");
+    cursorLinia.classList.add("is-visible");
 
     gsap.to(cursorLinia, {
         left: posX,
@@ -131,14 +131,6 @@ tl.from(splitSubText.words,{
     duration:0.7,
     ease:"power2.out"
 },"-=0.8")
-tl.from(splitSubText2.words,{
-    y:60,
-    opacity:0,
-    filter:"blur(16px)",
-    stagger:0.12,
-    duration:0.7,
-    ease: "power2.out"
-}, "-=0.5");
 
 // Animación de los dos botones principales (proj. + cv)
 gsap.set(".btn", { visibility: "hidden", opacity: 0, y: 30 });
