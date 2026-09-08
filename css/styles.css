@@ -560,6 +560,7 @@ section {
    (inspirado en la sección "Skills" de zunedaalim.com) */
 .about-skills-col {
     padding-top: 0.5rem;
+    min-width: 0;
 }
 .about-col-title {
     font-family: var(--font-mono);
@@ -745,7 +746,7 @@ section {
         margin-bottom: 1rem;
     }
     .about-columns {
-        grid-template-columns: 1fr 1.4fr;
+        grid-template-columns: 1fr 2fr;
         align-items: start;
     }
     .avatar-circle {
