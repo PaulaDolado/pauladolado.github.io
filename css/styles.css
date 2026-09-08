@@ -622,9 +622,6 @@ h4{
     color: var(--accent);
     transform: translateX(3px);
 }
-.highlight-tags{
-    margin-top: 1.25rem;
-}
 .tech-tags {
     display: flex;
     flex-wrap: wrap;
