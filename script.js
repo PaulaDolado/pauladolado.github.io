@@ -189,7 +189,7 @@ function initAboutAnimations() {
             }
         );
         // Animate skills cards
-        gsap.fromTo("#about-skills .card", 
+        gsap.fromTo("#about-skills .skill-group",
             {
                 opacity: 0,
                 x: -60,
