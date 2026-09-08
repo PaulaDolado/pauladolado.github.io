@@ -529,7 +529,7 @@ section {
 .description-text{
         text-align: justify;
         align-self: flex-end;
-        max-width: 92%;
+        max-width: 97%;
     }
 .description-avatar {
     display: flex;
