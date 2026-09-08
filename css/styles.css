@@ -751,7 +751,7 @@ h4{
         margin-bottom: 1rem;
     }
     .about-columns {
-        grid-template-columns: 1fr 2fr;
+        grid-template-columns: 3fr 2fr;
         align-items: start;
     }
     .avatar-circle {
