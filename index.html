@@ -74,8 +74,8 @@
       <div class="about-columns">
         <div id="about-skills" class="about-skills-col">
             <h3 class="about-col-title">Habilidades técnicas</h3>
-            <div class="skill-groups">
-                <div class="skill-group">
+            <div class="skill-groups" id="skill-groups">
+                <div class="skill-group" data-page="1">
                     <h4>Lenguajes y herramientas</h4>
                     <ul class="skill-plain-list">
                         <li>Java</li>
@@ -87,7 +87,7 @@
                         <li>Bash/PowerShell</li>
                     </ul>
                 </div>
-                <div class="skill-group">
+                <div class="skill-group" data-page="1">
                     <h4>Frameworks, librerías y runtimes</h4>
                     <ul class="skill-plain-list">
                         <li>React</li>
@@ -98,7 +98,7 @@
                         <li>GSAP</li>
                     </ul>
                 </div>
-                <div class="skill-group">
+                <div class="skill-group" data-page="1">
                     <h4>Backend y APIs</h4>
                     <ul class="skill-plain-list">
                         <li>APIs REST</li>
@@ -106,7 +106,7 @@
                         <li>Swagger / OpenAPI</li>
                     </ul>
                 </div>
-                <div class="skill-group">
+                <div class="skill-group" data-page="1">
                     <h4>Cloud / BaaS</h4>
                     <ul class="skill-plain-list">
                         <li>Supabase</li>
@@ -116,7 +116,7 @@
                         <li>Google Cloud</li>
                     </ul>
                 </div>
-                <div class="skill-group">
+                <div class="skill-group" data-page="2" hidden>
                     <h4>DevOps e infraestructura</h4>
                     <ul class="skill-plain-list">
                         <li>Docker Compose</li>
@@ -126,7 +126,7 @@
                         <li>Kubernetes</li>
                     </ul>
                 </div>
-                <div class="skill-group">
+                <div class="skill-group" data-page="2" hidden>
                     <h4>Bases de datos</h4>
                     <ul class="skill-plain-list">
                         <li>MySQL</li>
@@ -136,7 +136,7 @@
                         <li>ORM / ODM</li>
                     </ul>
                 </div>
-                <div class="skill-group">
+                <div class="skill-group" data-page="2" hidden>
                     <h4>Control de versiones</h4>
                     <ul class="skill-plain-list">
                         <li>Git</li>
@@ -144,7 +144,7 @@
                         <li>GitLab</li>
                     </ul>
                 </div>
-                <div class="skill-group">
+                <div class="skill-group" data-page="2" hidden>
                     <h4>Arquitectura y desarrollo</h4>
                     <ul class="skill-plain-list">
                         <li>POO</li>
@@ -155,6 +155,10 @@
                     </ul>
                 </div>
             </div>
+            <button type="button" class="skills-toggle" id="skills-toggle" aria-expanded="false" aria-controls="skill-groups">
+                <span>Ver más</span>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>
+            </button>
         </div>
 
         <div id="about-description" class="about-bio-col">
@@ -307,6 +311,7 @@
   <script src="ScriptsJS/animaciongaleria.js"></script>
   <script src="ScriptsJS/animacionMaqEscrib.js"></script>
   <script src="ScriptsJS/menu.js"></script>
+  <script src="ScriptsJS/skillsToggle.js"></script>
   <script src="ScriptsJS/formulario.js"></script>
 </body>
 </html>
