@@ -1161,19 +1161,22 @@ h4{
 .contenedor-contacto {
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-between;
+    justify-content: center;
     align-items: flex-start;
-    gap: 3rem;
+    gap: 2rem;
     margin: 0 auto;
     width: 100%;
+    max-width: 1100px;
 }
 .texto-contacto {
     flex: 1;
     min-width: 300px;
+    max-width: 420px;
  }
 .outro h1{
     font-family: var(--font-body);
-    margin-top: 25px;
+    margin-top: 10px;
+    margin-bottom: 0.4rem;
     font-weight: 800;
     font-style: normal;
     text-transform: uppercase;
@@ -1189,18 +1192,12 @@ h4{
     color: var(--text-muted);
     max-width: 34ch;
 }
-.contact-form{
-  display: flex;
-  flex-direction:row;
-  gap: 1rem;
-  width: 55%;
-}
 #contact-form{
     display: flex;
     flex-direction: column;
-    flex: 1;
-    min-width: 300px;
-    max-width: 480px;
+    flex: 1.4;
+    min-width: 320px;
+    max-width: 600px;
 }
 #contact-form input,
 #contact-form textarea {
@@ -1341,13 +1338,9 @@ h4{
     }
 }
 @media (max-width: 1440px) {
-    .contenedor-contacto {
-        gap: 2rem;
-    }
     .outro h1 {
         font-size: 3.75rem;
     }
-
 }
 @media (min-width: 1600px) {
     .outro h1 {
