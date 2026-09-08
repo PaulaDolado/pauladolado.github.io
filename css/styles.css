@@ -459,7 +459,7 @@ section {
 
 .container{
     width: 100%;
-    padding: 0;
+    padding: 0 1.5rem;
 }
 .section-title {
     font-size: clamp(1.5rem, 4vw, 3rem);
@@ -715,7 +715,7 @@ section {
 /*Responsive About me*/
 @media (min-width: 640px) {
     .container {
-        padding: 0;
+        padding: 0 2.5rem;
     }
     .tech-tag {
         gap: 0.5rem;
@@ -773,7 +773,7 @@ section {
         height: 925px;
     }
     .container {
-        padding: 0 0rem;
+        padding: 0 4rem;
     }
     .section-title {
         margin-top: 0;
