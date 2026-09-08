@@ -21,7 +21,7 @@ document.addEventListener('DOMContentLoaded', function () {
             group.hidden = !showingSecondPage;
         });
 
-        label.textContent = showingSecondPage ? 'Ver menos' : 'Ver más';
+        label.textContent = showingSecondPage ? 'Ver menos' : 'Otras tecnologías';
         toggleBtn.classList.toggle('is-expanded', showingSecondPage);
         toggleBtn.setAttribute('aria-expanded', showingSecondPage ? 'true' : 'false');
     });
