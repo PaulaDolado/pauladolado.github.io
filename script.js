@@ -4,13 +4,11 @@ gsap.registerPlugin(SplitText);
 const cursorPunto= document.querySelector("[data-punto]");
 const cursorLinia= document.querySelector("[data-linia]");
 
+const eyebrow = document.querySelector(".eyebrow");
 const text = document.querySelector(".text");
 const subtext = document.querySelector(".subtext");
 
 const buttons = document.querySelectorAll(".btn button");
-// Dividir texto en letras y palabras
-const splitText=new SplitText(text, {type: "chars"})
-const splitSubText=new SplitText(subtext, {type: "words"})
 
 //Animación cursor
 window.addEventListener("mousemove", function(e){
@@ -106,42 +104,62 @@ buttons.forEach(button => {
     });
 });
 
-// Animación título en letras
-const tl=gsap.timeline();
-tl.from(splitText.chars,{
-    y:100,
-    rotationX:90,
-    opacity:0,
-    color:"#b0c7e0",
-    stagger:0.03,
-    transformOrigin:"center top",
-    perspective:700,
-}).to(splitText.chars,{
-    color:"#d8d78c",
-    stagger:0.03,
-    duration:0.9,
-    ease:"power2.out",
-});
-//Animación subtítulo en palabras
-tl.from(splitSubText.words,{
-    y:60,
-    opacity:0,
-    filter:"blur(16px)",
-    stagger:0.12,
-    duration:0.7,
-    ease:"power2.out"
-},"-=0.8")
-
-// Animación de los dos botones principales (proj. + cv)
+// Esperamos a que las fuentes web terminen de cargar antes de partir el
+// texto en caracteres/palabras: si SplitText mide el texto con la fuente
+// de reserva y luego la fuente definitiva cambia el ancho de cada letra,
+// la animación puede quedar mal alineada.
 gsap.set(".btn", { visibility: "hidden", opacity: 0, y: 30 });
-tl.to(".btn", {
-    visibility: "visible",
-    opacity: 1,
-    y: 0,
-    duration: 0.8,
-    ease: "back.out(1.2)", 
-    delay: 0.1 
-}); 
+
+Promise.all([
+    document.fonts.load('italic 800 1em "Bodoni Moda"'),
+    document.fonts.load('300 1em "Inter"')
+]).then(function () {
+    // Dividir texto en letras y palabras
+    const splitText = new SplitText(text, { type: "chars" });
+    const splitSubText = new SplitText(subtext, { type: "words" });
+
+    // Animación título en letras
+    const tl = gsap.timeline();
+    if (eyebrow) {
+        tl.fromTo(eyebrow,
+            { y:20, opacity:0 },
+            { y:0, opacity:1, duration:0.6, ease:"power2.out" }
+        );
+    }
+    tl.from(splitText.chars,{
+        y:100,
+        rotationX:90,
+        opacity:0,
+        color:"#c3cee0",
+        stagger:0.03,
+        transformOrigin:"center top",
+        perspective:700,
+    },"-=0.3").to(splitText.chars,{
+        color:"#e8caa0",
+        stagger:0.03,
+        duration:0.9,
+        ease:"power2.out",
+    });
+    //Animación subtítulo en palabras
+    tl.from(splitSubText.words,{
+        y:60,
+        opacity:0,
+        filter:"blur(16px)",
+        stagger:0.12,
+        duration:0.7,
+        ease:"power2.out"
+    },"-=0.8")
+
+    // Animación de los dos botones principales (proj. + cv)
+    tl.to(".btn", {
+        visibility: "visible",
+        opacity: 1,
+        y: 0,
+        duration: 0.8,
+        ease: "back.out(1.2)",
+        delay: 0.1
+    });
+});
 
 document.addEventListener('DOMContentLoaded', function() {
     initAboutAnimations();

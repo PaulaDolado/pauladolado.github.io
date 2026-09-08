@@ -1,7 +1,6 @@
-@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..900;1,6..96,400..900&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,300..800;1,300..800&display=swap');
+/* Las fuentes (Oswald, Space Mono, Bodoni Moda, Inter) se cargan desde
+   index.html con <link>, no con @import: así el navegador las descubre de
+   inmediato y document.fonts.ready (usado en script.js) resulta fiable. */
 
 /* ==========================================================================
    Sistema de diseño — variables globales
@@ -48,6 +47,15 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+}
+/* Foco visible para navegación por teclado (el cursor:none no afecta al teclado) */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+textarea:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 3px;
+    border-radius: 4px;
 }
 /*Estilos genericos*/
 html, body {
@@ -143,6 +151,13 @@ h4{
     background: var(--accent-soft);
     border-color: var(--border-accent);
 }
+.nav-link.active {
+    background: var(--accent-soft);
+    border-color: var(--border-accent);
+}
+.nav-link.active .button-label {
+    color: var(--accent-light);
+}
 /*Icono menú desplegable*/
 .hamburger {
     display: none;
@@ -153,6 +168,10 @@ h4{
     cursor: none;
     z-index: 20;
     position: relative;
+    background: none;
+    border: none;
+    padding: 0;
+    -webkit-tap-highlight-color: transparent;
 }
 .hamburger span {
     height: 3px;
@@ -230,7 +249,19 @@ h4{
     flex-direction: column;
     height: 100vh;
     background: radial-gradient(circle at 50% 20%, var(--bg-secondary) 0%, var(--bg-primary) 65%);
-}.text{
+}
+.eyebrow{
+    font-family: var(--font-mono);
+    font-size: 0.8rem;
+    font-weight: 700;
+    letter-spacing: 0.35em;
+    text-transform: uppercase;
+    color: var(--accent-light);
+    margin-bottom: 1rem;
+    opacity: 0;
+    text-align: center;
+}
+.text{
     font-family: var(--font-display);
     font-style: italic;
     text-align: center;
@@ -312,6 +343,44 @@ h4{
 }
 .btn button#cv img{
     filter: brightness(0) invert(1);
+}
+/* Indicador de scroll en el hero */
+.scroll-cue{
+    position: absolute;
+    bottom: 2rem;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.4rem;
+    color: var(--text-muted);
+    text-decoration: none;
+    font-family: var(--font-mono);
+    font-size: 0.7rem;
+    letter-spacing: 0.3em;
+    opacity: 0;
+    animation: fadeInCue 1s ease forwards;
+    animation-delay: 2.4s;
+    transition: color 0.3s ease;
+}
+.scroll-cue:hover{
+    color: var(--accent-light);
+}
+.scroll-cue svg{
+    width: 16px;
+    height: 16px;
+    animation: scrollBounce 1.8s ease-in-out infinite;
+}
+@keyframes fadeInCue{
+    to{ opacity: 1; }
+}
+@keyframes scrollBounce{
+    0%, 100%{ transform: translateY(0); opacity: 0.6; }
+    50%{ transform: translateY(6px); opacity: 1; }
+}
+@media (max-width: 768px){
+    .scroll-cue{ display: none; }
 }
 /* RESPONSIVE */
 @media (max-width: 768px) {
@@ -736,9 +805,6 @@ h4{
     padding: 0.5rem 1rem;
     border-radius: 9999px;
 }
-.carta-img img{
-    display: none;
-}
 .carta-contenido{
     width: 100%;
     height: 60px;
@@ -1136,6 +1202,31 @@ h4{
     background: var(--accent-light);
     border-color: var(--accent-light);
     transform: translateY(-2px);
+}
+#contact-form .send:disabled{
+    opacity: 0.7;
+    cursor: not-allowed;
+    transform: none;
+}
+#form-response{
+    margin: 10px 5px 0;
+    font-family: var(--font-body);
+    font-size: 0.9rem;
+    min-height: 1.2em;
+}
+#form-response.is-success{
+    color: var(--accent-light);
+}
+#form-response.is-error{
+    color: #e29b9b;
+}
+.footer-note{
+    text-align: center;
+    margin-top: 2.5rem;
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    letter-spacing: 0.1em;
+    color: var(--text-muted);
 }
 
 .iconos-contacto{
