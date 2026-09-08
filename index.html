@@ -3,7 +3,18 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Paula Dolado Aynié</title>
+  <title>Paula Dolado Aynié — Desarrolladora Full Stack</title>
+  <meta name="description" content="Portfolio de Paula Dolado Aynié, desarrolladora full stack e ingeniera informática especializada en Java, Python, React y Django." />
+  <meta name="theme-color" content="#101a2e" />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Paula Dolado Aynié — Desarrolladora Full Stack" />
+  <meta property="og:description" content="Portfolio de Paula Dolado Aynié, desarrolladora full stack e ingeniera informática especializada en Java, Python, React y Django." />
+  <meta property="og:image" content="img/cara.png" />
+  <meta name="twitter:card" content="summary" />
+  <link rel="icon" type="image/svg+xml" href="img/favicon.svg" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..900;1,6..96,400..900&family=Inter:ital,wght@0,300..800;1,300..800&display=swap" />
   <link rel="stylesheet" href="css/styles.css" />
 </head>
 <body>
@@ -12,7 +23,7 @@
       <div class="nav-logo">
          <a href="#inicio">Paula Dolado</a>
       </div>
-      <div class="nav-links">
+      <div class="nav-links" id="nav-links">
         <a data-link="color-change" href="#inicio" class="nav-link">
           <div class="button-label">INICIO</div>
           <div class="link-bg"></div>
@@ -34,22 +45,27 @@
           <div class="link-bg"></div>
         </a>
       </div>
-      <div class="hamburger">
+      <button type="button" class="hamburger" aria-label="Abrir menú" aria-expanded="false" aria-controls="nav-links">
         <span></span>
         <span></span>
-      </div>
+      </button>
     </div>
   </nav>
   <section class="intro" id="inicio">
+    <p class="eyebrow">Desarrolladora Full Stack</p>
     <h1 class="text">Paula Dolado Aynié</h1>
     <div class="subtext">
       <p>Técnica en Administración de sistemas informáticos en la red</p>
       <p>Ingeniera Informática de Gestión y Sistemas de Información</p>
     </div>
     <div class="btn">
-      <a href="#proyectos"><button id="proyectos-button"><img src="img/project_icon.png" id="project">VER PROYECTOS</button></a>
-      <a href="docs/CV_PaulaDolado.pdf" download="CV_PaulaDolado" id="cv"><button id="cv"><img src="img/download_icon.png" id="download">DESCARGAR CV</button></a>
+      <a href="#proyectos"><button id="proyectos-button"><img src="img/project_icon.png" alt="">VER PROYECTOS</button></a>
+      <a href="docs/CV_PaulaDolado.pdf" download="CV_PaulaDolado"><button id="cv"><img src="img/download_icon.png" alt="">DESCARGAR CV</button></a>
     </div>
+    <a href="#acercademi" class="scroll-cue" aria-label="Desplázate para ver más">
+      <span>SCROLL</span>
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 4v14M6 12l6 6 6-6"/></svg>
+    </a>
   </section>
 
 <section id="acercademi" class="about-section">
@@ -157,7 +173,7 @@
                 </div>
             </div>
         </div>
-      <a href="https://www.linkedin.com/in/paula-dolado-ayni%C3%A9/" class="lkn" target="_blank" rel="noopener noreferrer" >Ver más <img src="img/linkedin.png" id="lkn-img"></a>
+      <a href="https://www.linkedin.com/in/paula-dolado-ayni%C3%A9/" class="lkn" target="_blank" rel="noopener noreferrer" >Ver más <img src="img/linkedin.png" id="lkn-img" alt=""></a>
   </section>
 
   <section class="proyecto" id ="proyectos">
@@ -176,19 +192,19 @@
     </div>
     <div class="cartas">
       <div class="carta">
-        <div class="carta-img"><img src="img/test.png"></div>
+        <div class="carta-img"></div>
         <div class="carta-contenido"><p>PROYECTO I</p></div>
       </div>
       <div class="carta">
-        <div class="carta-img"><img src="img/test.png"></div>
+        <div class="carta-img"></div>
         <div class="carta-contenido"><p>PROYECTO II</p></div>
       </div>
       <div class="carta">
-        <div class="carta-img"><img src="img/test.png"></div>
+        <div class="carta-img"></div>
         <div class="carta-contenido"><p>PROYECTO III</p></div>
       </div>
       <div class="carta">
-        <div class="carta-img"><img src="img/test.png"></div>
+        <div class="carta-img"></div>
         <div class="carta-contenido"><p>PROYECTO IV</p></div>
       </div>
       <div class="carta empty"></div>
@@ -245,22 +261,22 @@
         <h1>Contacto</h1>
         <h2>¿Tienes un proyecto en mente? Trabajemos juntos para hacerlo realidad.</h2>
         <div class="iconos-contacto">
-          <a href="https://github.com/PaulaDolado" id="git" class="iconos"><img src="img/icono_github.png"></a>
-          <a href="#" class="iconos" id="disc"><img src="img/icono_disc.png"></a>
-          <a href="https://www.linkedin.com/in/paula-dolado-ayni%C3%A9/" id="lin"class="iconos"><img src="img/icono_link.png"></a>
+          <a href="https://github.com/PaulaDolado" id="git" class="iconos" target="_blank" rel="noopener noreferrer"><img src="img/icono_github.png" alt="GitHub"></a>
+          <a href="https://www.linkedin.com/in/paula-dolado-ayni%C3%A9/" id="lin"class="iconos" target="_blank" rel="noopener noreferrer"><img src="img/icono_link.png" alt="LinkedIn"></a>
         </div>
-        
+
       </div>
       <form action="https://formsubmit.co/6ab63d7bd7427d140f9f72334a4d21e7" method="POST" id="contact-form">
         <input type="text" id="name" name="name" placeholder="Nombre" required />
         <input type="email" id="email" name="email" placeholder="Correo" required />
         <textarea id="message" name="message" rows="5" placeholder="Mensaje" required></textarea>
         <input type="submit" value="Enviar" class="send">
-        <input type="hidden" name="_next" value="https://pauladolado.github.io/#contacto">
+        <input type="hidden" name="_next" value="https://pauladolado.github.io/newpauladolado.github.io/#contacto">
         <input type="hidden" name="_captcha" value="false">
+        <p id="form-response" role="status" aria-live="polite"></p>
       </form>
     </div>
-    <p id="form-response"></p>
+    <p class="footer-note">© 2026 Paula Dolado Aynié</p>
   </section>
   
   <div class="cursor-punto" data-punto></div>
@@ -269,11 +285,11 @@
   <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/SplitText.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/ScrollTrigger.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/@studio-freight/lenis@1.0.34/dist/lenis.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/ScrambleTextPlugin.min.js"></script>
   <script src="script.js"></script>
   <script src="ScriptsJS/animaciongaleria.js"></script>
   <script src="ScriptsJS/animacionMaqEscrib.js"></script>
   <script src="ScriptsJS/animacionSkills.js"></script>
   <script src="ScriptsJS/menu.js"></script>
+  <script src="ScriptsJS/formulario.js"></script>
 </body>
 </html>
