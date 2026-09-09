@@ -155,10 +155,11 @@
                     </ul>
                 </div>
             </div>
-            <button type="button" class="skills-toggle" id="skills-toggle" aria-expanded="false" aria-controls="skill-groups">
-                <span>Otras tecnologías</span>
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg>
-            </button>
+            <div class="skills-switch" id="skills-switch" role="tablist" aria-label="Categorías de habilidades">
+                <button type="button" class="skills-switch-btn is-active" data-page="1" role="tab" aria-selected="true">Principales</button>
+                <button type="button" class="skills-switch-btn" data-page="2" role="tab" aria-selected="false">Otras</button>
+                <span class="skills-switch-thumb" aria-hidden="true"></span>
+            </div>
         </div>
 
         <div id="about-description" class="about-bio-col">

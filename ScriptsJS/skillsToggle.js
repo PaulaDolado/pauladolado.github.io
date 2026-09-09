@@ -1,28 +1,30 @@
-// Alterna entre las 4 primeras y las 4 últimas categorías de
-// "Habilidades técnicas" con un botón "Ver más" / "Ver menos".
+// Interruptor (segmented control) para alternar entre las 4 primeras
+// y las 4 últimas categorías de "Habilidades técnicas".
 document.addEventListener('DOMContentLoaded', function () {
-    const toggleBtn = document.getElementById('skills-toggle');
+    const switchEl = document.getElementById('skills-switch');
     const groupsContainer = document.getElementById('skill-groups');
-    if (!toggleBtn || !groupsContainer) return;
+    if (!switchEl || !groupsContainer) return;
 
+    const buttons = switchEl.querySelectorAll('.skills-switch-btn');
     const page1Groups = groupsContainer.querySelectorAll('.skill-group[data-page="1"]');
     const page2Groups = groupsContainer.querySelectorAll('.skill-group[data-page="2"]');
-    const label = toggleBtn.querySelector('span');
 
-    let showingSecondPage = false;
+    function showPage(page) {
+        const showSecond = page === '2';
 
-    toggleBtn.addEventListener('click', function () {
-        showingSecondPage = !showingSecondPage;
+        page1Groups.forEach((group) => { group.hidden = showSecond; });
+        page2Groups.forEach((group) => { group.hidden = !showSecond; });
 
-        page1Groups.forEach((group) => {
-            group.hidden = showingSecondPage;
+        switchEl.classList.toggle('is-second', showSecond);
+
+        buttons.forEach((btn) => {
+            const isActive = btn.dataset.page === page;
+            btn.classList.toggle('is-active', isActive);
+            btn.setAttribute('aria-selected', isActive ? 'true' : 'false');
         });
-        page2Groups.forEach((group) => {
-            group.hidden = !showingSecondPage;
-        });
+    }
 
-        label.textContent = showingSecondPage ? 'Ver menos' : 'Otras tecnologías';
-        toggleBtn.classList.toggle('is-expanded', showingSecondPage);
-        toggleBtn.setAttribute('aria-expanded', showingSecondPage ? 'true' : 'false');
+    buttons.forEach((btn) => {
+        btn.addEventListener('click', () => showPage(btn.dataset.page));
     });
 });
