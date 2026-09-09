@@ -79,7 +79,7 @@ buttons.forEach(button => {
             e.target.closest('.btn button') !== null ||
             e.target.closest('.send') !== null ||
             e.target.closest('.iconos') !== null ||
-            e.target.closest('.skills-switch') !== null;
+            e.target.closest('.skills-terminal') !== null;
         
         if (isOverInteractiveElement) {// sobre cualquier elemento interactivo
             cursorPunto.classList.add('on-button');
