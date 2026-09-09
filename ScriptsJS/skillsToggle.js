@@ -1,30 +1,52 @@
-// Interruptor (segmented control) para alternar entre las 4 primeras
-// y las 4 últimas categorías de "Habilidades técnicas".
+// Botón estilo terminal para alternar entre las 4 primeras y las 4
+// últimas categorías de "Habilidades técnicas", con un pequeño efecto
+// de tecleo antes de aplicar el cambio.
 document.addEventListener('DOMContentLoaded', function () {
-    const switchEl = document.getElementById('skills-switch');
+    const button = document.getElementById('skills-terminal');
+    const cmdEl = document.getElementById('skills-terminal-cmd');
     const groupsContainer = document.getElementById('skill-groups');
-    if (!switchEl || !groupsContainer) return;
+    if (!button || !cmdEl || !groupsContainer) return;
 
-    const buttons = switchEl.querySelectorAll('.skills-switch-btn');
     const page1Groups = groupsContainer.querySelectorAll('.skill-group[data-page="1"]');
     const page2Groups = groupsContainer.querySelectorAll('.skill-group[data-page="2"]');
 
-    function showPage(page) {
-        const showSecond = page === '2';
+    const sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
 
-        page1Groups.forEach((group) => { group.hidden = showSecond; });
-        page2Groups.forEach((group) => { group.hidden = !showSecond; });
-
-        switchEl.classList.toggle('is-second', showSecond);
-
-        buttons.forEach((btn) => {
-            const isActive = btn.dataset.page === page;
-            btn.classList.toggle('is-active', isActive);
-            btn.setAttribute('aria-selected', isActive ? 'true' : 'false');
+    // "Escribe" un texto en el botón, letra a letra.
+    function typeCommand(text, speed) {
+        return new Promise((resolve) => {
+            cmdEl.textContent = '';
+            let i = 0;
+            (function paso() {
+                cmdEl.textContent += text[i];
+                i += 1;
+                if (i < text.length) {
+                    setTimeout(paso, speed);
+                } else {
+                    resolve();
+                }
+            }());
         });
     }
 
-    buttons.forEach((btn) => {
-        btn.addEventListener('click', () => showPage(btn.dataset.page));
+    let showingSecondPage = false;
+
+    button.addEventListener('click', async () => {
+        button.disabled = true;
+
+        // Efecto de "ejecutar" el comando antes de aplicar el cambio
+        await typeCommand('', 0);
+        await typeCommand('cargando…', 25);
+        await sleep(250);
+
+        showingSecondPage = !showingSecondPage;
+        page1Groups.forEach((group) => { group.hidden = showingSecondPage; });
+        page2Groups.forEach((group) => { group.hidden = !showingSecondPage; });
+        button.setAttribute('aria-expanded', showingSecondPage ? 'true' : 'false');
+
+        const proximoComando = showingSecondPage ? 'ver --principales' : 'ver --otras-tecnologias';
+        await typeCommand(proximoComando, 30);
+
+        button.disabled = false;
     });
 });
