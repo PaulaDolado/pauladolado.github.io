@@ -607,37 +607,55 @@ section {
     color: var(--accent);
     transform: translateX(3px);
 }
-/* Botón para alternar entre las 4 primeras y las 4 últimas categorías */
-.skills-toggle {
+/* Interruptor (segmented control) para alternar entre las 4 primeras
+   y las 4 últimas categorías de habilidades, estilo switch de iOS */
+.skills-switch {
+    position: relative;
     display: inline-flex;
-    align-items: center;
-    gap: 0.5rem;
     margin-top: 2rem;
-    padding: 0.6rem 1.1rem;
-    background: transparent;
-    border: 1px solid var(--border-accent);
-    border-radius: var(--radius-sm);
-    color: var(--accent);
+    padding: 4px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-md);
+    gap: 2px;
+}
+.skills-switch-thumb {
+    position: absolute;
+    top: 4px;
+    left: 4px;
+    height: calc(100% - 8px);
+    width: calc(50% - 3px);
+    background: var(--accent);
+    border-radius: calc(var(--radius-md) - 2px);
+    transition: transform 0.3s var(--ease);
+    z-index: 0;
+}
+.skills-switch.is-second .skills-switch-thumb {
+    transform: translateX(calc(100% + 2px));
+}
+.skills-switch-btn {
+    position: relative;
+    z-index: 1;
+    flex: 1;
+    padding: 0.55rem 1.1rem;
+    background: none;
+    border: none;
+    border-radius: calc(var(--radius-md) - 2px);
     font-family: var(--font-mono);
     font-size: 0.8rem;
     font-weight: 700;
-    letter-spacing: 0.04em;
+    letter-spacing: 0.03em;
     text-transform: uppercase;
+    color: var(--text-muted);
     cursor: none;
-    transition: all 0.25s ease;
+    transition: color 0.3s ease;
+    white-space: nowrap;
 }
-.skills-toggle:hover {
-    background: var(--accent-soft);
-    border-color: var(--accent);
-    color: var(--accent-dark);
+.skills-switch-btn.is-active {
+    color: var(--on-accent);
 }
-.skills-toggle svg {
-    width: 14px;
-    height: 14px;
-    transition: transform 0.25s ease;
-}
-.skills-toggle.is-expanded svg {
-    transform: rotate(180deg);
+.skills-switch-btn:hover:not(.is-active) {
+    color: var(--text-primary);
 }
 .tech-tags {
     display: flex;
@@ -1434,7 +1452,7 @@ section {
     .cursor-punto, .cursor-linia{
         display: none;
     }
-    html, body, .nav-link, .hamburger, .btn button, .lkn, .send, .iconos, #proyectos-button, #cv, .skills-toggle{
+    html, body, .nav-link, .hamburger, .btn button, .lkn, .send, .iconos, #proyectos-button, #cv, .skills-switch-btn{
         cursor: auto;
     }
 }
