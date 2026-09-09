@@ -574,15 +574,15 @@ section {
     border-left: 3px solid var(--accent);
     padding-left: 0.75rem;
 }
-/* auto-fit + minmax: el nº de columnas se adapta solo al ancho real
-   disponible (que varía mucho según si la columna de habilidades está
-   apilada a ancho completo o compartiendo fila con la biografía), en
-   vez de depender de puntos de ruptura fijos por viewport que podían
-   quedar demasiado anchos o demasiado apretados según el caso. */
 .skill-groups {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(min(110px, 100%), 1fr));
-    gap: 1.75rem 3rem;
+    grid-template-columns: minmax(0, 1fr);
+    gap: 1.75rem 1.5rem;
+}
+@media (min-width: 480px) {
+    .skill-groups {
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+    }
 }
 .skill-group h4 {
     color: var(--text-primary);
