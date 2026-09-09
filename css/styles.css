@@ -284,6 +284,9 @@ section {
     color: var(--accent);
     margin-bottom: 0.4rem;
 }
+.experiencia .section-kicker{
+    text-align: right;
+}
 .text{
     font-family: var(--font-display);
     font-style: italic;
@@ -784,9 +787,6 @@ section {
     }
 }
 @media (min-width: 1600px) {
-    .about-section{
-        height: 925px;
-    }
     .container {
         padding: 0 4rem;
     }
