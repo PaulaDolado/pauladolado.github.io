@@ -826,7 +826,7 @@ section {
 .carta {
   position: absolute;
   width: 500px;
-  height: 640px;
+  height: 550px;
   top: 50%;
   left: 50%;
   transform-origin: center center;
@@ -897,23 +897,30 @@ section {
     letter-spacing: 0.25em;
     color: var(--text-muted);
 }
-/* Panel de información del proyecto, debajo del vídeo/miniatura */
+/* Información del proyecto: superpuesta sobre el vídeo/miniatura (no
+   suma alto a la tarjeta, así no se recorta en pantallas bajas donde
+   la sección de proyectos va fijada y con overflow:hidden) */
 .carta-info{
-    flex-shrink: 0;
-    width: 100%;
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
     display: flex;
     flex-direction: column;
     gap: 0.4rem;
+    padding: 2.5rem 1.1rem 1.1rem;
+    background: linear-gradient(to top, rgba(16, 12, 9, 0.88) 0%, rgba(16, 12, 9, 0.55) 65%, transparent 100%);
+    pointer-events: none;
 }
 .carta-titulo{
-    color: var(--text-primary);
+    color: var(--on-accent);
     font-family: var(--font-mono);
     font-size: 1.05rem;
     font-weight: 700;
     letter-spacing: 0.02em;
 }
 .carta-descripcion{
-    color: var(--text-secondary);
+    color: rgba(244, 241, 229, 0.85);
     font-size: 0.85rem;
     line-height: 1.5;
 }
@@ -987,7 +994,7 @@ section {
     }
     .carta{
         width: 375px;
-        height: 560px;
+        height: 500px;
     }
 }
 
