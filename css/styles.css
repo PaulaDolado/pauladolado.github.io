@@ -908,8 +908,11 @@ section {
     display: flex;
     flex-direction: column;
     gap: 0.4rem;
-    padding: 2.5rem 1.1rem 1.1rem;
-    background: linear-gradient(to top, rgba(16, 12, 9, 0.88) 0%, rgba(16, 12, 9, 0.55) 65%, transparent 100%);
+    padding: 1.1rem;
+    background: rgba(43, 33, 27, 0.62);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-top: 1px solid rgba(244, 241, 229, 0.15);
     pointer-events: none;
 }
 .carta-titulo{
