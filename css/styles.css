@@ -1304,7 +1304,7 @@ section {
     background: var(--surface-hover);
 }
 #contact-form .send{
-    width: calc(100% - 10px);
+    width: 100%;
     margin: 5px;
     padding: 1rem;
     background: var(--accent);
