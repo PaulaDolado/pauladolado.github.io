@@ -908,12 +908,28 @@ section {
     display: flex;
     flex-direction: column;
     gap: 0.4rem;
-    padding: 1.1rem;
-    background: rgba(43, 33, 27, 0.62);
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
-    border-top: 1px solid rgba(244, 241, 229, 0.15);
+    padding: 1.25rem;
+    background: rgba(20, 15, 12, 0.82);
+    backdrop-filter: blur(14px) saturate(1.1);
+    -webkit-backdrop-filter: blur(14px) saturate(1.1);
+    border-top: 1px solid rgba(244, 241, 229, 0.1);
     pointer-events: none;
+}
+/* En ratón/trackpad, la información queda oculta por defecto (se ve
+   solo el vídeo/miniatura, más limpio) y aparece al pasar el cursor o
+   al enfocar la tarjeta con teclado. En pantallas táctiles, sin hover,
+   se mantiene siempre visible. */
+@media (hover: hover) and (pointer: fine) {
+    .carta-info{
+        opacity: 0;
+        transform: translateY(10px);
+        transition: opacity 0.35s var(--ease), transform 0.35s var(--ease);
+    }
+    .carta:hover .carta-info,
+    .carta:focus-visible .carta-info{
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 .carta-titulo{
     color: var(--on-accent);
@@ -923,7 +939,7 @@ section {
     letter-spacing: 0.02em;
 }
 .carta-descripcion{
-    color: rgba(244, 241, 229, 0.85);
+    color: rgba(244, 241, 229, 0.78);
     font-size: 0.85rem;
     line-height: 1.5;
 }
@@ -932,6 +948,11 @@ section {
     flex-wrap: wrap;
     gap: 0.375rem;
     margin-top: 0.25rem;
+}
+.carta-tags .tech-tag{
+    background: rgba(244, 241, 229, 0.1);
+    color: rgba(244, 241, 229, 0.9);
+    border-color: rgba(244, 241, 229, 0.22);
 }
 .titulo-proyecto{
     margin-top: 5px;
