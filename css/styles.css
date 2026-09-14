@@ -457,7 +457,9 @@ section {
     align-items: center;
     background: var(--bg-secondary);
     overflow: hidden;
-    padding: 1rem;
+    /* padding-top deja hueco para el nav fijo (.nav-container), que si no
+       se solapa con el título al desplazarse a esta sección */
+    padding: 6rem 1rem 1rem;
 }
 
 .container{
@@ -959,6 +961,11 @@ section {
 }
 .contador-proyecto{
     position: absolute;
+    /* top deja hueco para el nav fijo (.nav-container): la sección
+       "proyecto" queda pineada por ScrollTrigger con su borde superior
+       pegado al del viewport, así que sin esto el "<PD/>" del nav se
+       solapa con el título "Proyectos" */
+    top: 4.5rem;
     display: flex;
     flex-direction: column;
     margin: 2em;
@@ -1004,6 +1011,8 @@ section {
         width: 100%;
     }
     .contador-proyecto{
+        /* En móvil el nav fijo es más bajo (solo la barra con el hamburguesa) */
+        top: 4rem;
         margin: 5px;
         max-width: calc(100% - 10px);
     }
