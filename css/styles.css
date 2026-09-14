@@ -1032,6 +1032,27 @@ section {
         margin-left: -187.5px;
     }
 }
+/* Portátiles con poca altura de viewport (pantalla ancha tipo laptop,
+   ~1366x768 o similar): con los tamaños de escritorio, el título
+   "Proyectos" queda muy abajo y las tarjetas del carrusel llegan a
+   taparlo. Se reduce el título y las tarjetas para dejar hueco. */
+@media (min-width: 901px) and (max-height: 820px){
+    .contador-proyecto{
+        top: 3.2rem;
+    }
+    .contador-proyecto h1{
+        font-size: 95px;
+    }
+    .cartas{
+        top: 34%;
+        height: 480px;
+    }
+    .carta{
+        width: 380px;
+        height: 420px;
+        margin-left: -190px;
+    }
+}
 
 /*Seccion experiencia*/
 .trabajo{
