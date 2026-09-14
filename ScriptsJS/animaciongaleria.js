@@ -31,8 +31,11 @@ document.addEventListener("DOMContentLoaded",()=>{
 
     function posicionCartas(progress=0){
         const radio=getRadio();
-        const totalViaje = 1 + totalcartas/7.5;
-        const procesoActual = (progress * totalViaje -1)*0.75;
+        // procesoActual se calcula para que la primera carta quede centrada
+        // (visible) justo al entrar en la sección (progress=0) y la última
+        // quede centrada al terminar el recorrido (progress=1), en vez de
+        // arrancar con todo el carrusel fuera de pantalla.
+        const procesoActual = progress * (totalcartas - 1) / totalcartas + (1 / totalcartas - 0.5);
 
         cartas.forEach((carta, i) =>{
             const procesoNorm = (totalcartas -1 -i)/totalcartas;
