@@ -1043,6 +1043,13 @@ section {
     .contador-proyecto h1{
         font-size: 95px;
     }
+    .contador{
+        /* La ventana del contador debe medir lo mismo que una línea de
+           texto (font-size de arriba); si no, se cuela el número
+           siguiente por debajo. */
+        top: -40px;
+        height: 95px;
+    }
     .cartas{
         top: 34%;
         height: 480px;
