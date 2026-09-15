@@ -55,6 +55,16 @@ document.addEventListener("DOMContentLoaded",()=>{
     }
     posicionCartas(0);
     let IndexAct=0;
+    // Distancia (px) entre un número y el siguiente dentro del contador.
+    // Antes iba fija a 150, pero eso solo coincide con el font-size:150px
+    // de escritorio: en los breakpoints donde se reduce el tamaño de letra
+    // (móvil, portátiles de poca altura) el paso real es menor y el
+    // contador terminaba mostrando dos números a la vez. Se mide en cada
+    // momento la altura real de un dígito.
+    const getPasoContador= ()=>{
+        const primerNumero= ContenedorContador.querySelector('h1');
+        return primerNumero ? primerNumero.getBoundingClientRect().height : 150;
+    };
     const opciones={
         root:null,
         rootMargin: "0% 0%",
@@ -66,7 +76,8 @@ document.addEventListener("DOMContentLoaded",()=>{
                 lastScrollY=window.scrollY;
                 let Index = Array.from(cartas).indexOf(entrada.target);
                 IndexAct= Index;
-                const targetY= 150 - IndexAct * 150;
+                const pasoContador= getPasoContador();
+                const targetY= pasoContador - IndexAct * pasoContador;
                 gsap.to(ContenedorContador,{
                     y: targetY,
                     duration: 0.3,
