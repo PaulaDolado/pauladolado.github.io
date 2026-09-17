@@ -8,14 +8,14 @@
 //     <source src="videos/proyecto-1.mp4" type="video/mp4">
 //   </video>
 // En cuanto haya un <source> con "src", este script detecta el vídeo
-// automáticamente y oculta el aviso "PRÓXIMAMENTE".
+// automáticamente y oculta el hueco en blanco (.carta-placeholder).
 document.addEventListener('DOMContentLoaded', function () {
     const videos = document.querySelectorAll('.carta-video');
 
     videos.forEach((video) => {
         const source = video.querySelector('source[src]');
         if (!source || !source.getAttribute('src')) {
-            return; // Sin vídeo todavía: se queda el aviso "PRÓXIMAMENTE".
+            return; // Sin vídeo todavía: se queda el hueco en blanco.
         }
 
         const contenedor = video.closest('.carta-img');
