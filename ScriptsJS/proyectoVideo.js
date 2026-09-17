@@ -26,7 +26,8 @@ document.addEventListener('DOMContentLoaded', function () {
                 if (entrada.isIntersecting) {
                     video.play().catch(() => {
                         // Algunos navegadores bloquean el autoplay; no pasa nada,
-                        // el usuario puede reproducirlo pulsando la tarjeta.
+                        // simplemente no se reproduce hasta que el usuario
+                        // interactúe con la página.
                     });
                 } else {
                     video.pause();
@@ -34,11 +35,5 @@ document.addEventListener('DOMContentLoaded', function () {
             });
         }, { threshold: 0.5 });
         observer.observe(video);
-    });
-
-    // Los enlaces de proyecto son placeholders (href="#") hasta que se
-    // añada la URL real de cada proyecto; evita el salto a inicio mientras.
-    document.querySelectorAll('a.carta[href="#"]').forEach((enlace) => {
-        enlace.addEventListener('click', (e) => e.preventDefault());
     });
 });
