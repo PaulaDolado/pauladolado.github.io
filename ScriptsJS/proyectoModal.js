@@ -13,8 +13,8 @@ document.addEventListener('DOMContentLoaded', function () {
             kicker: 'Proyecto 01',
             titulo: 'Company Stock',
             descripcion: [
-                'Dashboard de gestión de stock pensado para centralizar las solicitudes de material y la reposición interna de una empresa, sustituyendo hojas de cálculo y correos sueltos por un flujo único y trazable.',
-                'Incluye gestión de proveedores y pedidos, control de roles por perfil de usuario y un flujo de aprobación completo: cada solicitud pasa por los estados correspondientes hasta quedar resuelta, con permisos distintos para quien solicita, quien aprueba y quien gestiona el catálogo.'
+                'Dashboard de gestión de stock construido con React 19, Vite y TanStack Query. Cada solicitud de material o reposición interna recorre una máquina de estados propia (Pendiente → Aprobada → Derivada a compra → Enviado → En tránsito → Entregado, con Rechazado y Cancelado como salidas alternativas), repartiéndose entre varios proveedores y generando sus pedidos automáticamente al derivarse a compra.',
+                'Los permisos están segmentados por rol: quien solicita solo ve sus propias solicitudes, mientras que gestión y administración controlan proveedores, pedidos y catálogo, y reciben notificaciones con cada solicitud nueva o derivación a compra. Toda la capa de datos pasa por una API cliente que en esta demo persiste en localStorage en vez de contra un backend real, así que el resto de la aplicación —hooks, páginas y formularios validados con React Hook Form y Zod— no sabe ni le importa de dónde vienen los datos.'
             ],
             stack: ['React', 'TanStack Query', 'Tailwind CSS'],
             enlaces: [
