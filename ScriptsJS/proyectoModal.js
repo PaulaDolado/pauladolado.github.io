@@ -26,12 +26,13 @@ document.addEventListener('DOMContentLoaded', function () {
             kicker: 'Proyecto 02',
             titulo: 'Tidely',
             descripcion: [
-                'API REST de organización personal que centraliza agenda, metas, finanzas y proyectos en un único sitio, con notificaciones automáticas para no perder de vista fechas ni tareas pendientes.',
-                'Este dashboard web es uno de los tres clientes del mismo backend: hay además una aplicación de escritorio y una app móvil offline en desarrollo, pensadas para que la información se mantenga sincronizada sea cual sea el dispositivo que uses.'
+                'API REST construida en Node.js/TypeScript con Express y Prisma sobre PostgreSQL, con autenticación JWT (access + refresh) y documentada con Swagger/OpenAPI. Centraliza cinco módulos —agenda, metas, finanzas, proyectos y hábitos— con eventos recurrentes reales, notificaciones automáticas (recordatorios y alertas de metas en riesgo) y zona horaria propia por usuario; todo cubierto por 189 tests unitarios y de integración con Jest.',
+                'El backend sirve tres clientes: este dashboard en React, una app móvil en Expo/React Native offline-first y una integración de solo lectura con Google Calendar. El móvil replica en SQLite el subconjunto de uso diario (eventos, tareas, hábitos, notas) y sincroniza contra el backend mediante GET /sync/pull y POST /sync/push, resolviendo borrados con tombstones y conflictos con last-write-wins, así que funciona igual con o sin conexión.'
             ],
             stack: ['Node.js', 'Express', 'PostgreSQL'],
             enlaces: [
-                { texto: 'Ver proyecto', url: 'https://pauladolado.github.io/Tidely/' }
+                { texto: 'Ver proyecto', url: 'https://pauladolado.github.io/Tidely/' },
+                { texto: 'Código en GitHub', url: 'https://github.com/PaulaDolado/Tidely' }
             ]
         },
         'proyecto-iii': {
