@@ -989,6 +989,12 @@ section {
 }
 /* Modal "Más información" de cada proyecto */
 .proyecto-modal{
+    /* El reset global "*{margin:0}" anula el margin:auto con el que el
+       navegador centra un <dialog> por defecto; se restaura aquí junto
+       con position/inset para que quede siempre en medio de la pantalla. */
+    position: fixed;
+    inset: 0;
+    margin: auto;
     max-width: min(560px, calc(100vw - 2.5rem));
     width: 100%;
     max-height: min(640px, calc(100vh - 3rem));
