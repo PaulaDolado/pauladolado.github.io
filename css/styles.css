@@ -886,18 +886,7 @@ section {
 }
 .carta-placeholder{
     flex: 1;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    background:
-        linear-gradient(var(--border) 1px, transparent 1px),
-        linear-gradient(90deg, var(--border) 1px, transparent 1px);
-    background-size: 24px 24px;
-    font-family: var(--font-mono);
-    font-size: 0.75rem;
-    letter-spacing: 0.25em;
-    color: var(--text-muted);
+    background: var(--bg-elevated);
 }
 /* Información del proyecto: superpuesta sobre el vídeo/miniatura (no
    suma alto a la tarjeta, así no se recorta en pantallas bajas donde
