@@ -1005,7 +1005,7 @@ section {
     position: fixed;
     inset: 0;
     margin: auto;
-    max-width: min(760px, calc(100vw - 2.5rem));
+    max-width: min(920px, calc(100vw - 2.5rem));
     width: 100%;
     max-height: min(640px, calc(100vh - 3rem));
     padding: 0;
@@ -1060,7 +1060,7 @@ section {
         flex: 1;
     }
     .proyecto-modal-media{
-        width: 220px;
+        width: 260px;
         min-height: 0;
     }
 }
@@ -1114,6 +1114,8 @@ section {
     color: var(--text-secondary);
     font-size: 0.9rem;
     line-height: 1.6;
+    text-align: justify;
+    hyphens: auto;
     overflow-y: auto;
 }
 .proyecto-modal-enlaces{
