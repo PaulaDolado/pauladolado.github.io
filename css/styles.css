@@ -884,6 +884,32 @@ section {
     border-radius: 50%;
     background: var(--border-accent);
 }
+/* Botón "+" de "más información": vive en la topbar (siempre visible,
+   sin depender del hover que oculta .carta-info) empujado al extremo
+   derecho de la barra. */
+.carta-topbar-mas{
+    margin-left: auto;
+    width: 22px;
+    height: 22px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    border: 1px solid var(--border-accent);
+    background: transparent;
+    color: var(--text-muted);
+    font-family: var(--font-mono);
+    font-size: 0.95rem;
+    line-height: 1;
+    cursor: none;
+    transition: all 0.25s var(--ease);
+}
+.carta-topbar-mas:hover,
+.carta-topbar-mas:focus-visible{
+    background: var(--accent);
+    border-color: var(--accent);
+    color: var(--on-accent);
+}
 .carta-placeholder{
     flex: 1;
     background: var(--bg-elevated);
@@ -945,12 +971,6 @@ section {
     color: rgba(244, 241, 229, 0.9);
     border-color: rgba(244, 241, 229, 0.22);
 }
-.carta-acciones{
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.5rem;
-    margin-top: 0.5rem;
-}
 .carta-btn{
     display: inline-flex;
     align-items: center;
@@ -966,16 +986,6 @@ section {
     cursor: none;
     border: 1px solid transparent;
     transition: all 0.25s var(--ease);
-}
-.carta-btn-info{
-    background: var(--accent);
-    color: var(--on-accent);
-    border-color: var(--accent);
-}
-.carta-btn-info:hover,
-.carta-btn-info:focus-visible{
-    background: var(--accent-light);
-    border-color: var(--accent-light);
 }
 .carta-btn-link{
     background: rgba(244, 241, 229, 0.08);
@@ -995,7 +1005,7 @@ section {
     position: fixed;
     inset: 0;
     margin: auto;
-    max-width: min(560px, calc(100vw - 2.5rem));
+    max-width: min(760px, calc(100vw - 2.5rem));
     width: 100%;
     max-height: min(640px, calc(100vh - 3rem));
     padding: 0;
@@ -1019,9 +1029,40 @@ section {
 .proyecto-modal-contenido{
     position: relative;
     padding: 2rem 1.75rem 1.75rem;
+}
+.proyecto-modal-cuerpo{
+    display: flex;
+    flex-direction: column-reverse;
+    gap: 1.25rem;
+}
+.proyecto-modal-texto{
     display: flex;
     flex-direction: column;
     gap: 0.85rem;
+    min-width: 0;
+}
+/* Hueco reservado para el vídeo del proyecto (todavía sin implementar):
+   de momento es un panel vacío, solo para que el hueco quede reservado
+   en el layout y no haya que rehacerlo cuando se añada el vídeo. */
+.proyecto-modal-media{
+    flex-shrink: 0;
+    min-height: 140px;
+    border-radius: var(--radius-md);
+    background: var(--bg-secondary);
+    border: 1px solid var(--border);
+}
+@media (min-width: 640px){
+    .proyecto-modal-cuerpo{
+        flex-direction: row;
+        align-items: stretch;
+    }
+    .proyecto-modal-texto{
+        flex: 1;
+    }
+    .proyecto-modal-media{
+        width: 220px;
+        min-height: 0;
+    }
 }
 .proyecto-modal-cerrar{
     position: absolute;
