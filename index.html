@@ -200,7 +200,7 @@
       </div>
     </div>
     <div class="cartas">
-      <a class="carta" href="https://pauladolado.github.io/Company-Stock/login" target="_blank" rel="noopener noreferrer" aria-label="Ver proyecto: Company Stock">
+      <article class="carta" data-proyecto="company-stock">
         <div class="carta-img">
           <div class="carta-topbar" aria-hidden="true"><span></span><span></span><span></span></div>
           <video class="carta-video" muted loop playsinline preload="none"></video>
@@ -213,10 +213,14 @@
               <span class="tech-tag">TanStack Query</span>
               <span class="tech-tag">Tailwind CSS</span>
             </div>
+            <div class="carta-acciones">
+              <button type="button" class="carta-btn carta-btn-info" data-abrir-modal="company-stock">Más información</button>
+              <a class="carta-btn carta-btn-link" href="https://pauladolado.github.io/Company-Stock/login" target="_blank" rel="noopener noreferrer">Ver proyecto<span aria-hidden="true"> ↗</span></a>
+            </div>
           </div>
         </div>
-      </a>
-      <a class="carta" href="https://pauladolado.github.io/Tidely/" target="_blank" rel="noopener noreferrer" aria-label="Ver proyecto: Tidely">
+      </article>
+      <article class="carta" data-proyecto="tidely">
         <div class="carta-img">
           <div class="carta-topbar" aria-hidden="true"><span></span><span></span><span></span></div>
           <video class="carta-video" muted loop playsinline preload="none"></video>
@@ -229,10 +233,14 @@
               <span class="tech-tag">Express</span>
               <span class="tech-tag">PostgreSQL</span>
             </div>
+            <div class="carta-acciones">
+              <button type="button" class="carta-btn carta-btn-info" data-abrir-modal="tidely">Más información</button>
+              <a class="carta-btn carta-btn-link" href="https://pauladolado.github.io/Tidely/" target="_blank" rel="noopener noreferrer">Ver proyecto<span aria-hidden="true"> ↗</span></a>
+            </div>
           </div>
         </div>
-      </a>
-      <a class="carta" href="#" target="_blank" rel="noopener noreferrer" aria-label="Ver proyecto: Proyecto III (próximamente)">
+      </article>
+      <article class="carta" data-proyecto="proyecto-iii">
         <div class="carta-img">
           <div class="carta-topbar" aria-hidden="true"><span></span><span></span><span></span></div>
           <video class="carta-video" muted loop playsinline preload="none"></video>
@@ -241,10 +249,13 @@
             <h3 class="carta-titulo">Proyecto III</h3>
             <p class="carta-descripcion">Descripción breve del proyecto: qué es, qué resuelve y qué papel tuviste tú.</p>
             <div class="carta-tags"><span class="tech-tag">Tecnologías</span></div>
+            <div class="carta-acciones">
+              <button type="button" class="carta-btn carta-btn-info" data-abrir-modal="proyecto-iii">Más información</button>
+            </div>
           </div>
         </div>
-      </a>
-      <a class="carta" href="#" target="_blank" rel="noopener noreferrer" aria-label="Ver proyecto: Proyecto IV (próximamente)">
+      </article>
+      <article class="carta" data-proyecto="proyecto-iv">
         <div class="carta-img">
           <div class="carta-topbar" aria-hidden="true"><span></span><span></span><span></span></div>
           <video class="carta-video" muted loop playsinline preload="none"></video>
@@ -253,9 +264,12 @@
             <h3 class="carta-titulo">Proyecto IV</h3>
             <p class="carta-descripcion">Descripción breve del proyecto: qué es, qué resuelve y qué papel tuviste tú.</p>
             <div class="carta-tags"><span class="tech-tag">Tecnologías</span></div>
+            <div class="carta-acciones">
+              <button type="button" class="carta-btn carta-btn-info" data-abrir-modal="proyecto-iv">Más información</button>
+            </div>
           </div>
         </div>
-      </a>
+      </article>
       <div class="carta empty"></div>
     </div>
   </section>
@@ -362,6 +376,17 @@
     <p class="footer-note">© 2026 Paula Dolado Aynié</p>
   </section>
   
+  <dialog id="proyecto-modal" class="proyecto-modal" aria-labelledby="pm-titulo">
+    <form method="dialog" class="proyecto-modal-contenido">
+      <button type="submit" class="proyecto-modal-cerrar" aria-label="Cerrar">✕</button>
+      <p id="pm-kicker" class="proyecto-modal-kicker"></p>
+      <h3 id="pm-titulo" class="proyecto-modal-titulo"></h3>
+      <p id="pm-descripcion" class="proyecto-modal-descripcion"></p>
+      <div id="pm-stack" class="proyecto-modal-stack"></div>
+      <div id="pm-enlaces" class="proyecto-modal-enlaces"></div>
+    </form>
+  </dialog>
+
   <div class="cursor-punto" data-punto></div>
   <div class="cursor-linia" data-linia></div>
   <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/gsap.min.js"></script>
@@ -371,6 +396,7 @@
   <script src="script.js"></script>
   <script src="ScriptsJS/animaciongaleria.js"></script>
   <script src="ScriptsJS/proyectoVideo.js"></script>
+  <script src="ScriptsJS/proyectoModal.js"></script>
   <script src="ScriptsJS/animacionMaqEscrib.js"></script>
   <script src="ScriptsJS/menu.js"></script>
   <script src="ScriptsJS/skillsToggle.js"></script>
