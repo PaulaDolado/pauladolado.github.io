@@ -36,12 +36,19 @@ document.addEventListener('DOMContentLoaded', function () {
                 { texto: 'Código en GitHub', url: 'https://github.com/PaulaDolado/Tidely' }
             ]
         },
-        'proyecto-iii': {
-            kicker: 'Próximamente',
-            titulo: 'Proyecto III',
-            descripcion: ['Este proyecto todavía está en marcha. En cuanto esté listo, aquí aparecerá su descripción completa, el papel que tuve en él y un enlace para verlo en directo.'],
-            stack: ['Tecnologías'],
-            enlaces: []
+        integra: {
+            kicker: 'Proyecto 03',
+            titulo: 'Integra',
+            descripcion: [
+                'Portal del empleado construido con React 18, TypeScript, Vite y shadcn/ui sobre Supabase (PostgreSQL, Auth, Storage y Realtime). Cada persona gestiona su día a día desde un solo sitio: fichajes de entrada y salida, solicitudes de ausencia con justificante, cambios e intercambios de turno, un tablero kanban de tareas en tiempo real, calendario, tickets al estilo GLPI, tablón de anuncios, organigrama y chat interno con indicador de presencia.',
+                'Los departamentos funcionan como roles: RRHH, Dirección, Finanzas y Tecnología tienen sus propias pantallas de gestión (bandejas de aprobación, empleados, tickets, fichajes con exportación a CSV y correcciones auditadas, datos de pago), y los permisos se configuran en base de datos sin tocar código. El frontend solo decide qué mostrar; quien decide de verdad son las políticas Row Level Security, que vuelven a comprobar cada permiso en el servidor.',
+                'La seguridad es parte del diseño: doble factor TOTP que bloquea los datos hasta verificarse, datos sensibles servidos mediante funciones SECURITY DEFINER (el IBAN llega enmascarado y cada consulta completa queda registrada), Content Security Policy inyectada en el build, adjuntos en buckets privados con URLs firmadas y tests con Vitest y Testing Library que se ejecutan antes de cada despliegue a GitHub Pages.'
+            ],
+            stack: ['React', 'TypeScript', 'Supabase'],
+            enlaces: [
+                { texto: 'Ver proyecto', url: 'https://pauladolado.github.io/Integra/login' },
+                { texto: 'Código en GitHub', url: 'https://github.com/PaulaDolado/Integra' }
+            ]
         },
         'proyecto-iv': {
             kicker: 'Próximamente',
