@@ -1,8 +1,20 @@
-# pauladolado.github.io
+<div align="center">
 
-Portfolio personal de **Paula Dolado Aynié** — Desarrolladora Full Stack e Ingeniera Informática.
+# 👩‍💻 Paula Dolado Aynié
 
-🔗 **Sitio en vivo:** https://pauladolado.github.io
+**Portfolio personal: Desarrolladora Full Stack e Ingeniera Informática. Proyectos, experiencia y contacto en una sola página.**
+
+[![Deploy](https://github.com/PaulaDolado/pauladolado.github.io/actions/workflows/pages/pages-build-deployment/badge.svg)](https://github.com/PaulaDolado/pauladolado.github.io/actions/workflows/pages/pages-build-deployment)
+![HTML5](https://img.shields.io/badge/HTML5-E34F26?logo=html5&logoColor=white)
+![CSS3](https://img.shields.io/badge/CSS3-1572B6?logo=css3&logoColor=white)
+![JavaScript](https://img.shields.io/badge/JavaScript-ES6-F7DF1E?logo=javascript&logoColor=black)
+![GSAP](https://img.shields.io/badge/GSAP-3-88CE02?logo=greensock&logoColor=white)
+
+[**🔗 Sitio en vivo**](https://pauladolado.github.io/)
+
+<img src="img/miniatura.png" alt="Vista previa del portfolio de Paula Dolado Aynié" width="720" />
+
+</div>
 
 ## Contenido
 
@@ -36,6 +48,8 @@ Todas las librerías se cargan desde CDN (jsDelivr) directamente en [`index.html
 │   ├── animacionMaqEscrib.js# Efecto máquina de escribir
 │   ├── formulario.js        # Lógica del formulario de contacto
 │   ├── menu.js              # Menú de navegación (móvil y scroll activo)
+│   ├── proyectoModal.js     # Modal «Más información» de cada proyecto
+│   ├── proyectoVideo.js     # Vídeo de vista previa en las tarjetas de proyecto
 │   └── skillsToggle.js      # Toggle de habilidades técnicas
 ├── img/                     # Imágenes e iconos
 └── docs/
