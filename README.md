@@ -1,6 +1,6 @@
 <div align="center">
 
-# 👩‍💻 Paula Dolado Aynié
+# Paula Dolado Aynié
 
 **Portfolio personal: Desarrolladora Full Stack e Ingeniera Informática. Proyectos, experiencia y contacto en una sola página.**
 
