@@ -50,12 +50,19 @@ document.addEventListener('DOMContentLoaded', function () {
                 { texto: 'Código en GitHub', url: 'https://github.com/PaulaDolado/Integra' }
             ]
         },
-        'proyecto-iv': {
-            kicker: 'Próximamente',
-            titulo: 'Proyecto IV',
-            descripcion: ['Este proyecto todavía está en marcha. En cuanto esté listo, aquí aparecerá su descripción completa, el papel que tuve en él y un enlace para verlo en directo.'],
-            stack: ['Tecnologías'],
-            enlaces: []
+        'el-candil': {
+            kicker: 'Proyecto 04',
+            titulo: 'El Candil',
+            descripcion: [
+                'Web del restaurante El Candil, planteada en dos etapas. La primera, ya publicada, es una página estática en HTML, CSS y JavaScript sin build ni dependencias: la carta se consulta abriendo las carpetas de un archivador, una por sección (menú del día, entrantes, carnes, pescados, postres, menú infantil y bebidas), con precios, etiquetas y alérgenos de cada plato, todo generado desde un único archivo de datos.',
+                'La reserva de mesa solo ofrece las horas con sitio y la guarda en Supabase, donde funciones de PostgreSQL con Row Level Security vuelven a comprobar el aforo en el momento de reservar. Con la reserva confirmada, el cliente puede añadirla a su calendario y recibir el comprobante por WhatsApp desde el número del restaurante mediante una Edge Function que llama a la API de WhatsApp Business. Si Supabase no está disponible, la reserva se envía directamente al WhatsApp del local.',
+                'La segunda etapa, pendiente, convertirá la web en un punto de pedido desde la propia mesa: el comensal indicará la mesa en la que está sentado y podrá hacer su pedido desde el móvil.'
+            ],
+            stack: ['HTML', 'JavaScript', 'Supabase'],
+            enlaces: [
+                { texto: 'Ver proyecto', url: 'https://pauladolado.github.io/El-Candil/' },
+                { texto: 'Código en GitHub', url: 'https://github.com/PaulaDolado/El-Candil' }
+            ]
         }
     };
 
