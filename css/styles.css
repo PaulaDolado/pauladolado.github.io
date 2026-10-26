@@ -1203,8 +1203,11 @@ body.modal-abierto .cursor-linia{
     color: var(--text-primary);
     font-weight: 600;
 }
+/* Tarjeta invisible de relleno al final del carrusel: no debe tapar
+   los clics (el botón "+") de las tarjetas que tiene debajo. */
 .empty{
     opacity: 0;
+    pointer-events: none;
 }
 @media(max-width:900px){
     .titulo-proyecto, .contador  {

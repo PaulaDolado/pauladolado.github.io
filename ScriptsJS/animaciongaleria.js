@@ -11,18 +11,8 @@ document.addEventListener("DOMContentLoaded",()=>{
     const stickyHeight= window.innerHeight * 7;
     const cartas= document.querySelectorAll(".carta");
     const ContenedorContador= document.querySelector(".contenedor-contador");
-    const totalcartas= cartas.length ; 
-    
-    ScrollTrigger.create({
-        trigger: stickySection,
-        start:"top top",
-        end:`+=${stickyHeight}px`,
-        pin: true,
-        pinSpacing: true,
-        onUpdate: (self)=>{
-            posicionCartas(self.progress);
-        },
-    });
+    const totalcartas= cartas.length ;
+
     const getRadio=()=>{
         return window.innerWidth<900 ? window.innerWidth * 7.5: window.innerWidth*2.5;
     };
@@ -53,6 +43,20 @@ document.addEventListener("DOMContentLoaded",()=>{
             });
         });
     }
+    // Se crea después de getRadio/posicionCartas: si la página se recarga
+    // con el scroll dentro de la sección, ScrollTrigger llama a onUpdate
+    // al crearse y getRadio todavía no existiría (ReferenceError), con lo
+    // que las tarjetas se quedaban apiladas sin colocar.
+    ScrollTrigger.create({
+        trigger: stickySection,
+        start:"top top",
+        end:`+=${stickyHeight}px`,
+        pin: true,
+        pinSpacing: true,
+        onUpdate: (self)=>{
+            posicionCartas(self.progress);
+        },
+    });
     posicionCartas(0);
     let IndexAct=0;
     // Distancia (px) entre un número y el siguiente dentro del contador.
