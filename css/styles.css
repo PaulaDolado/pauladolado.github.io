@@ -1203,6 +1203,42 @@ body.modal-abierto .cursor-linia{
     color: var(--text-primary);
     font-weight: 600;
 }
+/* Enlace a la página de otros posts: arriba a la derecha, a la altura
+   del título "Proyectos", con el mismo estilo que el botón del CV */
+.proyecto-otros{
+    position: absolute;
+    top: 6.5rem;
+    right: 2em;
+    z-index: 5;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 12px 24px;
+    border: 1px solid var(--border);
+    border-radius: var(--radius-sm);
+    background: var(--bg-elevated);
+    color: var(--text-primary);
+    font-family: var(--font-mono);
+    font-size: 0.9rem;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    text-decoration: none;
+    cursor: none;
+    transition: all 0.3s var(--ease);
+}
+.proyecto-otros span{
+    transition: transform 0.3s var(--ease);
+}
+.proyecto-otros:hover,
+.proyecto-otros:focus-visible{
+    border-color: var(--accent-light);
+    color: var(--accent-light);
+    background: var(--surface-hover);
+}
+.proyecto-otros:hover span,
+.proyecto-otros:focus-visible span{
+    transform: translateX(4px);
+}
 /* Tarjeta invisible de relleno al final del carrusel: no debe tapar
    los clics (el botón "+") de las tarjetas que tiene debajo. */
 .empty{
@@ -1233,6 +1269,15 @@ body.modal-abierto .cursor-linia{
         width: 375px;
         height: 500px;
         margin-left: -187.5px;
+    }
+    /* En móvil el título ocupa todo el ancho: el enlace baja al pie
+       de la sección, centrado bajo el carrusel */
+    .proyecto-otros{
+        top: auto;
+        right: auto;
+        bottom: 1.5rem;
+        left: 50%;
+        transform: translateX(-50%);
     }
 }
 /* Portátiles con poca altura de viewport (pantalla ancha tipo laptop,
@@ -1749,7 +1794,7 @@ body.modal-abierto .cursor-linia{
     .cursor-punto, .cursor-linia{
         display: none;
     }
-    html, body, .nav-link, .hamburger, .btn button, .lkn, .send, .iconos, #proyectos-button, #cv, .skills-terminal, .carta{
+    html, body, .nav-link, .hamburger, .btn button, .lkn, .send, .iconos, #proyectos-button, #cv, .skills-terminal, .carta, .proyecto-otros{
         cursor: auto;
     }
 }

@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Automatización de facturas con n8n — Paula Dolado Aynié</title>
+  <meta name="description" content="Cómo funciona un flujo de n8n que automatiza el tratamiento de facturas, explicado paso a paso y con capturas." />
+  <meta name="theme-color" content="#f7f1e5" />
+  <meta property="og:type" content="article" />
+  <meta property="og:title" content="Automatización de facturas con n8n — Paula Dolado Aynié" />
+  <meta property="og:description" content="Cómo funciona un flujo de n8n que automatiza el tratamiento de facturas, explicado paso a paso y con capturas." />
+  <meta property="og:image" content="../img/cara.png" />
+  <link rel="icon" href="../favicon.ico" sizes="any" />
+  <link rel="icon" type="image/svg+xml" href="../img/favicon.svg" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..900;1,6..96,400..900&family=Inter:ital,wght@0,300..800;1,300..800&display=swap" />
+  <link rel="stylesheet" href="../css/styles.css" />
+  <link rel="stylesheet" href="../css/posts.css" />
+</head>
+<body>
+  <nav class="nav-container">
+    <div class="nav-wrapper">
+      <div class="nav-logo">
+         <a href="../index.html" aria-label="Paula Dolado — Inicio"><span class="bracket">&lt;</span>PD<span class="bracket">/&gt;</span></a>
+      </div>
+      <div class="nav-links" id="nav-links">
+        <a href="../index.html#inicio" class="nav-link">
+          <div class="button-label">INICIO</div>
+          <div class="link-bg"></div>
+        </a>
+        <a href="../index.html#acercademi" class="nav-link">
+          <div class="button-label">ACERCA DE MI</div>
+          <div class="link-bg"></div>
+        </a>
+        <a href="../index.html#proyectos" class="nav-link active">
+          <div class="button-label">PROYECTOS</div>
+          <div class="link-bg"></div>
+        </a>
+        <a href="../index.html#experiencia" class="nav-link">
+          <div class="button-label">EXPERIENCIA</div>
+          <div class="link-bg"></div>
+        </a>
+        <a href="../index.html#contacto" class="nav-link">
+          <div class="button-label">CONTACTO</div>
+          <div class="link-bg"></div>
+        </a>
+      </div>
+      <button type="button" class="hamburger" aria-label="Abrir menú" aria-expanded="false" aria-controls="nav-links">
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </nav>
+
+  <main class="posts-main">
+    <header class="posts-cabecera">
+      <a href="../otros-posts.html" class="posts-volver"><span aria-hidden="true">←</span> Otros posts</a>
+      <p class="section-kicker">// automatización</p>
+      <h1 class="posts-titulo posts-titulo--post">Automatización de facturas con n8n</h1>
+      <div class="post-meta">
+        <div class="post-tags">
+          <span class="tech-tag">n8n</span>
+          <span class="tech-tag">Automatización</span>
+        </div>
+      </div>
+    </header>
+
+    <!-- BORRADOR: sustituye los textos entre [corchetes] por tu
+         explicación y cada <div class="post-captura-pendiente"> por la
+         captura real. Guarda las imágenes en img/posts/n8n-facturas/ y
+         usa este formato (el enlace abre la captura a tamaño completo):
+
+         <figure class="post-captura">
+           <a href="../img/posts/n8n-facturas/01-flujo.png" target="_blank" rel="noopener">
+             <img src="../img/posts/n8n-facturas/01-flujo.png" alt="Descripción de la captura" loading="lazy" />
+           </a>
+           <figcaption>Pie de foto</figcaption>
+         </figure>
+    -->
+    <article class="post-cuerpo">
+      <h2>El problema</h2>
+      <p>[Qué se hacía a mano antes: de dónde llegaban las facturas, quién las procesaba, cuánto tiempo llevaba y qué errores había.]</p>
+
+      <h2>El flujo</h2>
+      <p>[Resumen en una o dos frases de lo que hace el flujo de principio a fin.]</p>
+      <figure class="post-captura">
+        <div class="post-captura-pendiente">Captura: vista general del flujo en n8n</div>
+        <figcaption>Vista general del flujo en n8n.</figcaption>
+      </figure>
+
+      <h2>Paso a paso</h2>
+      <ol>
+        <li><strong>[Disparador]</strong>: [qué inicia el flujo, por ejemplo la llegada de un correo con una factura adjunta].</li>
+        <li><strong>[Lectura de la factura]</strong>: [cómo se extraen los datos: proveedor, fecha, importe, número de factura…].</li>
+        <li><strong>[Validación]</strong>: [qué comprobaciones se hacen y qué pasa si algo no cuadra].</li>
+        <li><strong>[Registro]</strong>: [dónde se guardan los datos y el archivo].</li>
+        <li><strong>[Aviso]</strong>: [a quién se notifica y por qué canal].</li>
+      </ol>
+      <figure class="post-captura">
+        <div class="post-captura-pendiente">Captura: configuración de un nodo clave</div>
+        <figcaption>[Pie de foto de la captura.]</figcaption>
+      </figure>
+
+      <h2>Resultado</h2>
+      <p>[Qué se ha conseguido: tiempo ahorrado, errores evitados, volumen de facturas que pasa por el flujo.]</p>
+      <figure class="post-captura">
+        <div class="post-captura-pendiente">Captura: resultado final (registro o notificación)</div>
+        <figcaption>[Pie de foto de la captura.]</figcaption>
+      </figure>
+    </article>
+
+    <footer class="posts-pie">
+      <a href="../otros-posts.html" class="posts-volver"><span aria-hidden="true">←</span> Volver a otros posts</a>
+    </footer>
+  </main>
+
+  <script src="../ScriptsJS/menu.js"></script>
+</body>
+</html>

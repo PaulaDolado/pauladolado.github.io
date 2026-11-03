@@ -1,0 +1,236 @@
+/* Estilos de las páginas de "Otros posts" (otros-posts.html y posts/).
+   Se cargan después de styles.css: reutilizan sus variables, fuentes,
+   nav y etiquetas (.tech-tag, .section-kicker) y solo deshacen lo que
+   es propio de la página principal (cursor personalizado y secciones
+   a pantalla completa). */
+
+html, body{
+    cursor: auto;
+}
+.nav-link, .nav-logo a, .hamburger{
+    cursor: pointer;
+}
+/* Aquí el texto pasa por debajo del nav al hacer scroll: se le da
+   fondo para que no se mezcle con el contenido. Va en un ::before y
+   no en el propio .nav-container porque un backdrop-filter ahí haría
+   de contenedor del panel fijo del menú móvil (.nav-links) y lo
+   dejaría recortado dentro de la barra. */
+.nav-container::before{
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    background: rgba(247, 241, 229, 0.92);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border);
+}
+
+.posts-main{
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 8.5rem 1.5rem 5rem;
+}
+
+/* Cabecera de página */
+.posts-cabecera{
+    margin-bottom: 3rem;
+}
+.posts-volver{
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    margin-bottom: 2rem;
+    color: var(--text-muted);
+    font-family: var(--font-mono);
+    font-size: 0.85rem;
+    text-decoration: none;
+    transition: color 0.25s var(--ease);
+}
+.posts-volver:hover,
+.posts-volver:focus-visible{
+    color: var(--accent);
+}
+.posts-titulo{
+    color: var(--text-primary);
+    font-family: var(--font-impact);
+    font-size: clamp(3rem, 10vw, 6.5rem);
+    font-weight: 700;
+    line-height: 1;
+    letter-spacing: -0.04em;
+    text-transform: uppercase;
+}
+.posts-intro{
+    max-width: 60ch;
+    margin-top: 1.25rem;
+    color: var(--text-secondary);
+    font-size: 1.05rem;
+    line-height: 1.7;
+}
+
+/* Listado de posts */
+.posts-lista{
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 1.5rem;
+    list-style: none;
+}
+.post-tarjeta{
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    overflow: hidden;
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    background: var(--bg-elevated);
+    color: inherit;
+    text-decoration: none;
+    transition: border-color 0.3s var(--ease), transform 0.3s var(--ease), box-shadow 0.3s var(--ease);
+}
+.post-tarjeta:hover,
+.post-tarjeta:focus-visible{
+    border-color: var(--accent);
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-soft);
+}
+.post-tarjeta-topbar{
+    padding: 0.85rem 1rem;
+    border-bottom: 1px solid var(--border);
+    background: var(--bg-secondary);
+    color: var(--text-muted);
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+}
+.post-tarjeta-cuerpo{
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    gap: 0.6rem;
+    padding: 1.25rem;
+}
+.post-tarjeta-titulo{
+    color: var(--text-primary);
+    font-family: var(--font-mono);
+    font-size: 1.05rem;
+    font-weight: 700;
+}
+.post-tarjeta-descripcion{
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+    line-height: 1.6;
+}
+.post-tarjeta-leer{
+    margin-top: auto;
+    padding-top: 0.5rem;
+    color: var(--accent);
+    font-family: var(--font-mono);
+    font-size: 0.85rem;
+    font-weight: 700;
+}
+
+/* Etiquetas (las .tech-tag de styles.css) */
+.post-tags{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+}
+
+/* Página de un post: título algo menor que el del listado, porque
+   suele ser más largo */
+.posts-titulo--post{
+    font-size: clamp(2.4rem, 7vw, 4.5rem);
+}
+.post-meta{
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 1rem;
+    margin-top: 1.25rem;
+}
+.post-cuerpo{
+    max-width: 70ch;
+}
+.post-cuerpo h2{
+    margin: 3rem 0 1rem;
+    color: var(--text-primary);
+    font-family: var(--font-mono);
+    font-size: 1.15rem;
+    font-weight: 700;
+}
+.post-cuerpo p,
+.post-cuerpo li{
+    color: var(--text-secondary);
+    font-size: 1rem;
+    line-height: 1.75;
+}
+.post-cuerpo p + p{
+    margin-top: 1rem;
+}
+.post-cuerpo ol,
+.post-cuerpo ul{
+    display: grid;
+    gap: 0.5rem;
+    padding-left: 1.25rem;
+}
+.post-cuerpo strong{
+    color: var(--text-primary);
+}
+.post-cuerpo code{
+    padding: 0.1em 0.35em;
+    border-radius: var(--radius-sm);
+    background: var(--bg-secondary);
+    font-family: var(--font-mono);
+    font-size: 0.9em;
+}
+
+/* Capturas: ocupan todo el ancho del contenido, con pie de foto.
+   Pulsando una se abre a tamaño completo en una pestaña nueva. */
+.post-captura{
+    margin: 2rem 0;
+}
+.post-captura a{
+    display: block;
+}
+.post-captura img{
+    display: block;
+    width: 100%;
+    height: auto;
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    background: var(--bg-elevated);
+}
+.post-captura figcaption{
+    margin-top: 0.6rem;
+    color: var(--text-muted);
+    font-family: var(--font-mono);
+    font-size: 0.8rem;
+}
+/* Hueco reservado mientras no hay captura: se sustituye por un <img> */
+.post-captura-pendiente{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    aspect-ratio: 16 / 9;
+    padding: 1rem;
+    border: 1px dashed var(--border-accent);
+    border-radius: var(--radius-lg);
+    background: var(--accent-soft);
+    color: var(--text-muted);
+    font-family: var(--font-mono);
+    font-size: 0.8rem;
+    text-align: center;
+}
+
+.posts-pie{
+    margin-top: 4rem;
+    padding-top: 2rem;
+    border-top: 1px solid var(--border);
+}
+
+@media (max-width: 640px){
+    .posts-main{
+        padding-top: 6.5rem;
+    }
+}

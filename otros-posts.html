@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Otros posts — Paula Dolado Aynié</title>
+  <meta name="description" content="Otros trabajos de Paula Dolado Aynié: automatizaciones, pruebas y procesos explicados paso a paso." />
+  <meta name="theme-color" content="#f7f1e5" />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Otros posts — Paula Dolado Aynié" />
+  <meta property="og:description" content="Otros trabajos de Paula Dolado Aynié: automatizaciones, pruebas y procesos explicados paso a paso." />
+  <meta property="og:image" content="img/cara.png" />
+  <link rel="icon" href="favicon.ico" sizes="any" />
+  <link rel="icon" type="image/svg+xml" href="img/favicon.svg" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..900;1,6..96,400..900&family=Inter:ital,wght@0,300..800;1,300..800&display=swap" />
+  <link rel="stylesheet" href="css/styles.css" />
+  <link rel="stylesheet" href="css/posts.css" />
+</head>
+<body>
+  <nav class="nav-container">
+    <div class="nav-wrapper">
+      <div class="nav-logo">
+         <a href="index.html" aria-label="Paula Dolado — Inicio"><span class="bracket">&lt;</span>PD<span class="bracket">/&gt;</span></a>
+      </div>
+      <div class="nav-links" id="nav-links">
+        <a href="index.html#inicio" class="nav-link">
+          <div class="button-label">INICIO</div>
+          <div class="link-bg"></div>
+        </a>
+        <a href="index.html#acercademi" class="nav-link">
+          <div class="button-label">ACERCA DE MI</div>
+          <div class="link-bg"></div>
+        </a>
+        <a href="index.html#proyectos" class="nav-link active">
+          <div class="button-label">PROYECTOS</div>
+          <div class="link-bg"></div>
+        </a>
+        <a href="index.html#experiencia" class="nav-link">
+          <div class="button-label">EXPERIENCIA</div>
+          <div class="link-bg"></div>
+        </a>
+        <a href="index.html#contacto" class="nav-link">
+          <div class="button-label">CONTACTO</div>
+          <div class="link-bg"></div>
+        </a>
+      </div>
+      <button type="button" class="hamburger" aria-label="Abrir menú" aria-expanded="false" aria-controls="nav-links">
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </nav>
+
+  <main class="posts-main">
+    <header class="posts-cabecera">
+      <a href="index.html#proyectos" class="posts-volver"><span aria-hidden="true">←</span> Volver a proyectos</a>
+      <p class="section-kicker">// otros trabajos</p>
+      <h1 class="posts-titulo">Otros posts</h1>
+      <p class="posts-intro">Automatizaciones, pruebas y procesos que no encajan como proyecto completo, explicados paso a paso y con capturas.</p>
+    </header>
+
+    <!-- Para añadir un post: copia un <li> y cambia el enlace, la
+         categoría, el título, la descripción y las etiquetas. El post
+         en sí va en posts/<nombre>.html (usa el de n8n como plantilla). -->
+    <ul class="posts-lista">
+      <li>
+        <a href="posts/automatizacion-facturas-n8n.html" class="post-tarjeta">
+          <div class="post-tarjeta-topbar">Automatización</div>
+          <div class="post-tarjeta-cuerpo">
+            <h2 class="post-tarjeta-titulo">Automatización de facturas con n8n</h2>
+            <p class="post-tarjeta-descripcion">Flujo en n8n que automatiza el tratamiento de facturas: cómo está montado, paso a paso y con capturas del proceso.</p>
+            <div class="post-tags">
+              <span class="tech-tag">n8n</span>
+              <span class="tech-tag">Automatización</span>
+            </div>
+            <span class="post-tarjeta-leer">Leer post →</span>
+          </div>
+        </a>
+      </li>
+    </ul>
+  </main>
+
+  <script src="ScriptsJS/menu.js"></script>
+</body>
+</html>
