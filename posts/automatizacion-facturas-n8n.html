@@ -96,9 +96,9 @@
       <p data-i18n="n8n.correo.texto">El correo llega a una cuenta personal o a un buzón compartido, según quién se encargue de las compras. Muestra cada documento pendiente con su total, el número de líneas y los avisos detectados, y un botón para revisarlo.</p>
       <figure class="post-captura">
         <a href="../img/posts/n8n-facturas/02-correo.png" target="_blank" rel="noopener">
-          <img src="../img/posts/n8n-facturas/02-correo.png" data-i18n-attr="alt:n8n.correo.alt" alt="Correo con ocho facturas de compra pendientes de revisar, con su total, número de líneas, avisos y un botón Revisar en cada una" width="1091" height="762" loading="lazy" />
+          <img src="../img/posts/n8n-facturas/02-correo.png" data-i18n-attr="alt:n8n.correo.alt" alt="Correo de ejemplo con dos facturas de compra pendientes de revisar, una sin avisos y otra con incidencias y artículos sin código interno, cada una con su total, número de líneas y un botón Revisar" width="1100" height="415" loading="lazy" />
         </a>
-        <figcaption data-i18n="n8n.correo.pie">Correo con las facturas pendientes. Proveedores, números de factura y remitente tachados.</figcaption>
+        <figcaption data-i18n="n8n.correo.pie">Correo con las facturas pendientes de revisar, con datos de ejemplo.</figcaption>
       </figure>
 
       <h2 data-i18n="n8n.revision.titulo">Revisión de cada factura</h2>
@@ -106,13 +106,19 @@
       <p data-i18n="n8n.revision.texto2">Si el OCR no ha reconocido bien algún campo, se corrige a mano. Al editarlo se vuelve a consultar la información interna de la base de datos con el dato ya corregido, para que el resto de la contabilización se recalcule sobre el valor bueno.</p>
       <figure class="post-captura">
         <a href="../img/posts/n8n-facturas/03-revision.png" target="_blank" rel="noopener">
-          <img src="../img/posts/n8n-facturas/03-revision.png" data-i18n-attr="alt:n8n.revision.alt" alt="Página de revisión: a la izquierda el PDF de la factura; a la derecha la cabecera, la contabilización en Dimensions y las líneas de artículos, con los botones Rechazar y Aprobar y registrar en Dimensions" width="1900" height="935" loading="lazy" />
+          <img src="../img/posts/n8n-facturas/03-revision.png" data-i18n-attr="alt:n8n.revision.alt" alt="Página de revisión: a la izquierda el PDF de la factura; a la derecha la cabecera, la contabilización en Dimensions y las líneas de artículos, con los botones Rechazar y Aprobar y registrar en Dimensions" width="1700" height="1250" loading="lazy" />
         </a>
-        <figcaption data-i18n="n8n.revision.pie">Revisión de una factura: el PDF a la izquierda y los datos para Dimensions a la derecha. Datos de proveedor, cliente y artículos tachados.</figcaption>
+        <figcaption data-i18n="n8n.revision.pie">Revisión de una factura de ejemplo: el PDF a la izquierda y los datos para Dimensions a la derecha. Las líneas repetidas de un mismo artículo se agrupan y se avisa cuando el precio de la factura viene redondeado.</figcaption>
       </figure>
 
       <h2 data-i18n="n8n.aprobacion.titulo">Aprobación y registro</h2>
       <p data-i18n-html="n8n.aprobacion.texto1">Para terminar, el operario indica su nombre en <strong>Revisado por</strong> y pulsa <strong>Aprobar y registrar en Dimensions</strong>. La factura se carga en la base de datos de Access Dimensions, queda marcada como realizada y aparece un mensaje de éxito. Una factura ya registrada no se puede volver a aprobar.</p>
+      <figure class="post-captura">
+        <a href="../img/posts/n8n-facturas/04-registrada.png" target="_blank" rel="noopener">
+          <img src="../img/posts/n8n-facturas/04-registrada.png" data-i18n-attr="alt:n8n.registrada.alt" alt="Mensaje de confirmación: Registrada en Dimensions: P90001. Apunte P90001 creado en el libro de proveedores." width="640" height="180" loading="lazy" />
+        </a>
+        <figcaption data-i18n="n8n.registrada.pie">Confirmación tras aprobar: la factura queda registrada como apunte en el libro de proveedores de Dimensions.</figcaption>
+      </figure>
       <p data-i18n-html="n8n.aprobacion.texto2">Si algo no es correcto, se puede <strong>rechazar</strong> indicando el motivo en el comentario.</p>
     </article>
 
