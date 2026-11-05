@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Otros posts — Paula Dolado Aynié</title>
-  <meta name="description" content="Otros trabajos de Paula Dolado Aynié: automatizaciones, pruebas y procesos explicados paso a paso." />
+  <title data-i18n="posts.meta.titulo">Otros posts — Paula Dolado Aynié</title>
+  <meta name="description" data-i18n-attr="content:posts.meta.descripcion" content="Otros trabajos de Paula Dolado Aynié: automatizaciones, pruebas y procesos explicados paso a paso." />
   <meta name="theme-color" content="#f7f1e5" />
   <meta property="og:type" content="website" />
   <meta property="og:title" content="Otros posts — Paula Dolado Aynié" />
@@ -22,31 +22,35 @@
   <nav class="nav-container">
     <div class="nav-wrapper">
       <div class="nav-logo">
-         <a href="index.html" aria-label="Paula Dolado — Inicio"><span class="bracket">&lt;</span>PD<span class="bracket">/&gt;</span></a>
+         <a href="index.html" aria-label="Paula Dolado — Inicio" data-i18n-attr="aria-label:nav.logo"><span class="bracket">&lt;</span>PD<span class="bracket">/&gt;</span></a>
       </div>
       <div class="nav-links" id="nav-links">
         <a href="index.html#inicio" class="nav-link">
-          <div class="button-label">INICIO</div>
+          <div class="button-label" data-i18n="nav.inicio">INICIO</div>
           <div class="link-bg"></div>
         </a>
         <a href="index.html#acercademi" class="nav-link">
-          <div class="button-label">ACERCA DE MI</div>
+          <div class="button-label" data-i18n="nav.acerca">ACERCA DE MI</div>
           <div class="link-bg"></div>
         </a>
         <a href="index.html#proyectos" class="nav-link active">
-          <div class="button-label">PROYECTOS</div>
+          <div class="button-label" data-i18n="nav.proyectos">PROYECTOS</div>
           <div class="link-bg"></div>
         </a>
         <a href="index.html#experiencia" class="nav-link">
-          <div class="button-label">EXPERIENCIA</div>
+          <div class="button-label" data-i18n="nav.experiencia">EXPERIENCIA</div>
           <div class="link-bg"></div>
         </a>
         <a href="index.html#contacto" class="nav-link">
-          <div class="button-label">CONTACTO</div>
+          <div class="button-label" data-i18n="nav.contacto">CONTACTO</div>
           <div class="link-bg"></div>
         </a>
       </div>
-      <button type="button" class="hamburger" aria-label="Abrir menú" aria-expanded="false" aria-controls="nav-links">
+      <button type="button" class="idioma-toggle" data-idioma-toggle aria-label="Ver la web en inglés" data-i18n-attr="aria-label:idioma.cambiar">
+        <span class="idioma-opcion" data-idioma="es">ES</span>
+        <span class="idioma-opcion" data-idioma="en">EN</span>
+      </button>
+      <button type="button" class="hamburger" aria-label="Abrir menú" data-i18n-attr="aria-label:menu.abrir" aria-expanded="false" aria-controls="nav-links">
         <span></span>
         <span></span>
       </button>
@@ -55,10 +59,10 @@
 
   <main class="posts-main">
     <header class="posts-cabecera">
-      <a href="index.html#proyectos" class="posts-volver"><span aria-hidden="true">←</span> Volver a proyectos</a>
-      <p class="section-kicker">// otros trabajos</p>
-      <h1 class="posts-titulo">Otros posts</h1>
-      <p class="posts-intro">Automatizaciones, pruebas y procesos que no encajan como proyecto completo, explicados paso a paso y con capturas.</p>
+      <a href="index.html#proyectos" class="posts-volver"><span aria-hidden="true">←</span> <span data-i18n="posts.volverProyectos">Volver a proyectos</span></a>
+      <p class="section-kicker" data-i18n="posts.kicker">// otros trabajos</p>
+      <h1 class="posts-titulo" data-i18n="posts.titulo">Otros posts</h1>
+      <p class="posts-intro" data-i18n="posts.intro">Automatizaciones, pruebas y procesos que no encajan como proyecto completo, explicados paso a paso y con capturas.</p>
     </header>
 
     <!-- Para añadir un post: copia un <li> y cambia el enlace, la
@@ -67,22 +71,24 @@
     <ul class="posts-lista">
       <li>
         <a href="posts/automatizacion-facturas-n8n.html" class="post-tarjeta">
-          <div class="post-tarjeta-topbar">Automatización</div>
+          <div class="post-tarjeta-topbar" data-i18n="posts.categoria.automatizacion">Automatización</div>
           <div class="post-tarjeta-cuerpo">
-            <h2 class="post-tarjeta-titulo">Automatización de facturas con n8n</h2>
-            <p class="post-tarjeta-descripcion">Flujo en n8n que lee facturas de compra en PDF con OCR, las cruza con la base de datos y, tras una revisión en una web, las registra en Access Dimensions.</p>
+            <h2 class="post-tarjeta-titulo" data-i18n="n8n.titulo">Automatización de facturas con n8n</h2>
+            <p class="post-tarjeta-descripcion" data-i18n="n8n.tarjeta">Flujo en n8n que lee facturas de compra en PDF con OCR, las cruza con la base de datos y, tras una revisión en una web, las registra en Access Dimensions.</p>
             <div class="post-tags">
               <span class="tech-tag">n8n</span>
               <span class="tech-tag">OCR</span>
               <span class="tech-tag">Access Dimensions</span>
             </div>
-            <span class="post-tarjeta-leer">Leer post →</span>
+            <span class="post-tarjeta-leer" data-i18n="posts.leer">Leer post →</span>
           </div>
         </a>
       </li>
     </ul>
   </main>
 
+  <script src="ScriptsJS/traducciones.js"></script>
+  <script src="ScriptsJS/idioma.js"></script>
   <script src="ScriptsJS/menu.js"></script>
 </body>
 </html>

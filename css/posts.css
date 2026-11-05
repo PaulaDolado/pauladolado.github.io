@@ -7,7 +7,7 @@
 html, body{
     cursor: auto;
 }
-.nav-link, .nav-logo a, .hamburger{
+.nav-link, .nav-logo a, .hamburger, .idioma-toggle{
     cursor: pointer;
 }
 /* Aquí el texto pasa por debajo del nav al hacer scroll: se le da

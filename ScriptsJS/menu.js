@@ -2,13 +2,22 @@ document.addEventListener('DOMContentLoaded', function() {
     const hamburger = document.querySelector('.hamburger');
     const navLinks = document.querySelector('.nav-links');
     const navLinksItems = document.querySelectorAll('.nav-link');
-            
+
+    // Etiqueta accesible del botón en el idioma activo (ver idioma.js)
+    const etiquetaMenu = (abierto) => {
+        const t = (clave, espanol) => (window.i18n ? window.i18n.t(clave, espanol) : espanol);
+        return abierto ? t('menu.cerrar', 'Cerrar menú') : t('menu.abrir', 'Abrir menú');
+    };
+    document.addEventListener('idiomacambiado', () => {
+        hamburger.setAttribute('aria-label', etiquetaMenu(hamburger.classList.contains('active')));
+    });
+
     // Toggle menu
     hamburger.addEventListener('click', function() {
         const isActive = this.classList.toggle('active');
         navLinks.classList.toggle('active');
         this.setAttribute('aria-expanded', isActive ? 'true' : 'false');
-        this.setAttribute('aria-label', isActive ? 'Cerrar menú' : 'Abrir menú');
+        this.setAttribute('aria-label', etiquetaMenu(isActive));
     });
     // Cerrar menú hamburgesa
     navLinksItems.forEach(item => {
@@ -16,7 +25,7 @@ document.addEventListener('DOMContentLoaded', function() {
         hamburger.classList.remove('active');
         navLinks.classList.remove('active');
         hamburger.setAttribute('aria-expanded', 'false');
-        hamburger.setAttribute('aria-label', 'Abrir menú');
+        hamburger.setAttribute('aria-label', etiquetaMenu(false));
         });
     });
     // Cerrar menú click fuera
@@ -27,7 +36,7 @@ document.addEventListener('DOMContentLoaded', function() {
         hamburger.classList.remove('active');
         navLinks.classList.remove('active');
         hamburger.setAttribute('aria-expanded', 'false');
-        hamburger.setAttribute('aria-label', 'Abrir menú');
+        hamburger.setAttribute('aria-label', etiquetaMenu(false));
         }
     });
     // Scroll smooth

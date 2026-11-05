@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Paula Dolado Aynié — Desarrolladora Full Stack</title>
-  <meta name="description" content="Portfolio de Paula Dolado Aynié, desarrolladora full stack e ingeniera informática especializada en Java, Python, React y Django." />
+  <title data-i18n="meta.titulo">Paula Dolado Aynié — Desarrolladora Full Stack</title>
+  <meta name="description" data-i18n-attr="content:meta.descripcion" content="Portfolio de Paula Dolado Aynié, desarrolladora full stack e ingeniera informática especializada en Java, Python, React y Django." />
   <meta name="theme-color" content="#f7f1e5" />
   <meta property="og:type" content="website" />
   <meta property="og:title" content="Paula Dolado Aynié — Desarrolladora Full Stack" />
@@ -22,48 +22,52 @@
   <nav class="nav-container">
     <div class="nav-wrapper">
       <div class="nav-logo">
-         <a href="#inicio" aria-label="Paula Dolado — Inicio"><span class="bracket">&lt;</span>PD<span class="bracket">/&gt;</span></a>
+         <a href="#inicio" aria-label="Paula Dolado — Inicio" data-i18n-attr="aria-label:nav.logo"><span class="bracket">&lt;</span>PD<span class="bracket">/&gt;</span></a>
       </div>
       <div class="nav-links" id="nav-links">
         <a data-link="color-change" href="#inicio" class="nav-link">
-          <div class="button-label">INICIO</div>
+          <div class="button-label" data-i18n="nav.inicio">INICIO</div>
           <div class="link-bg"></div>
         </a>
         <a data-link="color-change" href="#acercademi" class="nav-link">
-          <div class="button-label">ACERCA DE MI</div>
+          <div class="button-label" data-i18n="nav.acerca">ACERCA DE MI</div>
           <div class="link-bg"></div>
         </a>
         <a data-link="color-change" href="#proyectos" class="nav-link">
-          <div class="button-label">PROYECTOS</div>
+          <div class="button-label" data-i18n="nav.proyectos">PROYECTOS</div>
           <div class="link-bg"></div>
         </a>
         <a data-link="color-change" href="#experiencia" class="nav-link">
-          <div class="button-label">EXPERIENCIA</div>
+          <div class="button-label" data-i18n="nav.experiencia">EXPERIENCIA</div>
           <div class="link-bg"></div>
         </a>
         <a data-link="color-change" href="#contacto" class="nav-link">
-          <div class="button-label">CONTACTO</div>
+          <div class="button-label" data-i18n="nav.contacto">CONTACTO</div>
           <div class="link-bg"></div>
         </a>
       </div>
-      <button type="button" class="hamburger" aria-label="Abrir menú" aria-expanded="false" aria-controls="nav-links">
+      <button type="button" class="idioma-toggle" data-idioma-toggle aria-label="Ver la web en inglés" data-i18n-attr="aria-label:idioma.cambiar">
+        <span class="idioma-opcion" data-idioma="es">ES</span>
+        <span class="idioma-opcion" data-idioma="en">EN</span>
+      </button>
+      <button type="button" class="hamburger" aria-label="Abrir menú" data-i18n-attr="aria-label:menu.abrir" aria-expanded="false" aria-controls="nav-links">
         <span></span>
         <span></span>
       </button>
     </div>
   </nav>
   <section class="intro" id="inicio">
-    <p class="eyebrow">Desarrolladora Full Stack</p>
+    <p class="eyebrow" data-i18n="inicio.eyebrow">Desarrolladora Full Stack</p>
     <h1 class="text">Paula Dolado Aynié</h1>
     <div class="subtext">
-      <p>Técnica en Administración de sistemas informáticos en la red</p>
-      <p>Ingeniera Informática de Gestión y Sistemas de Información</p>
+      <p data-i18n="inicio.sub1">Técnica en Administración de sistemas informáticos en la red</p>
+      <p data-i18n="inicio.sub2">Ingeniera Informática de Gestión y Sistemas de Información</p>
     </div>
     <div class="btn">
-      <a href="#proyectos"><button id="proyectos-button"><img src="img/project_icon.png" alt="">VER PROYECTOS</button></a>
-      <a href="docs/CV_PaulaDolado.pdf" download="CV_PaulaDolado"><button id="cv"><img src="img/download_icon.png" alt="">DESCARGAR CV</button></a>
+      <a href="#proyectos"><button id="proyectos-button"><img src="img/project_icon.png" alt=""><span data-i18n="inicio.verProyectos">VER PROYECTOS</span></button></a>
+      <a href="docs/CV_PaulaDolado.pdf" download="CV_PaulaDolado"><button id="cv"><img src="img/download_icon.png" alt=""><span data-i18n="inicio.descargarCv">DESCARGAR CV</span></button></a>
     </div>
-    <a href="#acercademi" class="scroll-cue" aria-label="Desplázate para ver más">
+    <a href="#acercademi" class="scroll-cue" aria-label="Desplázate para ver más" data-i18n-attr="aria-label:inicio.scroll">
       <span>SCROLL</span>
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 4v14M6 12l6 6 6-6"/></svg>
     </a>
@@ -74,10 +78,10 @@
       <h2 id="about-title" class="section-title"></h2>
       <div class="about-columns">
         <div id="about-skills" class="about-skills-col">
-            <h3 class="about-col-title">Habilidades técnicas</h3>
+            <h3 class="about-col-title" data-i18n="about.habilidades">Habilidades técnicas</h3>
             <div class="skill-groups" id="skill-groups">
                 <div class="skill-group" data-page="1">
-                    <h4>Lenguajes y herramientas</h4>
+                    <h4 data-i18n="skills.lenguajes">Lenguajes y herramientas</h4>
                     <ul class="skill-plain-list">
                         <li>Java</li>
                         <li>Python</li>
@@ -89,7 +93,7 @@
                     </ul>
                 </div>
                 <div class="skill-group" data-page="1">
-                    <h4>Frameworks, librerías y runtimes</h4>
+                    <h4 data-i18n="skills.frameworks">Frameworks, librerías y runtimes</h4>
                     <ul class="skill-plain-list">
                         <li>React</li>
                         <li>Node.js</li>
@@ -100,9 +104,9 @@
                     </ul>
                 </div>
                 <div class="skill-group" data-page="1">
-                    <h4>Backend y APIs</h4>
+                    <h4 data-i18n="skills.backend">Backend y APIs</h4>
                     <ul class="skill-plain-list">
-                        <li>APIs REST</li>
+                        <li data-i18n="skills.apisRest">APIs REST</li>
                         <li>JWT / OAuth 2.0</li>
                         <li>Swagger / OpenAPI</li>
                     </ul>
@@ -118,7 +122,7 @@
                     </ul>
                 </div>
                 <div class="skill-group" data-page="2" hidden>
-                    <h4>DevOps e infraestructura</h4>
+                    <h4 data-i18n="skills.devops">DevOps e infraestructura</h4>
                     <ul class="skill-plain-list">
                         <li>Docker Compose</li>
                         <li>GitHub Actions</li>
@@ -128,7 +132,7 @@
                     </ul>
                 </div>
                 <div class="skill-group" data-page="2" hidden>
-                    <h4>Bases de datos</h4>
+                    <h4 data-i18n="skills.bbdd">Bases de datos</h4>
                     <ul class="skill-plain-list">
                         <li>MySQL</li>
                         <li>PostgreSQL</li>
@@ -138,7 +142,7 @@
                     </ul>
                 </div>
                 <div class="skill-group" data-page="2" hidden>
-                    <h4>Control de versiones</h4>
+                    <h4 data-i18n="skills.versiones">Control de versiones</h4>
                     <ul class="skill-plain-list">
                         <li>Git</li>
                         <li>GitHub</li>
@@ -146,13 +150,13 @@
                     </ul>
                 </div>
                 <div class="skill-group" data-page="2" hidden>
-                    <h4>Arquitectura y desarrollo</h4>
+                    <h4 data-i18n="skills.arquitectura">Arquitectura y desarrollo</h4>
                     <ul class="skill-plain-list">
-                        <li>POO</li>
+                        <li data-i18n="skills.poo">POO</li>
                         <li>EDA</li>
-                        <li>Patrones de diseño</li>
-                        <li>Arquitectura MVC</li>
-                        <li>Microservicios</li>
+                        <li data-i18n="skills.patrones">Patrones de diseño</li>
+                        <li data-i18n="skills.mvc">Arquitectura MVC</li>
+                        <li data-i18n="skills.microservicios">Microservicios</li>
                     </ul>
                 </div>
             </div>
@@ -172,24 +176,24 @@
                                 </div>
                             </div>
                             <div class="description-text">
-                                <h3>¡Hola! Soy Paula</h3>
-                                <p>Soy una apasionada de la informática. Mi formación comenzó con el ciclo de Administración de Sistemas Informáticos en Red y actualmente continúo ampliando mis conocimientos en la Ingeniería Informática. </p>
-                                <p>De forma autodidacta aprendo desarrollo web, tanto en frontend como en backend, esto me ha permitido desarrollar proyectos con una visión completa, desde la parte visual hasta la lógica que los sostiene.</p>
-                                <p>Me considero curiosa, proactiva y en constante aprendizaje, siempre buscando nuevas tecnologías para crecer y aportar soluciones innovadoras.</p>
+                                <h3 data-i18n="about.hola">¡Hola! Soy Paula</h3>
+                                <p data-i18n="about.p1">Soy una apasionada de la informática. Mi formación comenzó con el ciclo de Administración de Sistemas Informáticos en Red y actualmente continúo ampliando mis conocimientos en la Ingeniería Informática. </p>
+                                <p data-i18n="about.p2">De forma autodidacta aprendo desarrollo web, tanto en frontend como en backend, esto me ha permitido desarrollar proyectos con una visión completa, desde la parte visual hasta la lógica que los sostiene.</p>
+                                <p data-i18n="about.p3">Me considero curiosa, proactiva y en constante aprendizaje, siempre buscando nuevas tecnologías para crecer y aportar soluciones innovadoras.</p>
                             </div>
                     </div>
                 </div>
             </div>
         </div>
       </div>
-      <a href="https://www.linkedin.com/in/paula-dolado-ayni%C3%A9/" class="lkn" target="_blank" rel="noopener noreferrer" >Saber más <img src="img/linkedin.png" id="lkn-img" alt=""></a>
+      <a href="https://www.linkedin.com/in/paula-dolado-ayni%C3%A9/" class="lkn" target="_blank" rel="noopener noreferrer" ><span data-i18n="about.saberMas">Saber más</span> <img src="img/linkedin.png" id="lkn-img" alt=""></a>
   </div>
   </section>
 
   <section class="proyecto" id ="proyectos">
     <div class="contador-proyecto">
       <div class="titulo-proyecto">
-        <h1>Proyectos</h1>
+        <h1 data-i18n="proyectos.titulo">Proyectos</h1>
       </div>
       <div class="contador">
         <div class="contenedor-contador">
@@ -200,18 +204,18 @@
         </div>
       </div>
     </div>
-    <a href="otros-posts.html" class="proyecto-otros">Otros posts <span aria-hidden="true">→</span></a>
+    <a href="otros-posts.html" class="proyecto-otros"><span data-i18n="proyectos.otros">Otros posts</span> <span class="proyecto-otros-flecha" aria-hidden="true">→</span></a>
     <div class="cartas">
       <article class="carta" data-proyecto="company-stock">
         <div class="carta-img">
           <div class="carta-topbar">
-            <button type="button" class="carta-topbar-mas" data-abrir-modal="company-stock" aria-label="Más información sobre Company Stock">+</button>
+            <button type="button" class="carta-topbar-mas" data-abrir-modal="company-stock" aria-label="Más información sobre Company Stock" data-i18n-attr="aria-label:proyectos.masInfo.companyStock">+</button>
           </div>
           <video class="carta-video" muted loop playsinline preload="none"></video>
           <div class="carta-placeholder"></div>
           <div class="carta-info">
             <h3 class="carta-titulo">Company Stock</h3>
-            <p class="carta-descripcion">Dashboard de gestión de stock: solicitudes de material, reposición interna, proveedores y pedidos, con roles y flujo de aprobación completo.</p>
+            <p class="carta-descripcion" data-i18n="proyectos.desc.companyStock">Dashboard de gestión de stock: solicitudes de material, reposición interna, proveedores y pedidos, con roles y flujo de aprobación completo.</p>
             <div class="carta-tags">
               <span class="tech-tag">React</span>
               <span class="tech-tag">TanStack Query</span>
@@ -223,13 +227,13 @@
       <article class="carta" data-proyecto="tidely">
         <div class="carta-img">
           <div class="carta-topbar">
-            <button type="button" class="carta-topbar-mas" data-abrir-modal="tidely" aria-label="Más información sobre Tidely">+</button>
+            <button type="button" class="carta-topbar-mas" data-abrir-modal="tidely" aria-label="Más información sobre Tidely" data-i18n-attr="aria-label:proyectos.masInfo.tidely">+</button>
           </div>
           <video class="carta-video" muted loop playsinline preload="none"></video>
           <div class="carta-placeholder"></div>
           <div class="carta-info">
             <h3 class="carta-titulo">Tidely</h3>
-            <p class="carta-descripcion">API REST de organización personal: agenda, metas, finanzas y proyectos, con notificaciones automáticas. Incluye este dashboard web, aplicación de escritorio y una app móvil offline en desarrollo.</p>
+            <p class="carta-descripcion" data-i18n="proyectos.desc.tidely">API REST de organización personal: agenda, metas, finanzas y proyectos, con notificaciones automáticas. Incluye este dashboard web, aplicación de escritorio y una app móvil offline en desarrollo.</p>
             <div class="carta-tags">
               <span class="tech-tag">Node.js</span>
               <span class="tech-tag">Express</span>
@@ -241,13 +245,13 @@
       <article class="carta" data-proyecto="integra">
         <div class="carta-img">
           <div class="carta-topbar">
-            <button type="button" class="carta-topbar-mas" data-abrir-modal="integra" aria-label="Más información sobre Integra">+</button>
+            <button type="button" class="carta-topbar-mas" data-abrir-modal="integra" aria-label="Más información sobre Integra" data-i18n-attr="aria-label:proyectos.masInfo.integra">+</button>
           </div>
           <video class="carta-video" muted loop playsinline preload="none"></video>
           <div class="carta-placeholder"></div>
           <div class="carta-info">
             <h3 class="carta-titulo">Integra</h3>
-            <p class="carta-descripcion">Portal del empleado: fichajes, ausencias, cambios de turno, tareas, calendario, tickets, tablón de anuncios y chat interno, con pantallas de gestión según el departamento.</p>
+            <p class="carta-descripcion" data-i18n="proyectos.desc.integra">Portal del empleado: fichajes, ausencias, cambios de turno, tareas, calendario, tickets, tablón de anuncios y chat interno, con pantallas de gestión según el departamento.</p>
             <div class="carta-tags">
               <span class="tech-tag">React</span>
               <span class="tech-tag">TypeScript</span>
@@ -259,13 +263,13 @@
       <article class="carta" data-proyecto="el-candil">
         <div class="carta-img">
           <div class="carta-topbar">
-            <button type="button" class="carta-topbar-mas" data-abrir-modal="el-candil" aria-label="Más información sobre El Candil">+</button>
+            <button type="button" class="carta-topbar-mas" data-abrir-modal="el-candil" aria-label="Más información sobre El Candil" data-i18n-attr="aria-label:proyectos.masInfo.elCandil">+</button>
           </div>
           <video class="carta-video" muted loop playsinline preload="none"></video>
           <div class="carta-placeholder"></div>
           <div class="carta-info">
             <h3 class="carta-titulo">El Candil</h3>
-            <p class="carta-descripcion">Web de restaurante: carta en un archivador de carpetas y reserva de mesa con control de aforo y comprobante por WhatsApp. Próxima etapa: pedir desde la mesa.</p>
+            <p class="carta-descripcion" data-i18n="proyectos.desc.elCandil">Web de restaurante: carta en un archivador de carpetas y reserva de mesa con control de aforo y comprobante por WhatsApp. Próxima etapa: pedir desde la mesa.</p>
             <div class="carta-tags">
               <span class="tech-tag">HTML</span>
               <span class="tech-tag">JavaScript</span>
@@ -281,19 +285,19 @@
   <section class="trabajo" id="experiencia">
     <div class="contenido">
       <div class="experiencia">
-        <p class="section-kicker">// 03 — experiencia</p>
-        <h1 class="experiencia-titulo">Experiencia laboral</h1>
-        <h2>Mi trayectoria profesional y mis logros</h2>
+        <p class="section-kicker" data-i18n="experiencia.kicker">// 03 — experiencia</p>
+        <h1 class="experiencia-titulo" data-i18n="experiencia.titulo">Experiencia laboral</h1>
+        <h2 data-i18n="experiencia.sub">Mi trayectoria profesional y mis logros</h2>
       </div>
       <div class="contenido-experiencia">
         <div class="timeline">
           <div class="experience-item derecha">
             <div class="experience-content">
-              <h3 class="job-title">Técnica de Sistemas y Desarrollo</h3>
-              <p class="job-duration">Jul. 2026 – Actualidad</p>
+              <h3 class="job-title" data-i18n="experiencia.altasoft.puesto">Técnica de Sistemas y Desarrollo</h3>
+              <p class="job-duration" data-i18n="experiencia.altasoft.fechas">Jul. 2026 – Actualidad</p>
               <p class="company-name">AltaSoft</p>
               <p class="job-type">Full-time</p>
-              <p class="job-description">
+              <p class="job-description" data-i18n="experiencia.altasoft.desc">
                   Gestiono incidencias de equipos, telefonía IP (FreePBX) y PDA y terminales móviles Zebra, y administro la red y la seguridad perimetral con pfSense, 
                   así como entornos de Active Directory. Además, desarrollo aplicaciones web internas para PDA y terminales móviles con Symfony, aplicaciones con React 
                   y PostgreSQL, y automatizaciones de procesos con n8n.
@@ -322,18 +326,18 @@
           </div>
           <div class="experience-item izquierda">
             <div class="experience-content">
-              <h3 class="job-title">Técnica de Soporte y Sistemas N2</h3>
+              <h3 class="job-title" data-i18n="experiencia.interface.puesto">Técnica de Soporte y Sistemas N2</h3>
               <p class="job-duration">May 2022 – Dec 2023</p>
               <p class="company-name">Interface SafeAccess</p>
-              <p class="job-type">Full-time · In-situ</p>
-              <p class="job-description">
+              <p class="job-type" data-i18n="experiencia.interface.tipo">Full-time · In-situ</p>
+              <p class="job-description" data-i18n="experiencia.interface.desc">
                   Proporcionaba soporte técnico de nivel 2, con análisis de incidencias de red, 
                   administración de servidores, gestión de plataformas SaaS y soporte remoto avanzado.
               </p>
               <span class="tag">GLPI</span>
               <span class="tag">Microsoft 365</span>
               <span class="tag">Active Directory</span>
-              <span class="tag">HyperV Windows 2012, 2019 y 2022</span>
+              <span class="tag" data-i18n="experiencia.interface.hyperv">HyperV Windows 2012, 2019 y 2022</span>
               <span class="tag">Zabbix</span>
               <span class="tag">Acronis</span>
               <span class="tag">LogMeIn</span>
@@ -342,14 +346,14 @@
           </div>
           <div class="experience-item derecha">
             <div class="experience-content">
-              <h3 class="job-title">Certificaciones Cloud Tech Associate</h3>
-              <p class="job-duration">May. 2022 – Mar. 2024</p>
+              <h3 class="job-title" data-i18n="experiencia.cloud.puesto">Certificaciones Cloud Tech Associate</h3>
+              <p class="job-duration" data-i18n="experiencia.cloud.fechas">May. 2022 – Mar. 2024</p>
               <p class="job-type">Online</p>
               <p class="job-description">
                   Cloud Tech Associate Advanced Backup, Advanced Disaster Recovery, Advanced Management and Advanced Security.
                   Cloud Sales Associate and Cloud Tech Professional.
               </p>
-              <span class="tag">Gestión y mantenimiento de Acronis</span>
+              <span class="tag" data-i18n="experiencia.cloud.acronis">Gestión y mantenimiento de Acronis</span>
             </div>
           </div>
         </div>
@@ -360,9 +364,9 @@
   <section class="outro" id="contacto">
     <div class="contenedor-contacto">
       <div class="texto-contacto">
-        <p class="section-kicker">// 04 — contacto</p>
-        <h1>Contacto</h1>
-        <h2>¿Tienes un proyecto en mente? Trabajemos juntos para hacerlo realidad.</h2>
+        <p class="section-kicker" data-i18n="contacto.kicker">// 04 — contacto</p>
+        <h1 data-i18n="contacto.titulo">Contacto</h1>
+        <h2 data-i18n="contacto.sub">¿Tienes un proyecto en mente? Trabajemos juntos para hacerlo realidad.</h2>
         <div class="iconos-contacto">
           <a href="https://github.com/PaulaDolado" id="git" class="iconos" target="_blank" rel="noopener noreferrer"><img src="img/icono_github.png" alt="GitHub"></a>
           <a href="https://www.linkedin.com/in/paula-dolado-ayni%C3%A9/" id="lin"class="iconos" target="_blank" rel="noopener noreferrer"><img src="img/icono_link.png" alt="LinkedIn"></a>
@@ -370,10 +374,10 @@
 
       </div>
       <form action="https://formsubmit.co/6ab63d7bd7427d140f9f72334a4d21e7" method="POST" id="contact-form">
-        <input type="text" id="name" name="name" placeholder="Nombre" required />
-        <input type="email" id="email" name="email" placeholder="Correo" required />
-        <textarea id="message" name="message" rows="5" placeholder="Mensaje" required></textarea>
-        <input type="submit" value="Enviar" class="send">
+        <input type="text" id="name" name="name" placeholder="Nombre" data-i18n-attr="placeholder:form.nombre" required />
+        <input type="email" id="email" name="email" placeholder="Correo" data-i18n-attr="placeholder:form.correo" required />
+        <textarea id="message" name="message" rows="5" placeholder="Mensaje" data-i18n-attr="placeholder:form.mensaje" required></textarea>
+        <input type="submit" value="Enviar" class="send" data-i18n-attr="value:form.enviar">
         <input type="hidden" name="_next" value="https://pauladolado.github.io/#contacto">
         <input type="hidden" name="_captcha" value="false">
         <p id="form-response" role="status" aria-live="polite"></p>
@@ -384,7 +388,7 @@
   
   <dialog id="proyecto-modal" class="proyecto-modal" aria-labelledby="pm-titulo">
     <form method="dialog" class="proyecto-modal-contenido">
-      <button type="submit" class="proyecto-modal-cerrar" aria-label="Cerrar">✕</button>
+      <button type="submit" class="proyecto-modal-cerrar" aria-label="Cerrar" data-i18n-attr="aria-label:modal.cerrar">✕</button>
       <div class="proyecto-modal-cuerpo">
         <div class="proyecto-modal-texto">
           <p id="pm-kicker" class="proyecto-modal-kicker"></p>
@@ -405,6 +409,8 @@
   <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/SplitText.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/ScrollTrigger.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/@studio-freight/lenis@1.0.34/dist/lenis.min.js"></script>
+  <script src="ScriptsJS/traducciones.js"></script>
+  <script src="ScriptsJS/idioma.js"></script>
   <script src="script.js"></script>
   <script src="ScriptsJS/animaciongaleria.js"></script>
   <script src="ScriptsJS/proyectoVideo.js"></script>

@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Automatización de facturas con n8n — Paula Dolado Aynié</title>
-  <meta name="description" content="Cómo funciona un flujo de n8n que automatiza el tratamiento de facturas, explicado paso a paso y con capturas." />
+  <title data-i18n="n8n.meta.titulo">Automatización de facturas con n8n — Paula Dolado Aynié</title>
+  <meta name="description" data-i18n-attr="content:n8n.meta.descripcion" content="Cómo funciona un flujo de n8n que automatiza el tratamiento de facturas, explicado paso a paso y con capturas." />
   <meta name="theme-color" content="#f7f1e5" />
   <meta property="og:type" content="article" />
   <meta property="og:title" content="Automatización de facturas con n8n — Paula Dolado Aynié" />
@@ -22,31 +22,35 @@
   <nav class="nav-container">
     <div class="nav-wrapper">
       <div class="nav-logo">
-         <a href="../index.html" aria-label="Paula Dolado — Inicio"><span class="bracket">&lt;</span>PD<span class="bracket">/&gt;</span></a>
+         <a href="../index.html" aria-label="Paula Dolado — Inicio" data-i18n-attr="aria-label:nav.logo"><span class="bracket">&lt;</span>PD<span class="bracket">/&gt;</span></a>
       </div>
       <div class="nav-links" id="nav-links">
         <a href="../index.html#inicio" class="nav-link">
-          <div class="button-label">INICIO</div>
+          <div class="button-label" data-i18n="nav.inicio">INICIO</div>
           <div class="link-bg"></div>
         </a>
         <a href="../index.html#acercademi" class="nav-link">
-          <div class="button-label">ACERCA DE MI</div>
+          <div class="button-label" data-i18n="nav.acerca">ACERCA DE MI</div>
           <div class="link-bg"></div>
         </a>
         <a href="../index.html#proyectos" class="nav-link active">
-          <div class="button-label">PROYECTOS</div>
+          <div class="button-label" data-i18n="nav.proyectos">PROYECTOS</div>
           <div class="link-bg"></div>
         </a>
         <a href="../index.html#experiencia" class="nav-link">
-          <div class="button-label">EXPERIENCIA</div>
+          <div class="button-label" data-i18n="nav.experiencia">EXPERIENCIA</div>
           <div class="link-bg"></div>
         </a>
         <a href="../index.html#contacto" class="nav-link">
-          <div class="button-label">CONTACTO</div>
+          <div class="button-label" data-i18n="nav.contacto">CONTACTO</div>
           <div class="link-bg"></div>
         </a>
       </div>
-      <button type="button" class="hamburger" aria-label="Abrir menú" aria-expanded="false" aria-controls="nav-links">
+      <button type="button" class="idioma-toggle" data-idioma-toggle aria-label="Ver la web en inglés" data-i18n-attr="aria-label:idioma.cambiar">
+        <span class="idioma-opcion" data-idioma="es">ES</span>
+        <span class="idioma-opcion" data-idioma="en">EN</span>
+      </button>
+      <button type="button" class="hamburger" aria-label="Abrir menú" data-i18n-attr="aria-label:menu.abrir" aria-expanded="false" aria-controls="nav-links">
         <span></span>
         <span></span>
       </button>
@@ -55,9 +59,9 @@
 
   <main class="posts-main">
     <header class="posts-cabecera">
-      <a href="../otros-posts.html" class="posts-volver"><span aria-hidden="true">←</span> Otros posts</a>
-      <p class="section-kicker">// automatización</p>
-      <h1 class="posts-titulo posts-titulo--post">Automatización de facturas con n8n</h1>
+      <a href="../otros-posts.html" class="posts-volver"><span aria-hidden="true">←</span> <span data-i18n="n8n.volver">Otros posts</span></a>
+      <p class="section-kicker" data-i18n="n8n.kicker">// automatización</p>
+      <h1 class="posts-titulo posts-titulo--post" data-i18n="n8n.titulo">Automatización de facturas con n8n</h1>
       <div class="post-meta">
         <div class="post-tags">
           <span class="tech-tag">n8n</span>
@@ -68,55 +72,57 @@
     </header>
 
     <article class="post-cuerpo">
-      <p>Flujo de n8n que convierte las facturas de compra en PDF en asientos dentro de Access Dimensions. La máquina hace el trabajo repetitivo: lee cada documento, extrae sus datos y los cruza con la base de datos. La persona solo revisa y aprueba.</p>
+      <p data-i18n="n8n.intro">Flujo de n8n que convierte las facturas de compra en PDF en asientos dentro de Access Dimensions. La máquina hace el trabajo repetitivo: lee cada documento, extrae sus datos y los cruza con la base de datos. La persona solo revisa y aprueba.</p>
 
-      <h2>Dónde empieza</h2>
-      <p>Las facturas que queremos tratar se depositan en una carpeta: en un entorno profesional, una carpeta compartida del servidor; para uso individual, una carpeta local del equipo. El flujo la revisa automáticamente <strong>cada 5 minutos</strong>, y además tiene un <strong>disparador manual</strong> para lanzarlo a demanda mientras se hacen pruebas.</p>
+      <h2 data-i18n="n8n.empieza.titulo">Dónde empieza</h2>
+      <p data-i18n-html="n8n.empieza.texto">Las facturas que queremos tratar se depositan en una carpeta: en un entorno profesional, una carpeta compartida del servidor; para uso individual, una carpeta local del equipo. El flujo la revisa automáticamente <strong>cada 5 minutos</strong>, y además tiene un <strong>disparador manual</strong> para lanzarlo a demanda mientras se hacen pruebas.</p>
 
-      <h2>El flujo</h2>
-      <p>Cada vez que se ejecuta, el recorrido es el mismo:</p>
+      <h2 data-i18n="n8n.flujo.titulo">El flujo</h2>
+      <p data-i18n="n8n.flujo.texto">Cada vez que se ejecuta, el recorrido es el mismo:</p>
       <ol>
-        <li><strong>Recogida</strong>: se leen los PDF de la carpeta y se guarda una copia de cada uno para la revisión.</li>
-        <li><strong>Extracción</strong>: cada documento pasa por la herramienta de OCR de Claude, que devuelve sus datos estructurados: cabecera, importes y líneas de artículos.</li>
-        <li><strong>Tratamiento</strong>: los datos extraídos se contrastan con la base de datos de Dimensions para proponer el proveedor, el código de cada artículo, la cuenta analítica, el código de IVA y el albarán de entrada.</li>
-        <li><strong>Aviso</strong>: se crea una revisión pendiente por documento y se envía un correo con todas ellas.</li>
+        <li data-i18n-html="n8n.flujo.recogida"><strong>Recogida</strong>: se leen los PDF de la carpeta y se guarda una copia de cada uno para la revisión.</li>
+        <li data-i18n-html="n8n.flujo.extraccion"><strong>Extracción</strong>: cada documento pasa por la herramienta de OCR de Claude, que devuelve sus datos estructurados: cabecera, importes y líneas de artículos.</li>
+        <li data-i18n-html="n8n.flujo.tratamiento"><strong>Tratamiento</strong>: los datos extraídos se contrastan con la base de datos de Dimensions para proponer el proveedor, el código de cada artículo, la cuenta analítica, el código de IVA y el albarán de entrada.</li>
+        <li data-i18n-html="n8n.flujo.aviso"><strong>Aviso</strong>: se crea una revisión pendiente por documento y se envía un correo con todas ellas.</li>
       </ol>
       <figure class="post-captura">
         <a href="../img/posts/n8n-facturas/01-flujo.png" target="_blank" rel="noopener">
-          <img src="../img/posts/n8n-facturas/01-flujo.png" alt="Flujo de n8n: disparador manual y programado, lectura de los PDF, extracción, consulta a Dimensions, correo de revisión y los webhooks de la web de revisión" width="1753" height="739" loading="lazy" />
+          <img src="../img/posts/n8n-facturas/01-flujo.png" data-i18n-attr="alt:n8n.flujo.alt" alt="Flujo de n8n: disparador manual y programado, lectura de los PDF, extracción, consulta a Dimensions, correo de revisión y los webhooks de la web de revisión" width="1753" height="739" loading="lazy" />
         </a>
-        <figcaption>El flujo completo en n8n. Arriba, el procesado de los PDF hasta el correo; debajo, los webhooks que sirven la web de revisión y registran la factura.</figcaption>
+        <figcaption data-i18n="n8n.flujo.pie">El flujo completo en n8n. Arriba, el procesado de los PDF hasta el correo; debajo, los webhooks que sirven la web de revisión y registran la factura.</figcaption>
       </figure>
 
-      <h2>El correo de revisión</h2>
-      <p>El correo llega a una cuenta personal o a un buzón compartido, según quién se encargue de las compras. Muestra cada documento pendiente con su total, el número de líneas y los avisos detectados, y un botón para revisarlo.</p>
+      <h2 data-i18n="n8n.correo.titulo">El correo de revisión</h2>
+      <p data-i18n="n8n.correo.texto">El correo llega a una cuenta personal o a un buzón compartido, según quién se encargue de las compras. Muestra cada documento pendiente con su total, el número de líneas y los avisos detectados, y un botón para revisarlo.</p>
       <figure class="post-captura">
         <a href="../img/posts/n8n-facturas/02-correo.png" target="_blank" rel="noopener">
-          <img src="../img/posts/n8n-facturas/02-correo.png" alt="Correo con ocho facturas de compra pendientes de revisar, con su total, número de líneas, avisos y un botón Revisar en cada una" width="1091" height="762" loading="lazy" />
+          <img src="../img/posts/n8n-facturas/02-correo.png" data-i18n-attr="alt:n8n.correo.alt" alt="Correo con ocho facturas de compra pendientes de revisar, con su total, número de líneas, avisos y un botón Revisar en cada una" width="1091" height="762" loading="lazy" />
         </a>
-        <figcaption>Correo con las facturas pendientes. Proveedores, números de factura y remitente tachados.</figcaption>
+        <figcaption data-i18n="n8n.correo.pie">Correo con las facturas pendientes. Proveedores, números de factura y remitente tachados.</figcaption>
       </figure>
 
-      <h2>Revisión de cada factura</h2>
-      <p>Desde el correo se accede a cada factura por separado. La página muestra el PDF original junto a los datos extraídos, ya contrastados con lo que tenemos en la base de datos: algunos campos no coinciden tal cual, como el código que el proveedor da a un artículo frente al nuestro, y la revisión propone la equivalencia.</p>
-      <p>Si el OCR no ha reconocido bien algún campo, se corrige a mano. Al editarlo se vuelve a consultar la información interna de la base de datos con el dato ya corregido, para que el resto de la contabilización se recalcule sobre el valor bueno.</p>
+      <h2 data-i18n="n8n.revision.titulo">Revisión de cada factura</h2>
+      <p data-i18n="n8n.revision.texto1">Desde el correo se accede a cada factura por separado. La página muestra el PDF original junto a los datos extraídos, ya contrastados con lo que tenemos en la base de datos: algunos campos no coinciden tal cual, como el código que el proveedor da a un artículo frente al nuestro, y la revisión propone la equivalencia.</p>
+      <p data-i18n="n8n.revision.texto2">Si el OCR no ha reconocido bien algún campo, se corrige a mano. Al editarlo se vuelve a consultar la información interna de la base de datos con el dato ya corregido, para que el resto de la contabilización se recalcule sobre el valor bueno.</p>
       <figure class="post-captura">
         <a href="../img/posts/n8n-facturas/03-revision.png" target="_blank" rel="noopener">
-          <img src="../img/posts/n8n-facturas/03-revision.png" alt="Página de revisión: a la izquierda el PDF de la factura; a la derecha la cabecera, la contabilización en Dimensions y las líneas de artículos, con los botones Rechazar y Aprobar y registrar en Dimensions" width="1900" height="935" loading="lazy" />
+          <img src="../img/posts/n8n-facturas/03-revision.png" data-i18n-attr="alt:n8n.revision.alt" alt="Página de revisión: a la izquierda el PDF de la factura; a la derecha la cabecera, la contabilización en Dimensions y las líneas de artículos, con los botones Rechazar y Aprobar y registrar en Dimensions" width="1900" height="935" loading="lazy" />
         </a>
-        <figcaption>Revisión de una factura: el PDF a la izquierda y los datos para Dimensions a la derecha. Datos de proveedor, cliente y artículos tachados.</figcaption>
+        <figcaption data-i18n="n8n.revision.pie">Revisión de una factura: el PDF a la izquierda y los datos para Dimensions a la derecha. Datos de proveedor, cliente y artículos tachados.</figcaption>
       </figure>
 
-      <h2>Aprobación y registro</h2>
-      <p>Para terminar, el operario indica su nombre en <strong>Revisado por</strong> y pulsa <strong>Aprobar y registrar en Dimensions</strong>. La factura se carga en la base de datos de Access Dimensions, queda marcada como realizada y aparece un mensaje de éxito. Una factura ya registrada no se puede volver a aprobar.</p>
-      <p>Si algo no es correcto, se puede <strong>rechazar</strong> indicando el motivo en el comentario.</p>
+      <h2 data-i18n="n8n.aprobacion.titulo">Aprobación y registro</h2>
+      <p data-i18n-html="n8n.aprobacion.texto1">Para terminar, el operario indica su nombre en <strong>Revisado por</strong> y pulsa <strong>Aprobar y registrar en Dimensions</strong>. La factura se carga en la base de datos de Access Dimensions, queda marcada como realizada y aparece un mensaje de éxito. Una factura ya registrada no se puede volver a aprobar.</p>
+      <p data-i18n-html="n8n.aprobacion.texto2">Si algo no es correcto, se puede <strong>rechazar</strong> indicando el motivo en el comentario.</p>
     </article>
 
     <footer class="posts-pie">
-      <a href="../otros-posts.html" class="posts-volver"><span aria-hidden="true">←</span> Volver a otros posts</a>
+      <a href="../otros-posts.html" class="posts-volver"><span aria-hidden="true">←</span> <span data-i18n="n8n.volverPie">Volver a otros posts</span></a>
     </footer>
   </main>
 
+  <script src="../ScriptsJS/traducciones.js"></script>
+  <script src="../ScriptsJS/idioma.js"></script>
   <script src="../ScriptsJS/menu.js"></script>
 </body>
 </html>

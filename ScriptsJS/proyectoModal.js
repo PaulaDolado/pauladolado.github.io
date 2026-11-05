@@ -5,8 +5,9 @@
 // #proyecto-modal con esos datos y se abre con showModal(), que ya trae
 // gestión de foco y cierre con Esc integrada en el navegador.
 //
-// Para añadir/editar un proyecto: solo hay que tocar este objeto y, en
-// index.html, poner el mismo data-abrir-modal en el botón de esa tarjeta.
+// Para añadir/editar un proyecto: solo hay que tocar este objeto (y su
+// versión en inglés, PROYECTOS_EN) y, en index.html, poner el mismo
+// data-abrir-modal en el botón de esa tarjeta.
 document.addEventListener('DOMContentLoaded', function () {
     const PROYECTOS = {
         'company-stock': {
@@ -66,6 +67,58 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     };
 
+    // Textos en inglés de cada ficha. Solo lleva lo que cambia con el
+    // idioma: el resto (título, stack, URLs) se toma de PROYECTOS. Los
+    // textos de los enlaces van en el mismo orden que en PROYECTOS.
+    const PROYECTOS_EN = {
+        'company-stock': {
+            descripcion: [
+                'Stock management dashboard built with React 19, Vite and TanStack Query. Every material request or internal restock goes through its own state machine (Pending → Approved → Sent to purchasing → Shipped → In transit → Delivered, with Rejected and Cancelled as alternative outcomes), split across several suppliers, with their orders generated automatically when it is sent to purchasing.',
+                'Permissions are segmented by role: requesters only see their own requests, while management and administration handle stock, suppliers and the full request history, with in-app alerts for every new request and an automatic email to the purchasing manager as soon as one is sent to purchasing.',
+                'The whole data layer goes through a client API: in the original project it runs on an Ubuntu server with Docker and PostgreSQL, but this demo replaces it with localStorage so it can be shared as a self-contained preview of this version, without depending on its own infrastructure. The rest of the application —hooks, pages and forms validated with React Hook Form and Zod— neither knows nor cares where the data comes from.'
+            ],
+            enlaces: ['View project', 'Code on GitHub']
+        },
+        tidely: {
+            descripcion: [
+                'REST API built in Node.js/TypeScript with Express and Prisma on PostgreSQL, with JWT authentication (access + refresh) and documented with Swagger/OpenAPI. It brings together five modules —calendar, goals, finances, projects and habits— with real recurring events, automatic notifications (reminders and alerts for goals at risk) and a time zone per user; all covered by 189 unit and integration tests with Jest.',
+                'The backend serves three clients: this React dashboard, an offline-first mobile app in Expo/React Native and a read-only Google Calendar integration. The mobile app mirrors the everyday subset (events, tasks, habits, notes) in SQLite and syncs with the backend through GET /sync/pull and POST /sync/push, resolving deletions with tombstones and conflicts with last-write-wins, so it works the same with or without a connection.'
+            ],
+            enlaces: ['View project', 'Code on GitHub']
+        },
+        integra: {
+            descripcion: [
+                'Employee portal built with React 18, TypeScript, Vite and shadcn/ui on Supabase (PostgreSQL, Auth, Storage and Realtime). Everyone manages their day-to-day from a single place: clocking in and out, absence requests with supporting documents, shift changes and swaps, a real-time kanban task board, calendar, GLPI-style tickets, a notice board, an org chart and internal chat with presence indicators.',
+                'Departments work as roles: HR, Management, Finance and Technology have their own management screens (approval inboxes, employees, tickets, time records with CSV export and audited corrections, payment details), and permissions are configured in the database without touching code. The frontend only decides what to show; what really decides are the Row Level Security policies, which check every permission again on the server.',
+                'Security is part of the design: TOTP two-factor authentication that locks the data until verified, sensitive data served through SECURITY DEFINER functions (the IBAN arrives masked and every full lookup is logged), a Content Security Policy injected at build time, attachments in private buckets with signed URLs, and tests with Vitest and Testing Library that run before every deployment to GitHub Pages.'
+            ],
+            enlaces: ['View project', 'Code on GitHub']
+        },
+        'el-candil': {
+            descripcion: [
+                'Website for El Candil restaurant, planned in two stages. The first, already live, is a static page in HTML, CSS and JavaScript with no build step or dependencies: the menu is browsed by opening the folders of a filing cabinet, one per section (set menu, starters, meat, fish, desserts, children\'s menu and drinks), with prices, labels and allergens for each dish, all generated from a single data file.',
+                'Table booking only offers the times with space available and stores the booking in Supabase, where PostgreSQL functions with Row Level Security check capacity again at the moment of booking. Once the booking is confirmed, the customer can add it to their calendar and receive the confirmation by WhatsApp from the restaurant\'s number through an Edge Function that calls the WhatsApp Business API. If Supabase is unavailable, the booking is sent straight to the restaurant\'s WhatsApp.',
+                'The second stage, still to come, will turn the website into an ordering point at the table itself: diners will indicate which table they are sitting at and will be able to order from their phone.'
+            ],
+            enlaces: ['View project', 'Code on GitHub']
+        }
+    };
+
+    const t = (clave, espanol) => (window.i18n ? window.i18n.t(clave, espanol) : espanol);
+    const enIngles = () => window.i18n && window.i18n.idioma() === 'en';
+
+    // Datos de la ficha en el idioma activo
+    function datosProyecto(id) {
+        const es = PROYECTOS[id];
+        const en = PROYECTOS_EN[id];
+        if (!es || !enIngles() || !en) return es;
+        return Object.assign({}, es, {
+            kicker: es.kicker.replace('Proyecto', t('modal.kicker', 'Proyecto')),
+            descripcion: en.descripcion,
+            enlaces: es.enlaces.map((enlace, i) => ({ texto: en.enlaces[i] || enlace.texto, url: enlace.url }))
+        });
+    }
+
     const modal = document.getElementById('proyecto-modal');
     if (!modal) return;
 
@@ -75,9 +128,12 @@ document.addEventListener('DOMContentLoaded', function () {
     const elStack = document.getElementById('pm-stack');
     const elEnlaces = document.getElementById('pm-enlaces');
 
-    const abrirModal = (id) => {
-        const datos = PROYECTOS[id];
-        if (!datos) return;
+    let proyectoAbierto = null; // para volver a pintarlo si cambia el idioma
+
+    const rellenarModal = (id) => {
+        const datos = datosProyecto(id);
+        if (!datos) return false;
+        proyectoAbierto = id;
 
         elKicker.textContent = datos.kicker || '';
         elTitulo.textContent = datos.titulo;
@@ -110,9 +166,14 @@ document.addEventListener('DOMContentLoaded', function () {
         } else {
             const p = document.createElement('p');
             p.className = 'proyecto-modal-proximamente';
-            p.textContent = 'Todavía sin enlace público — vuelve pronto.';
+            p.textContent = t('modal.sinEnlace', 'Todavía sin enlace público — vuelve pronto.');
             elEnlaces.appendChild(p);
         }
+        return true;
+    };
+
+    const abrirModal = (id) => {
+        if (!rellenarModal(id)) return;
 
         // El <dialog> se pinta en la "top layer" del navegador, por encima
         // incluso del cursor personalizado (que es un div normal). Mientras
@@ -127,6 +188,11 @@ document.addEventListener('DOMContentLoaded', function () {
 
     document.querySelectorAll('[data-abrir-modal]').forEach((boton) => {
         boton.addEventListener('click', () => abrirModal(boton.dataset.abrirModal));
+    });
+
+    // Si la ficha está abierta al cambiar de idioma, se vuelve a pintar
+    document.addEventListener('idiomacambiado', () => {
+        if (modal.open && proyectoAbierto) rellenarModal(proyectoAbierto);
     });
 
     // Cerrar al pulsar fuera del cuadro de diálogo (sobre el ::backdrop).

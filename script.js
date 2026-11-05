@@ -82,6 +82,7 @@ buttons.forEach(button => {
             e.target.closest('.skills-terminal') !== null ||
             e.target.closest('.carta') !== null ||
             e.target.closest('.proyecto-otros') !== null ||
+            e.target.closest('.idioma-toggle') !== null ||
             e.target.closest('.proyecto-modal') !== null;
         
         if (isOverInteractiveElement) {// sobre cualquier elemento interactivo

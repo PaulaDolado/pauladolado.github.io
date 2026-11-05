@@ -12,6 +12,12 @@ document.addEventListener('DOMContentLoaded', function () {
 
     const sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
 
+    // Textos del "comando" en el idioma activo (ver idioma.js)
+    const t = (clave, espanol) => (window.i18n ? window.i18n.t(clave, espanol) : espanol);
+    const comandoActual = () => (showingSecondPage
+        ? t('skills.verPrincipales', 'ver --principales')
+        : t('skills.verOtras', 'ver --otras-tecnologias'));
+
     // "Escribe" un texto en el botón, letra a letra.
     function typeCommand(text, speed) {
         return new Promise((resolve) => {
@@ -30,13 +36,14 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     let showingSecondPage = false;
+    cmdEl.textContent = comandoActual();
 
     button.addEventListener('click', async () => {
         button.disabled = true;
 
         // Efecto de "ejecutar" el comando antes de aplicar el cambio
         await typeCommand('', 0);
-        await typeCommand('cargando…', 25);
+        await typeCommand(t('skills.cargando', 'cargando…'), 25);
         await sleep(250);
 
         showingSecondPage = !showingSecondPage;
@@ -44,9 +51,14 @@ document.addEventListener('DOMContentLoaded', function () {
         page2Groups.forEach((group) => { group.hidden = !showingSecondPage; });
         button.setAttribute('aria-expanded', showingSecondPage ? 'true' : 'false');
 
-        const proximoComando = showingSecondPage ? 'ver --principales' : 'ver --otras-tecnologias';
-        await typeCommand(proximoComando, 30);
+        await typeCommand(comandoActual(), 30);
 
         button.disabled = false;
+    });
+
+    // Si se cambia de idioma mientras se teclea, el propio tecleo acaba
+    // escribiendo el comando en el idioma nuevo.
+    document.addEventListener('idiomacambiado', () => {
+        if (!button.disabled) cmdEl.textContent = comandoActual();
     });
 });
