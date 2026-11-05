@@ -149,8 +149,26 @@ html, body{
     gap: 1rem;
     margin-top: 1.25rem;
 }
-.post-cuerpo{
-    max-width: 70ch;
+/* El post va en una columna centrada: cabecera, cuerpo y pie comparten
+   ancho para que todo quede alineado */
+.posts-main--post .posts-cabecera,
+.posts-main--post .post-cuerpo,
+.posts-main--post .posts-pie{
+    max-width: 860px;
+    margin-left: auto;
+    margin-right: auto;
+}
+/* Texto justificado a partir de tablet. En móvil la línea es tan corta
+   que justificar abre huecos grandes entre palabras (no todos los
+   navegadores parten palabras con guion en español), así que ahí se
+   queda alineado a la izquierda. */
+@media (min-width: 641px){
+    .post-cuerpo p,
+    .post-cuerpo li{
+        text-align: justify;
+        -webkit-hyphens: auto;
+        hyphens: auto;
+    }
 }
 .post-cuerpo h2{
     margin: 3rem 0 1rem;
