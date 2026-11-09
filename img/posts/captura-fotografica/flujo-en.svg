@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 940 955" width="940" height="955" role="img" aria-label="Flowchart of the photo capture assistant">
+<title>Flowchart of the photo capture assistant</title>
+<defs>
+<marker id="punta" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#8c7a6b"/></marker>
+<marker id="puntaVuelta" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#7a2331"/></marker>
+</defs>
+<rect width="940" height="955" fill="#fffbf3"/>
+<g font-family="'Space Mono', Consolas, Menlo, 'DejaVu Sans Mono', monospace">
+<rect x="280" y="24" width="340" height="52" rx="26" fill="#f7f1e5" stroke="#cdbfae" stroke-width="1.5"/><text x="450" text-anchor="middle" dominant-baseline="central" font-size="13" font-weight="400" fill="#2b211b"><tspan x="450" y="50">The operator enters the batch number</tspan></text>
+<path d="M450,76 V103" fill="none" stroke="#8c7a6b" stroke-width="1.5" marker-end="url(#punta)"/>
+<polygon points="450,105 600,175 450,245 300,175" fill="#f4e7e4" stroke="#7a2331" stroke-width="1.5"/><text x="450" text-anchor="middle" dominant-baseline="central" font-size="13" font-weight="700" fill="#7a2331"><tspan x="450" y="157">Are there already</tspan><tspan x="450" y="175">photos for this</tspan><tspan x="450" y="193">batch?</tspan></text>
+<path d="M300,175 H170 V262" fill="none" stroke="#8c7a6b" stroke-width="1.5" marker-end="url(#punta)"/>
+<text x="236" y="162" text-anchor="middle" dominant-baseline="central" font-size="12" font-weight="700" fill="#7a2331">Yes</text>
+<path d="M600,175 H760 V262" fill="none" stroke="#8c7a6b" stroke-width="1.5" marker-end="url(#punta)"/>
+<text x="664" y="162" text-anchor="middle" dominant-baseline="central" font-size="12" font-weight="700" fill="#7a2331">No</text>
+<rect x="40" y="264" width="260" height="72" rx="8" fill="#f7f1e5" stroke="#cdbfae" stroke-width="1.5"/><text x="170" text-anchor="middle" dominant-baseline="central" font-size="13" font-weight="400" fill="#2b211b"><tspan x="170" y="291">The pack type is inferred</tspan><tspan x="170" y="309">from the existing photos</tspan></text>
+<rect x="630" y="264" width="260" height="72" rx="8" fill="#f7f1e5" stroke="#cdbfae" stroke-width="1.5"/><text x="760" text-anchor="middle" dominant-baseline="central" font-size="13" font-weight="400" fill="#2b211b"><tspan x="760" y="291">Choose a format: blister,</tspan><tspan x="760" y="309">bottle, sachets or other</tspan></text>
+<path d="M170,336 V372 H760 V336" fill="none" stroke="#8c7a6b" stroke-width="1.5"/>
+<path d="M450,372 V398" fill="none" stroke="#8c7a6b" stroke-width="1.5" marker-end="url(#punta)"/>
+<rect x="300" y="400" width="300" height="60" rx="8" fill="#f7f1e5" stroke="#cdbfae" stroke-width="1.5"/><text x="450" text-anchor="middle" dominant-baseline="central" font-size="13" font-weight="400" fill="#2b211b"><tspan x="450" y="421">Guided list of steps with a</tspan><tspan x="450" y="439">reference image</tspan></text>
+<path d="M450,460 V498" fill="none" stroke="#8c7a6b" stroke-width="1.5" marker-end="url(#punta)"/>
+<rect x="300" y="500" width="300" height="60" rx="8" fill="#f7f1e5" stroke="#cdbfae" stroke-width="1.5"/><text x="450" text-anchor="middle" dominant-baseline="central" font-size="13" font-weight="400" fill="#2b211b"><tspan x="450" y="521">Camera: live detection + framing +</tspan><tspan x="450" y="539">sharpness</tspan></text>
+<path d="M450,560 V598" fill="none" stroke="#8c7a6b" stroke-width="1.5" marker-end="url(#punta)"/>
+<rect x="300" y="600" width="300" height="60" rx="8" fill="#f7f1e5" stroke="#cdbfae" stroke-width="1.5"/><text x="450" text-anchor="middle" dominant-baseline="central" font-size="13" font-weight="400" fill="#2b211b"><tspan x="450" y="630">Capture and automatic crop</tspan></text>
+<path d="M450,660 V703" fill="none" stroke="#8c7a6b" stroke-width="1.5" marker-end="url(#punta)"/>
+<polygon points="450,705 570,760 450,815 330,760" fill="#f4e7e4" stroke="#7a2331" stroke-width="1.5"/><text x="450" text-anchor="middle" dominant-baseline="central" font-size="13" font-weight="700" fill="#7a2331"><tspan x="450" y="760">Checks</tspan></text>
+<path d="M330,760 H200 V530 H298" fill="none" stroke="#7a2331" stroke-width="1.5" stroke-dasharray="5 4" marker-end="url(#puntaVuelta)"/>
+<text x="262" text-anchor="middle" dominant-baseline="central" font-size="12" font-weight="700" fill="#7a2331"><tspan x="262" y="725">Blurry /</tspan><tspan x="262" y="743">duplicate</tspan></text>
+<path d="M450,815 V853" fill="none" stroke="#8c7a6b" stroke-width="1.5" marker-end="url(#punta)"/>
+<text x="464" y="834" text-anchor="start" dominant-baseline="central" font-size="12" font-weight="700" fill="#7a2331">OK</text>
+<rect x="300" y="855" width="300" height="80" rx="8" fill="#f7f1e5" stroke="#cdbfae" stroke-width="1.5"/><text x="450" text-anchor="middle" dominant-baseline="central" font-size="13" font-weight="400" fill="#2b211b"><tspan x="450" y="886">Saved to the batch folder and on</tspan><tspan x="450" y="904">to the next pending step</tspan></text>
+<path d="M300,895 H60 V372 H168" fill="none" stroke="#7a2331" stroke-width="1.5" stroke-dasharray="5 4" marker-end="url(#puntaVuelta)"/>
+<path d="M600,430 H648" fill="none" stroke="#8c7a6b" stroke-width="1.5" marker-end="url(#punta)"/>
+<rect x="650" y="404" width="220" height="52" rx="8" fill="#f7f1e5" stroke="#cdbfae" stroke-width="1.5"/><text x="760" text-anchor="middle" dominant-baseline="central" font-size="13" font-weight="400" fill="#2b211b"><tspan x="760" y="430">Save all</tspan></text>
+<path d="M760,456 V488" fill="none" stroke="#8c7a6b" stroke-width="1.5" marker-end="url(#punta)"/>
+<polygon points="760,490 890,560 760,630 630,560" fill="#f4e7e4" stroke="#7a2331" stroke-width="1.5"/><text x="760" text-anchor="middle" dominant-baseline="central" font-size="13" font-weight="700" fill="#7a2331"><tspan x="760" y="551">Are any required</tspan><tspan x="760" y="569">steps missing?</tspan></text>
+<path d="M890,560 H920 V372 H762" fill="none" stroke="#7a2331" stroke-width="1.5" stroke-dasharray="5 4" marker-end="url(#puntaVuelta)"/>
+<text x="905" y="546" text-anchor="middle" dominant-baseline="central" font-size="12" font-weight="700" fill="#7a2331">Yes</text>
+<path d="M760,630 V668" fill="none" stroke="#8c7a6b" stroke-width="1.5" marker-end="url(#punta)"/>
+<text x="774" y="649" text-anchor="start" dominant-baseline="central" font-size="12" font-weight="700" fill="#7a2331">No</text>
+<rect x="630" y="675" width="260" height="80" rx="8" fill="#7a2331" stroke="#7a2331" stroke-width="1.5"/><text x="760" text-anchor="middle" dominant-baseline="central" font-size="13" font-weight="700" fill="#f7f1e5"><tspan x="760" y="706">PDF report + damage PDF</tspan><tspan x="760" y="724">generated</tspan></text>
+</g>
+</svg>

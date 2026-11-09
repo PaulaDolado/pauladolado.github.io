@@ -126,54 +126,10 @@
       <p data-i18n-html="foto.stack.local">Todo el análisis de imagen se ejecuta <strong>en el propio dispositivo</strong>, en el navegador: no hay un servicio de IA externo ni se envían fotos a terceros.</p>
 
       <h2 data-i18n="foto.flujo.titulo">Flujo general</h2>
-      <figure class="post-diagrama">
-        <ol class="flujo">
-          <li class="flujo-nodo" data-i18n="foto.flujo.lote">El operario introduce el nº de lote</li>
-          <li class="flujo-decision">
-            <p class="flujo-pregunta" data-i18n="foto.flujo.hayFotos">¿Ya hay fotos de ese lote?</p>
-            <div class="flujo-ramas">
-              <div class="flujo-rama">
-                <span class="flujo-etiqueta" data-i18n="foto.flujo.si">Sí</span>
-                <p data-i18n="foto.flujo.deduce">Se deduce el tipo de envase a partir de las fotos existentes</p>
-              </div>
-              <div class="flujo-rama">
-                <span class="flujo-etiqueta">No</span>
-                <p data-i18n="foto.flujo.formato">Elige formato: blíster, frasco, sobres u otro</p>
-              </div>
-            </div>
-          </li>
-          <li class="flujo-nodo" data-i18n="foto.flujo.pasos">Lista guiada de pasos con imagen de referencia</li>
-          <li class="flujo-nodo" data-i18n="foto.flujo.camara">Cámara: detección + encuadre + nitidez en vivo</li>
-          <li class="flujo-nodo" data-i18n="foto.flujo.captura">Captura y recorte automático</li>
-          <li class="flujo-decision">
-            <p class="flujo-pregunta" data-i18n="foto.flujo.validaciones">Validaciones</p>
-            <div class="flujo-ramas">
-              <div class="flujo-rama">
-                <span class="flujo-etiqueta" data-i18n="foto.flujo.borrosa">Borrosa / duplicada</span>
-                <p class="flujo-vuelta" data-i18n="foto.flujo.repite">Vuelve a la cámara</p>
-              </div>
-              <div class="flujo-rama">
-                <span class="flujo-etiqueta">OK</span>
-                <p data-i18n="foto.flujo.guardado">Guardado en la carpeta del lote y salto al siguiente paso pendiente</p>
-                <p class="flujo-vuelta" data-i18n="foto.flujo.alaLista">Vuelve a la lista de pasos</p>
-              </div>
-            </div>
-          </li>
-          <li class="flujo-nodo" data-i18n="foto.flujo.guardarTodo">Guardar todo</li>
-          <li class="flujo-decision">
-            <p class="flujo-pregunta" data-i18n="foto.flujo.faltan">¿Faltan pasos obligatorios?</p>
-            <div class="flujo-ramas">
-              <div class="flujo-rama">
-                <span class="flujo-etiqueta" data-i18n="foto.flujo.si">Sí</span>
-                <p class="flujo-vuelta" data-i18n="foto.flujo.alaLista">Vuelve a la lista de pasos</p>
-              </div>
-              <div class="flujo-rama flujo-rama--fin">
-                <span class="flujo-etiqueta">No</span>
-                <p data-i18n="foto.flujo.informe">Generación del informe PDF + PDF de daños</p>
-              </div>
-            </div>
-          </li>
-        </ol>
+      <figure class="post-captura">
+        <a href="../img/posts/captura-fotografica/flujo-es.svg" data-i18n-attr="href:foto.flujo.src" target="_blank" rel="noopener">
+          <img src="../img/posts/captura-fotografica/flujo-es.svg" data-i18n-attr="src:foto.flujo.src;alt:foto.flujo.alt" alt="Diagrama de flujo: el operario introduce el lote; si ya hay fotos se deduce el tipo de envase y si no se elige el formato; después, lista de pasos, cámara, captura y validaciones, que vuelven a la cámara si la foto está borrosa o duplicada; al guardar todo, si faltan pasos obligatorios se vuelve a la lista y si no se genera el informe PDF" width="940" height="955" loading="lazy" />
+        </a>
         <figcaption data-i18n="foto.flujo.pie">Recorrido del asistente, desde que se introduce el lote hasta que se genera el informe.</figcaption>
       </figure>
 
@@ -193,7 +149,12 @@
 
       <h3 data-i18n="foto.nitidez.titulo">2. Nitidez: varianza del Laplaciano</h3>
       <p data-i18n-html="foto.nitidez.texto">Para decidir si una foto está desenfocada uso la <strong>varianza del Laplaciano</strong>. El Laplaciano es una segunda derivada: en una imagen nítida hay muchos bordes fuertes y sus valores están muy dispersos (varianza alta); en una imagen borrosa los bordes se suavizan y el Laplaciano se queda cerca de 0 (varianza baja).</p>
-      <pre class="post-codigo"><code data-i18n="foto.nitidez.codigo">// Versión simplificada
+      <div class="post-editor">
+        <div class="editor-barra" aria-hidden="true">
+          <span class="editor-puntos"><i></i><i></i><i></i></span>
+          <span class="editor-pestana"><span class="editor-icono editor-icono--js">JS</span>sharpness.js</span>
+        </div>
+        <pre class="post-codigo"><code class="lenguaje-js" data-i18n="foto.nitidez.codigo">// Versión simplificada
 function sharpnessScore(canvas) {
   const src = cv.imread(canvas);
   const gray = new cv.Mat(), lap = new cv.Mat();
@@ -208,6 +169,8 @@ function sharpnessScore(canvas) {
     [src, gray, lap, mean, std].forEach(m =&gt; m.delete()); // OpenCV.js no tiene GC
   }
 }</code></pre>
+        <div class="editor-estado" aria-hidden="true"><span>UTF-8</span><span>LF</span><span>JavaScript</span></div>
+      </div>
       <p data-i18n="foto.nitidez.decisiones">Decisiones de diseño:</p>
       <ul>
         <li data-i18n-html="foto.nitidez.umbrales"><strong>Dos umbrales.</strong> Uno en vivo, sobre cada fotograma, que solo orienta al usuario; y otro, bloqueante, sobre <strong>la foto final ya recortada</strong>, reescalada a un tamaño fijo para que la puntuación no dependa de la resolución.</li>
@@ -225,7 +188,12 @@ function sharpnessScore(canvas) {
       <ul>
         <li data-i18n-html="foto.duplicados.cliente"><strong>En el cliente (similitud visual):</strong> comparo la nueva foto con las ya guardadas usando <strong>ORB</strong> (puntos clave + descriptores binarios), <code>BFMatcher</code> con distancia de Hamming y el <strong>ratio test de Lowe</strong>. Como la misma cara del envase puede fotografiarse girada, pruebo también la imagen volteada horizontal y verticalmente y me quedo con la mejor coincidencia. Si se parece demasiado a otra, se avisa al usuario indicando a qué paso se parece.</li>
       </ul>
-      <pre class="post-codigo"><code data-i18n="foto.duplicados.codigo">// Ratio test de Lowe: una coincidencia es "buena" si es claramente
+      <div class="post-editor">
+        <div class="editor-barra" aria-hidden="true">
+          <span class="editor-puntos"><i></i><i></i><i></i></span>
+          <span class="editor-pestana"><span class="editor-icono editor-icono--js">JS</span>duplicates.js</span>
+        </div>
+        <pre class="post-codigo"><code class="lenguaje-js" data-i18n="foto.duplicados.codigo">// Ratio test de Lowe: una coincidencia es "buena" si es claramente
 // mejor que la segunda candidata
 bf.knnMatch(desc1, desc2, knn, 2);
 let good = 0;
@@ -234,16 +202,25 @@ for (let i = 0; i &lt; knn.size(); i++) {
   if (m.distance &lt; 0.75 * n.distance) good++;
 }
 const difference = 1 - good / Math.max(kp1.size(), kp2.size());</code></pre>
+        <div class="editor-estado" aria-hidden="true"><span>UTF-8</span><span>LF</span><span>JavaScript</span></div>
+      </div>
       <ul>
         <li data-i18n-html="foto.duplicados.servidor"><strong>En el servidor (duplicado exacto):</strong> un hash <strong>SHA-256</strong> de los bytes, con un prefiltro por tamaño de fichero para no leer de la unidad de red todas las fotos. Este control sí es bloqueante.</li>
       </ul>
 
       <h3 data-i18n="foto.traza.titulo">6. Trazabilidad sin ficheros adicionales</h3>
       <p data-i18n-html="foto.traza.texto">Para saber quién hizo cada foto no uso una base de datos ni ficheros auxiliares: el nombre del operario se escribe <strong>dentro del propio PNG</strong>, en un chunk <code>tEXt</code> insertado justo después de la cabecera <code>IHDR</code>. Al calcular el hash de duplicados ese chunk se elimina antes, para comparar solo el contenido de la imagen.</p>
-      <pre class="post-codigo"><code data-i18n="foto.traza.codigo">// Inserta un chunk tEXt "Operator" tras IHDR (simplificado)
+      <div class="post-editor">
+        <div class="editor-barra" aria-hidden="true">
+          <span class="editor-puntos"><i></i><i></i><i></i></span>
+          <span class="editor-pestana"><span class="editor-icono editor-icono--php">php</span>png-operator.php</span>
+        </div>
+        <pre class="post-codigo"><code class="lenguaje-php" data-i18n="foto.traza.codigo">// Inserta un chunk tEXt "Operator" tras IHDR (simplificado)
 $data  = "Operator\0" . $operator;
 $chunk = pack('N', strlen($data)) . 'tEXt' . $data . pack('N', crc32('tEXt' . $data));
 $png   = substr($png, 0, 33) . $chunk . substr($png, 33); // 8 (firma) + 25 (IHDR)</code></pre>
+        <div class="editor-estado" aria-hidden="true"><span>UTF-8</span><span>LF</span><span>PHP</span></div>
+      </div>
 
       <h2 data-i18n="foto.pdf.titulo">La generación (y regeneración) del PDF</h2>
       <p data-i18n-html="foto.pdf.texto">Al pulsar «Guardar todo» el servidor reconstruye el informe <strong>a partir de la carpeta del lote, que es la única fuente de verdad</strong>. Cada generación crea un fichero nuevo con marca de tiempo, así que se puede regenerar tantas veces como haga falta (por ejemplo, tras repetir una foto) sin perder las versiones anteriores.</p>
@@ -313,5 +290,7 @@ $png   = substr($png, 0, 33) . $chunk . substr($png, 33); // 8 (firma) + 25 (IHD
   <script src="../ScriptsJS/traducciones.js"></script>
   <script src="../ScriptsJS/idioma.js"></script>
   <script src="../ScriptsJS/menu.js"></script>
+  <script src="../ScriptsJS/resaltadoCodigo.js"></script>
+  <script src="../ScriptsJS/visorImagenes.js"></script>
 </body>
 </html>
