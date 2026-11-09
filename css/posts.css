@@ -376,3 +376,228 @@ html.visor-abierto{
 @media (prefers-reduced-motion: reduce){
     .visor[open]{ animation: none; }
 }
+
+/* Nota, tabla y bloques de código dentro del post */
+.post-cuerpo .post-nota{
+    padding: 1rem 1.25rem;
+    border-left: 3px solid var(--accent);
+    border-radius: 0 var(--radius-md) var(--radius-md) 0;
+    background: var(--accent-soft);
+    font-size: 0.92rem;
+}
+.post-tabla{
+    margin: 1.25rem 0;
+    overflow-x: auto;
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    background: var(--bg-elevated);
+}
+.post-tabla table{
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.92rem;
+}
+.post-tabla th,
+.post-tabla td{
+    padding: 0.7rem 1rem;
+    border-bottom: 1px solid var(--border);
+    color: var(--text-secondary);
+    text-align: left;
+    vertical-align: top;
+}
+.post-tabla th{
+    background: var(--bg-secondary);
+    color: var(--text-muted);
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    font-weight: 400;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+}
+.post-tabla tr:last-child td{
+    border-bottom: none;
+}
+.post-tabla td:first-child{
+    color: var(--text-primary);
+    font-weight: 600;
+    white-space: nowrap;
+}
+.post-codigo{
+    margin: 1.25rem 0;
+    padding: 1.1rem 1.25rem;
+    overflow-x: auto;
+    border-radius: var(--radius-lg);
+    background: var(--text-primary);
+    color: var(--bg-secondary);
+    font-family: var(--font-mono);
+    font-size: 0.8rem;
+    line-height: 1.65;
+    tab-size: 2;
+}
+.post-cuerpo .post-codigo code{
+    padding: 0;
+    background: none;
+    color: inherit;
+    font-size: inherit;
+}
+.post-codigo + p,
+.post-codigo + ul{
+    margin-top: 1rem;
+}
+.post-semaforo{
+    white-space: nowrap;
+}
+.post-semaforo::before{
+    content: "";
+    display: inline-block;
+    width: 0.6em;
+    height: 0.6em;
+    margin-right: 0.3em;
+    border-radius: 2px;
+    background: currentColor;
+    vertical-align: 0.05em;
+}
+.post-semaforo--verde{ color: #4f7a3a; }
+.post-semaforo--naranja{ color: #c0752a; }
+.post-semaforo--rojo{ color: #b03a2e; }
+.post-cuerpo .post-tecnologias{
+    margin-top: 2.5rem;
+    padding-top: 1.25rem;
+    border-top: 1px dashed var(--border);
+    color: var(--text-muted);
+    font-family: var(--font-mono);
+    font-size: 0.8rem;
+}
+
+/* Diagrama de flujo en HTML */
+.post-diagrama{
+    margin: 1.25rem 0 2rem;
+    padding: 1.5rem;
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    background: var(--bg-elevated);
+}
+.post-diagrama figcaption{
+    margin-top: 1.25rem;
+    color: var(--text-muted);
+    font-family: var(--font-mono);
+    font-size: 0.8rem;
+    text-align: center;
+}
+.post-cuerpo .flujo{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0;
+    padding: 0;
+    list-style: none;
+}
+.flujo > li{
+    position: relative;
+    width: 100%;
+    max-width: 520px;
+    font-family: var(--font-mono);
+    font-size: 0.8rem;
+    line-height: 1.5;
+    text-align: center;
+}
+/* Flecha hacia el siguiente paso */
+.flujo > li:not(:last-child){
+    margin-bottom: 2rem;
+}
+.flujo > li:not(:last-child)::after{
+    content: "";
+    position: absolute;
+    left: 50%;
+    bottom: -1.75rem;
+    width: 1px;
+    height: 1.5rem;
+    background: var(--border-accent);
+}
+.flujo > li:not(:last-child)::before{
+    content: "";
+    position: absolute;
+    left: calc(50% - 4px);
+    bottom: -1.8rem;
+    border: 4px solid transparent;
+    border-top: 5px solid var(--border-accent);
+    border-bottom: none;
+}
+.post-cuerpo .flujo-nodo{
+    padding: 0.7rem 1rem;
+    border: 1px solid var(--border);
+    border-radius: var(--radius-md);
+    background: var(--bg-primary);
+    color: var(--text-primary);
+}
+.post-cuerpo .flujo-decision{
+    max-width: 640px;
+    color: var(--text-secondary);
+}
+.post-cuerpo .flujo-pregunta{
+    display: inline-block;
+    margin-bottom: 0.75rem;
+    padding: 0.45rem 0.9rem;
+    border: 1px dashed var(--accent);
+    border-radius: 999px;
+    background: var(--accent-soft);
+    color: var(--accent);
+    font-size: 0.8rem;
+    font-weight: 700;
+    text-align: center;
+}
+.flujo-ramas{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.75rem;
+}
+.flujo-rama{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.4rem;
+    padding: 0.7rem 0.8rem;
+    border: 1px solid var(--border);
+    border-radius: var(--radius-md);
+    background: var(--bg-primary);
+}
+.flujo-rama--fin{
+    border-color: var(--accent);
+    background: var(--accent);
+}
+.post-cuerpo .flujo-rama p{
+    margin: 0;
+    color: var(--text-primary);
+    font-size: 0.8rem;
+    line-height: 1.5;
+    text-align: center;
+}
+.post-cuerpo .flujo-rama--fin p{
+    color: var(--on-accent);
+    font-weight: 700;
+}
+.flujo-etiqueta{
+    color: var(--text-muted);
+    font-size: 0.7rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+}
+.flujo-rama--fin .flujo-etiqueta{
+    color: var(--on-accent);
+    opacity: 0.8;
+}
+.post-cuerpo .flujo-rama .flujo-vuelta{
+    color: var(--accent);
+    font-size: 0.75rem;
+}
+.flujo-vuelta::before{
+    content: "↺ ";
+}
+@media (max-width: 480px){
+    .post-diagrama{
+        padding: 1rem 0.75rem;
+    }
+    .flujo-ramas{
+        gap: 0.5rem;
+    }
+}

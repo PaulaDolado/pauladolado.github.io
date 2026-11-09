@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title data-i18n="foto.meta.titulo">Del móvil al PDF: asistente de captura fotográfica con visión por computador — Paula Dolado Aynié</title>
+  <meta name="description" data-i18n-attr="content:foto.meta.descripcion" content="Asistente guiado para una web móvil que valida cada foto en el momento de hacerla (encuadre, nitidez y duplicados) con visión por computador en el navegador y genera el informe PDF del lote." />
+  <meta name="theme-color" content="#f7f1e5" />
+  <meta property="og:type" content="article" />
+  <meta property="og:title" content="Del móvil al PDF: un asistente de captura fotográfica con visión por computador en el navegador" />
+  <meta property="og:description" content="Asistente guiado para una web móvil que valida cada foto en el momento de hacerla (encuadre, nitidez y duplicados) con visión por computador en el navegador y genera el informe PDF del lote." />
+  <meta property="og:image" content="../img/cara.png" />
+  <link rel="icon" href="../favicon.ico" sizes="any" />
+  <link rel="icon" type="image/svg+xml" href="../img/favicon.svg" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..900;1,6..96,400..900&family=Inter:ital,wght@0,300..800;1,300..800&display=swap" />
+  <link rel="stylesheet" href="../css/styles.css" />
+  <link rel="stylesheet" href="../css/posts.css" />
+</head>
+<body>
+  <nav class="nav-container">
+    <div class="nav-wrapper">
+      <div class="nav-logo">
+         <a href="../index.html" aria-label="Paula Dolado — Inicio" data-i18n-attr="aria-label:nav.logo"><span class="bracket">&lt;</span>PD<span class="bracket">/&gt;</span></a>
+      </div>
+      <div class="nav-links" id="nav-links">
+        <a href="../index.html#inicio" class="nav-link">
+          <div class="button-label" data-i18n="nav.inicio">INICIO</div>
+          <div class="link-bg"></div>
+        </a>
+        <a href="../index.html#acercademi" class="nav-link">
+          <div class="button-label" data-i18n="nav.acerca">ACERCA DE MI</div>
+          <div class="link-bg"></div>
+        </a>
+        <a href="../index.html#proyectos" class="nav-link active">
+          <div class="button-label" data-i18n="nav.proyectos">PROYECTOS</div>
+          <div class="link-bg"></div>
+        </a>
+        <a href="../index.html#experiencia" class="nav-link">
+          <div class="button-label" data-i18n="nav.experiencia">EXPERIENCIA</div>
+          <div class="link-bg"></div>
+        </a>
+        <a href="../index.html#contacto" class="nav-link">
+          <div class="button-label" data-i18n="nav.contacto">CONTACTO</div>
+          <div class="link-bg"></div>
+        </a>
+      </div>
+      <button type="button" class="idioma-toggle" data-idioma-toggle aria-label="Ver la web en inglés" data-i18n-attr="aria-label:idioma.cambiar">
+        <span class="idioma-opcion" data-idioma="es">ES</span>
+        <span class="idioma-opcion" data-idioma="en">EN</span>
+      </button>
+      <button type="button" class="hamburger" aria-label="Abrir menú" data-i18n-attr="aria-label:menu.abrir" aria-expanded="false" aria-controls="nav-links">
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </nav>
+
+  <main class="posts-main posts-main--post">
+    <header class="posts-cabecera">
+      <a href="../otros-posts.html" class="posts-volver"><span aria-hidden="true">←</span> <span data-i18n="foto.volver">Otros posts</span></a>
+      <p class="section-kicker" data-i18n="foto.kicker">// visión por computador</p>
+      <h1 class="posts-titulo posts-titulo--post" data-i18n="foto.titulo">Del móvil al PDF: un asistente de captura fotográfica con visión por computador en el navegador</h1>
+      <div class="post-meta">
+        <div class="post-tags">
+          <span class="tech-tag">OpenCV.js</span>
+          <span class="tech-tag">TensorFlow.js</span>
+          <span class="tech-tag">Symfony</span>
+          <span class="tech-tag">TCPDF</span>
+        </div>
+      </div>
+    </header>
+
+    <article class="post-cuerpo">
+      <p class="post-nota" data-i18n="foto.nota">Proyecto desarrollado en un entorno profesional. Por confidencialidad se omiten el nombre de la empresa, de los sistemas internos, rutas, datos de producto y cualquier información de negocio. Los fragmentos de código de este post son versiones simplificadas y reescritas para ilustrar las técnicas, no el código original.</p>
+
+      <h2 data-i18n="foto.problema.titulo">El problema</h2>
+      <p data-i18n-html="foto.problema.texto">En un entorno industrial regulado, cada lote de producción necesita un <strong>registro fotográfico</strong> de una muestra del producto: todas las caras del envase, el braille, el envase primario, la zona donde aparecen el lote y la caducidad, posibles daños, etc. Ese registro acaba en un <strong>informe PDF</strong> que forma parte de la documentación de calidad.</p>
+      <p data-i18n="foto.problema.manual">El proceso manual tenía varios problemas:</p>
+      <ul>
+        <li data-i18n="foto.problema.movidas">Fotos movidas o desenfocadas que se descubrían demasiado tarde.</li>
+        <li data-i18n="foto.problema.repetidas">Fotos repetidas (la misma cara guardada en dos pasos distintos).</li>
+        <li data-i18n="foto.problema.olvidados">Pasos olvidados.</li>
+        <li data-i18n="foto.problema.pdf">Un PDF montado a mano, lento de preparar y sin una estructura homogénea.</li>
+      </ul>
+      <p data-i18n-html="foto.problema.objetivo">El objetivo fue construir, dentro de una aplicación web móvil existente, un <strong>asistente guiado</strong> que se usa desde terminales Android y que valida cada foto <em>en el momento de hacerla</em> y genera el informe de forma automática.</p>
+
+      <h2 data-i18n="foto.stack.titulo">Stack</h2>
+      <div class="post-tabla">
+        <table>
+          <thead>
+            <tr>
+              <th scope="col" data-i18n="foto.stack.capa">Capa</th>
+              <th scope="col" data-i18n="foto.stack.tecnologia">Tecnología</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Backend</td>
+              <td>PHP · Symfony · Twig</td>
+            </tr>
+            <tr>
+              <td data-i18n="foto.stack.vision">Visión en el navegador</td>
+              <td>TensorFlow.js + COCO-SSD, OpenCV.js</td>
+            </tr>
+            <tr>
+              <td data-i18n="foto.stack.recorte">Recorte</td>
+              <td>Cropper.js</td>
+            </tr>
+            <tr>
+              <td data-i18n="foto.stack.camara">Cámara</td>
+              <td><code>getUserMedia</code> + <code>MediaStreamTrack</code> constraints</td>
+            </tr>
+            <tr>
+              <td data-i18n="foto.stack.imagen">Imagen en servidor</td>
+              <td>GD</td>
+            </tr>
+            <tr>
+              <td>PDF</td>
+              <td data-i18n="foto.stack.pdf">TCPDF (con código Data Matrix)</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <p data-i18n-html="foto.stack.local">Todo el análisis de imagen se ejecuta <strong>en el propio dispositivo</strong>, en el navegador: no hay un servicio de IA externo ni se envían fotos a terceros.</p>
+
+      <h2 data-i18n="foto.flujo.titulo">Flujo general</h2>
+      <figure class="post-diagrama">
+        <ol class="flujo">
+          <li class="flujo-nodo" data-i18n="foto.flujo.lote">El operario introduce el nº de lote</li>
+          <li class="flujo-decision">
+            <p class="flujo-pregunta" data-i18n="foto.flujo.hayFotos">¿Ya hay fotos de ese lote?</p>
+            <div class="flujo-ramas">
+              <div class="flujo-rama">
+                <span class="flujo-etiqueta" data-i18n="foto.flujo.si">Sí</span>
+                <p data-i18n="foto.flujo.deduce">Se deduce el tipo de envase a partir de las fotos existentes</p>
+              </div>
+              <div class="flujo-rama">
+                <span class="flujo-etiqueta">No</span>
+                <p data-i18n="foto.flujo.formato">Elige formato: blíster, frasco, sobres u otro</p>
+              </div>
+            </div>
+          </li>
+          <li class="flujo-nodo" data-i18n="foto.flujo.pasos">Lista guiada de pasos con imagen de referencia</li>
+          <li class="flujo-nodo" data-i18n="foto.flujo.camara">Cámara: detección + encuadre + nitidez en vivo</li>
+          <li class="flujo-nodo" data-i18n="foto.flujo.captura">Captura y recorte automático</li>
+          <li class="flujo-decision">
+            <p class="flujo-pregunta" data-i18n="foto.flujo.validaciones">Validaciones</p>
+            <div class="flujo-ramas">
+              <div class="flujo-rama">
+                <span class="flujo-etiqueta" data-i18n="foto.flujo.borrosa">Borrosa / duplicada</span>
+                <p class="flujo-vuelta" data-i18n="foto.flujo.repite">Vuelve a la cámara</p>
+              </div>
+              <div class="flujo-rama">
+                <span class="flujo-etiqueta">OK</span>
+                <p data-i18n="foto.flujo.guardado">Guardado en la carpeta del lote y salto al siguiente paso pendiente</p>
+                <p class="flujo-vuelta" data-i18n="foto.flujo.alaLista">Vuelve a la lista de pasos</p>
+              </div>
+            </div>
+          </li>
+          <li class="flujo-nodo" data-i18n="foto.flujo.guardarTodo">Guardar todo</li>
+          <li class="flujo-decision">
+            <p class="flujo-pregunta" data-i18n="foto.flujo.faltan">¿Faltan pasos obligatorios?</p>
+            <div class="flujo-ramas">
+              <div class="flujo-rama">
+                <span class="flujo-etiqueta" data-i18n="foto.flujo.si">Sí</span>
+                <p class="flujo-vuelta" data-i18n="foto.flujo.alaLista">Vuelve a la lista de pasos</p>
+              </div>
+              <div class="flujo-rama flujo-rama--fin">
+                <span class="flujo-etiqueta">No</span>
+                <p data-i18n="foto.flujo.informe">Generación del informe PDF + PDF de daños</p>
+              </div>
+            </div>
+          </li>
+        </ol>
+        <figcaption data-i18n="foto.flujo.pie">Recorrido del asistente, desde que se introduce el lote hasta que se genera el informe.</figcaption>
+      </figure>
+
+      <ol>
+        <li data-i18n-html="foto.flujo.p1"><strong>Inicio de sesión de captura.</strong> El operario introduce el número de lote. Si la carpeta de ese lote ya contiene fotos, la aplicación <strong>deduce el tipo de envase</strong> a partir de los nombres de los pasos guardados (hay vistas que solo existen en frascos, por ejemplo) y retoma la sesión donde se quedó.</li>
+        <li data-i18n-html="foto.flujo.p2"><strong>Pasos guiados.</strong> Cada formato tiene su lista de pasos, cada uno con una imagen de referencia que indica qué hay que fotografiar. Los pasos ya completados se marcan en verde, y se pueden añadir pasos personalizados con «+».</li>
+        <li data-i18n-html="foto.flujo.p3"><strong>Cámara.</strong> Al guardar una foto válida, la cámara salta automáticamente al siguiente paso pendiente.</li>
+        <li data-i18n-html="foto.flujo.p4"><strong>Guardar todo.</strong> Comprueba que estén todos los pasos obligatorios y genera el informe.</li>
+      </ol>
+
+      <h2 data-i18n="foto.deteccion.titulo">La detección de imagen</h2>
+      <p data-i18n-html="foto.deteccion.texto">La pantalla de cámara ejecuta un bucle con <code>requestAnimationFrame</code> que analiza cada fotograma y da feedback visual inmediato: un recuadro <span class="post-semaforo post-semaforo--verde">verde</span> (bien encuadrado y nítido), <span class="post-semaforo post-semaforo--naranja">naranja</span> (objeto fuera del marco) o <span class="post-semaforo post-semaforo--rojo">rojo</span> (imagen borrosa).</p>
+
+      <h3 data-i18n="foto.objeto.titulo">1. Detección del objeto</h3>
+      <p data-i18n-html="foto.objeto.coco">Se usa <strong>COCO-SSD</strong> sobre TensorFlow.js para localizar el objeto principal del fotograma. Me quedo con la primera predicción con confianza &gt; 0.5, valido que la <em>bounding box</em> sea coherente con el tamaño del vídeo y compruebo si queda <strong>dentro del marco de referencia</strong> que se dibuja en pantalla.</p>
+      <p data-i18n-html="foto.objeto.opencv">Sobre esa región, OpenCV.js refina el contorno: escala de grises → desenfoque gaussiano → <strong>Canny</strong> → cierre morfológico → <code>findContours</code>, quedándome con el contorno de mayor área.</p>
+
+      <h3 data-i18n="foto.nitidez.titulo">2. Nitidez: varianza del Laplaciano</h3>
+      <p data-i18n-html="foto.nitidez.texto">Para decidir si una foto está desenfocada uso la <strong>varianza del Laplaciano</strong>. El Laplaciano es una segunda derivada: en una imagen nítida hay muchos bordes fuertes y sus valores están muy dispersos (varianza alta); en una imagen borrosa los bordes se suavizan y el Laplaciano se queda cerca de 0 (varianza baja).</p>
+      <pre class="post-codigo"><code data-i18n="foto.nitidez.codigo">// Versión simplificada
+function sharpnessScore(canvas) {
+  const src = cv.imread(canvas);
+  const gray = new cv.Mat(), lap = new cv.Mat();
+  const mean = new cv.Mat(), std = new cv.Mat();
+  try {
+    cv.cvtColor(src, gray, cv.COLOR_RGBA2GRAY);
+    cv.GaussianBlur(gray, gray, new cv.Size(3, 3), 0); // reduce el ruido del sensor
+    cv.Laplacian(gray, lap, cv.CV_64F);
+    cv.meanStdDev(lap, mean, std);
+    return std.data64F[0] ** 2;                         // varianza = σ²
+  } finally {
+    [src, gray, lap, mean, std].forEach(m =&gt; m.delete()); // OpenCV.js no tiene GC
+  }
+}</code></pre>
+      <p data-i18n="foto.nitidez.decisiones">Decisiones de diseño:</p>
+      <ul>
+        <li data-i18n-html="foto.nitidez.umbrales"><strong>Dos umbrales.</strong> Uno en vivo, sobre cada fotograma, que solo orienta al usuario; y otro, bloqueante, sobre <strong>la foto final ya recortada</strong>, reescalada a un tamaño fijo para que la puntuación no dependa de la resolución.</li>
+        <li data-i18n-html="foto.nitidez.excepciones"><strong>Excepciones por paso.</strong> Algunas vistas no contienen información legible (por ejemplo, la base de un frasco) y no se bloquean nunca; en los pasos con texto muy pequeño o ángulos difíciles el usuario puede forzar el guardado tras un aviso.</li>
+        <li data-i18n-html="foto.nitidez.calibracion"><strong>Calibración en dispositivo real.</strong> Los umbrales se ajustaron en varias iteraciones con los terminales de producción: demasiado estrictos bloqueaban fotos válidas, demasiado laxos dejaban pasar fotos inútiles.</li>
+      </ul>
+
+      <h3 data-i18n="foto.zoom.titulo">3. Zoom para texto pequeño</h3>
+      <p data-i18n-html="foto.zoom.texto">En los pasos donde hay que leer lote y caducidad intento usar el <strong>zoom óptico/hardware</strong> mediante <code>track.applyConstraints({ advanced: [{ zoom }] })</code>. No todos los dispositivos lo soportan, así que hay un <em>fallback</em> de <strong>zoom digital</strong>: se escala la vista previa con CSS y, al capturar, se recorta la misma región central del fotograma y se reescala, de modo que la foto guardada coincide exactamente con lo que el usuario veía.</p>
+
+      <h3 data-i18n="foto.recorte.titulo">4. Recorte asistido</h3>
+      <p data-i18n-html="foto.recorte.texto">Tras la captura, Cropper.js se abre con el recuadro <strong>ya colocado sobre la bounding box detectada</strong>, así que en la mayoría de los casos basta con confirmar.</p>
+
+      <h3 data-i18n="foto.duplicados.titulo">5. Detección de duplicados en dos niveles</h3>
+      <ul>
+        <li data-i18n-html="foto.duplicados.cliente"><strong>En el cliente (similitud visual):</strong> comparo la nueva foto con las ya guardadas usando <strong>ORB</strong> (puntos clave + descriptores binarios), <code>BFMatcher</code> con distancia de Hamming y el <strong>ratio test de Lowe</strong>. Como la misma cara del envase puede fotografiarse girada, pruebo también la imagen volteada horizontal y verticalmente y me quedo con la mejor coincidencia. Si se parece demasiado a otra, se avisa al usuario indicando a qué paso se parece.</li>
+      </ul>
+      <pre class="post-codigo"><code data-i18n="foto.duplicados.codigo">// Ratio test de Lowe: una coincidencia es "buena" si es claramente
+// mejor que la segunda candidata
+bf.knnMatch(desc1, desc2, knn, 2);
+let good = 0;
+for (let i = 0; i &lt; knn.size(); i++) {
+  const [m, n] = [knn.get(i).get(0), knn.get(i).get(1)];
+  if (m.distance &lt; 0.75 * n.distance) good++;
+}
+const difference = 1 - good / Math.max(kp1.size(), kp2.size());</code></pre>
+      <ul>
+        <li data-i18n-html="foto.duplicados.servidor"><strong>En el servidor (duplicado exacto):</strong> un hash <strong>SHA-256</strong> de los bytes, con un prefiltro por tamaño de fichero para no leer de la unidad de red todas las fotos. Este control sí es bloqueante.</li>
+      </ul>
+
+      <h3 data-i18n="foto.traza.titulo">6. Trazabilidad sin ficheros adicionales</h3>
+      <p data-i18n-html="foto.traza.texto">Para saber quién hizo cada foto no uso una base de datos ni ficheros auxiliares: el nombre del operario se escribe <strong>dentro del propio PNG</strong>, en un chunk <code>tEXt</code> insertado justo después de la cabecera <code>IHDR</code>. Al calcular el hash de duplicados ese chunk se elimina antes, para comparar solo el contenido de la imagen.</p>
+      <pre class="post-codigo"><code data-i18n="foto.traza.codigo">// Inserta un chunk tEXt "Operator" tras IHDR (simplificado)
+$data  = "Operator\0" . $operator;
+$chunk = pack('N', strlen($data)) . 'tEXt' . $data . pack('N', crc32('tEXt' . $data));
+$png   = substr($png, 0, 33) . $chunk . substr($png, 33); // 8 (firma) + 25 (IHDR)</code></pre>
+
+      <h2 data-i18n="foto.pdf.titulo">La generación (y regeneración) del PDF</h2>
+      <p data-i18n-html="foto.pdf.texto">Al pulsar «Guardar todo» el servidor reconstruye el informe <strong>a partir de la carpeta del lote, que es la única fuente de verdad</strong>. Cada generación crea un fichero nuevo con marca de tiempo, así que se puede regenerar tantas veces como haga falta (por ejemplo, tras repetir una foto) sin perder las versiones anteriores.</p>
+
+      <h3 data-i18n="foto.validacion.titulo">1. Validación</h3>
+      <p data-i18n-html="foto.validacion.texto">Se calculan los pasos del formato más los personalizados, se separan los <strong>obligatorios</strong> de los <strong>opcionales</strong> y, si falta alguno obligatorio, se devuelve la lista exacta para que el operario sepa qué le queda.</p>
+
+      <h3 data-i18n="foto.clasificacion.titulo">2. Clasificación de las fotos</h3>
+      <ul>
+        <li data-i18n-html="foto.clasificacion.danos">Las fotos de <strong>daños</strong> no van al informe principal: se generan en un <strong>PDF independiente</strong>. Si en una regeneración ya no hay fotos de daños, el PDF antiguo se elimina para que nunca muestre fotos que ya se borraron.</li>
+        <li data-i18n-html="foto.clasificacion.origen">Las fotos de <strong>origen</strong> que ya existían en la carpeta (subidas por otros medios y con nombres no estandarizados) se detectan por nombre y se insertan en su posición lógica, numeradas.</li>
+      </ul>
+
+      <h3 data-i18n="foto.extraer.titulo">3. Extraer fotos de PDFs escaneados, en PHP puro</h3>
+      <p data-i18n-html="foto.extraer.texto">Algunas de esas fotos de origen llegaban como <strong>PDF escaneado</strong>. Para no depender de Imagick ni Ghostscript en el servidor, escribí un pequeño extractor que recorre los objetos del PDF y recorta directamente los streams JPEG (<code>/Filter /DCTDecode</code>, también envueltos en <code>FlateDecode</code>):</p>
+      <ul>
+        <li data-i18n="foto.extraer.descarta">Descarta imágenes pequeñas (logos, iconos), ficheros cifrados o demasiado grandes y duplicados (hash MD5 del stream).</li>
+        <li data-i18n-html="foto.extraer.rotate">Lee el <code>/Rotate</code> de la página que contiene cada imagen (incluido el heredado del árbol de páginas) para dibujarla en el informe tal como la mostraría un visor de PDF.</li>
+      </ul>
+
+      <h3 data-i18n="foto.fondo.titulo">4. Recorte automático del fondo del escáner</h3>
+      <p data-i18n="foto.fondo.texto">Los escaneos de un producto traen la tapa negra del escáner como fondo. Para recortarla:</p>
+      <ol>
+        <li data-i18n-html="foto.fondo.mediana">Muestreo la imagen en una rejilla y calculo el <strong>color de fondo como la mediana</strong> de cada canal.</li>
+        <li data-i18n="foto.fondo.uniforme">Si el fondo no es oscuro y uniforme, no toco la imagen (puede ser un documento o una foto normal).</li>
+        <li data-i18n-html="foto.fondo.vecinos">Marco como «objeto» las muestras cuya distancia al fondo supera un umbral, y solo cuento las que tienen <strong>al menos 5 vecinos</strong> también de objeto, para ignorar el polvo y la línea que algunos escáneres dibujan en el borde.</li>
+        <li data-i18n="foto.fondo.caja">Calculo la caja envolvente, añado un margen proporcional y descarto recortes absurdos (casi toda la imagen o casi nada).</li>
+      </ol>
+
+      <h3 data-i18n="foto.memoria.titulo">5. Optimización de tamaño y memoria</h3>
+      <p data-i18n-html="foto.memoria.texto">Las fotos se guardan como PNG a resolución completa (varios MB cada una). Para el informe se generan <strong>JPEG temporales</strong> reducidos, que se eliminan al terminar: el PDF pesa una fracción y se genera más rápido, y los originales quedan intactos.</p>
+      <p data-i18n-html="foto.memoria.gd">Un detalle importante: en PHP, quedarse sin memoria dentro de GD es un <strong>error fatal que no se puede capturar</strong>. Por eso, antes de decodificar cada imagen estimo la memoria necesaria (ancho × alto × 4 bytes + margen), intento ampliar el límite y, si no es posible, me salto la optimización en lugar de tumbar la petición.</p>
+
+      <h3 data-i18n="foto.estructura.titulo">6. Estructura del informe</h3>
+      <ol>
+        <li data-i18n-html="foto.estructura.portada"><strong>Portada</strong> con los metadatos del lote (obtenidos del sistema de producción), quién hizo las fotos, quién y cuándo generó el informe, número total de fotos y un <strong>código Data Matrix</strong> con el número de lote.</li>
+        <li data-i18n-html="foto.estructura.checklist"><strong>Checklist visual</strong>: páginas con una cuadrícula de 3×3 miniaturas, cada una con el nombre del paso, fecha de captura y autor.</li>
+        <li data-i18n-html="foto.estructura.detalle"><strong>Detalle</strong>: dos fotos por página A4, con un tamaño distinto para fotos verticales y horizontales para aprovechar el espacio sin que ninguna parezca diminuta.</li>
+      </ol>
+      <p data-i18n-html="foto.estructura.avisos">Los errores secundarios (por ejemplo, que no se pueda generar el PDF de daños o extraer fotos de un escaneado) se devuelven como <strong>avisos</strong>, sin invalidar el informe principal.</p>
+
+      <h2 data-i18n="foto.retos.titulo">Retos y aprendizajes</h2>
+      <ul>
+        <li data-i18n-html="foto.retos.memoria"><strong>Gestión manual de memoria en OpenCV.js.</strong> Cada <code>cv.Mat</code> vive en el heap de WebAssembly y hay que liberarlo explícitamente; en un bucle por fotograma una fuga se nota en segundos.</li>
+        <li data-i18n-html="foto.retos.hardware"><strong>Calibrar con hardware real.</strong> Los umbrales de nitidez y el comportamiento de la cámara cambian mucho entre el portátil de desarrollo y un terminal industrial; hubo que ajustarlos varias veces en planta.</li>
+        <li data-i18n-html="foto.retos.entorno"><strong>Robustez ante el entorno.</strong> Antes de crear carpetas compruebo que la unidad de red está montada, para no escribir por error en el disco local; y cada usuario trabaja sobre la carpeta guardada en su sesión, de modo que dos operarios con lotes distintos nunca se pisan.</li>
+        <li data-i18n-html="foto.retos.libreria"><strong>Elegir la librería de PDF adecuada.</strong> Migré la generación a TCPDF para tener soporte nativo de códigos 2D y más control sobre la maquetación.</li>
+        <li data-i18n-html="foto.retos.dependencias"><strong>Menos dependencias, más control.</strong> Extraer imágenes de un PDF en PHP puro fue más trabajo que instalar una herramienta, pero evitó dependencias de sistema en un servidor sobre el que no tenía control total.</li>
+      </ul>
+
+      <h2 data-i18n="foto.resultado.titulo">Resultado</h2>
+      <ul>
+        <li data-i18n="foto.resultado.guiada">Captura guiada paso a paso, con feedback en tiempo real de encuadre y nitidez.</li>
+        <li data-i18n="foto.resultado.bloqueo">Bloqueo de fotos borrosas y de duplicados antes de que lleguen al informe.</li>
+        <li data-i18n="foto.resultado.traza">Trazabilidad del autor de cada foto embebida en la propia imagen.</li>
+        <li data-i18n="foto.resultado.informe">Informe PDF homogéneo generado en un clic, regenerable y versionado, con PDF separado para incidencias.</li>
+      </ul>
+
+      <p class="post-tecnologias"><span data-i18n="foto.tecnologias">Tecnologías:</span> PHP, Symfony, JavaScript, TensorFlow.js, COCO-SSD, OpenCV.js, Cropper.js, GD, TCPDF.</p>
+    </article>
+
+    <footer class="posts-pie">
+      <a href="../otros-posts.html" class="posts-volver"><span aria-hidden="true">←</span> <span data-i18n="foto.volverPie">Volver a otros posts</span></a>
+    </footer>
+  </main>
+
+  <script src="../ScriptsJS/traducciones.js"></script>
+  <script src="../ScriptsJS/idioma.js"></script>
+  <script src="../ScriptsJS/menu.js"></script>
+</body>
+</html>
