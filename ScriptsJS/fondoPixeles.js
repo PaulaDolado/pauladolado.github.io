@@ -11,20 +11,20 @@
     if (!seccion) return;
 
     const AJUSTES = {
-        densidad: 0.00011,        // píxeles por px² de pantalla
-        minimo: 40,
-        maximo: 200,
-        tamano: [6, 18],          // lado del cuadrado, en px (antes de escalar)
-        opacidad: [0.35, 0.8],
-        aparicion: [0.6, 1.4],    // segundos en aparecer
-        vida: [2.5, 7],           // segundos visible antes de desvanecerse
-        desaparicion: [0.9, 2],   // segundos en desvanecerse
-        deriva: 26,               // amplitud del vaivén, en px
-        frecuencia: [0.12, 0.4],  // vueltas por segundo del vaivén
-        radioRaton: 190,          // px alrededor del ratón que se apartan
-        empujeRaton: 70,          // desplazamiento máximo, en px
-        rigidez: 90,              // muelle: cuánto tira hacia su sitio
-        amortiguacion: 11         // muelle: cuánto frena el rebote
+        densidad: 0.00007,        // píxeles por px² de pantalla
+        minimo: 25,
+        maximo: 130,
+        tamano: [5, 16],          // lado del cuadrado, en px (antes de escalar)
+        opacidad: [0.15, 0.42],
+        aparicion: [1.8, 3.5],    // segundos en aparecer
+        vida: [6, 13],            // segundos visible antes de desvanecerse
+        desaparicion: [2.5, 5],   // segundos en desvanecerse
+        deriva: 16,               // amplitud del vaivén, en px
+        frecuencia: [0.03, 0.09], // vueltas por segundo del vaivén
+        radioRaton: 170,          // px alrededor del ratón que se apartan
+        empujeRaton: 45,          // desplazamiento máximo, en px
+        rigidez: 28,              // muelle: cuánto tira hacia su sitio
+        amortiguacion: 8.5        // muelle: cuánto frena el rebote
     };
 
     // Tonos de la paleta arena, del más claro al más tostado, y alguno
@@ -70,7 +70,7 @@
             y: Math.round(azar(0, alto) / 4) * 4,
             lado: Math.round(azar(AJUSTES.tamano[0], AJUSTES.tamano[1]) * escala),
             color: acento ? COLOR_ACENTO : COLORES[Math.floor(Math.random() * COLORES.length)],
-            opacidadMax: acento ? azar(0.12, 0.25) : azar(AJUSTES.opacidad[0], AJUSTES.opacidad[1]),
+            opacidadMax: acento ? azar(0.06, 0.14) : azar(AJUSTES.opacidad[0], AJUSTES.opacidad[1]),
             // Ciclo de vida: aparece, se queda y se desvanece
             fase: 0,
             t: 0,
