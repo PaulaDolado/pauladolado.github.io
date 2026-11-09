@@ -140,7 +140,8 @@ html, body{
 /* Página de un post: título algo menor que el del listado, porque
    suele ser más largo */
 .posts-titulo--post{
-    font-size: clamp(2.4rem, 7vw, 4.5rem);
+    font-size: clamp(2rem, 5vw, 3.25rem);
+    line-height: 1.05;
 }
 .post-meta{
     display: flex;
@@ -269,4 +270,24 @@ html, body{
 .fondo-rastro ~ .posts-main{
     position: relative;
     z-index: 1;
+}
+
+/* Pasos numerados y listas dentro del post */
+.post-cuerpo h3{
+    margin: 2.25rem 0 0.75rem;
+    color: var(--text-primary);
+    font-family: var(--font-body);
+    font-size: 1.05rem;
+    font-weight: 700;
+}
+.post-cuerpo h2 + .post-captura{
+    margin-top: 1.25rem;
+}
+.post-cuerpo p + ul,
+.post-cuerpo p + ol{
+    margin-top: 0.75rem;
+}
+.post-cuerpo ul + p,
+.post-cuerpo ol + p{
+    margin-top: 1rem;
 }

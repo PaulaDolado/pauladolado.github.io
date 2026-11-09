@@ -3,12 +3,12 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title data-i18n="n8n.meta.titulo">Automatización de facturas con n8n — Paula Dolado Aynié</title>
-  <meta name="description" data-i18n-attr="content:n8n.meta.descripcion" content="Cómo funciona un flujo de n8n que automatiza el tratamiento de facturas, explicado paso a paso y con capturas." />
+  <title data-i18n="n8n.meta.titulo">De PDF a factura registrada con n8n e IA — Paula Dolado Aynié</title>
+  <meta name="description" data-i18n-attr="content:n8n.meta.descripcion" content="Cómo automatizamos las facturas de compra con n8n e IA: la IA lee el PDF, el flujo propone cómo registrarla en el ERP y una persona revisa y aprueba." />
   <meta name="theme-color" content="#f7f1e5" />
   <meta property="og:type" content="article" />
-  <meta property="og:title" content="Automatización de facturas con n8n — Paula Dolado Aynié" />
-  <meta property="og:description" content="Cómo funciona un flujo de n8n que automatiza el tratamiento de facturas, explicado paso a paso y con capturas." />
+  <meta property="og:title" content="De PDF a factura registrada: cómo automatizamos las facturas de compra con n8n e IA" />
+  <meta property="og:description" content="Cómo automatizamos las facturas de compra con n8n e IA: la IA lee el PDF, el flujo propone cómo registrarla en el ERP y una persona revisa y aprueba." />
   <meta property="og:image" content="../img/cara.png" />
   <link rel="icon" href="../favicon.ico" sizes="any" />
   <link rel="icon" type="image/svg+xml" href="../img/favicon.svg" />
@@ -61,39 +61,58 @@
     <header class="posts-cabecera">
       <a href="../otros-posts.html" class="posts-volver"><span aria-hidden="true">←</span> <span data-i18n="n8n.volver">Otros posts</span></a>
       <p class="section-kicker" data-i18n="n8n.kicker">// automatización</p>
-      <h1 class="posts-titulo posts-titulo--post" data-i18n="n8n.titulo">Automatización de facturas con n8n</h1>
+      <h1 class="posts-titulo posts-titulo--post" data-i18n="n8n.titulo">De PDF a factura registrada: cómo automatizamos las facturas de compra con n8n e IA</h1>
       <div class="post-meta">
         <div class="post-tags">
           <span class="tech-tag">n8n</span>
-          <span class="tech-tag">OCR</span>
-          <span class="tech-tag">Access Dimensions</span>
+          <span class="tech-tag" data-i18n="n8n.tag.ia">IA</span>
+          <span class="tech-tag">ERP</span>
         </div>
       </div>
     </header>
 
     <article class="post-cuerpo">
-      <p data-i18n="n8n.intro">Flujo de n8n que convierte las facturas de compra en PDF en asientos dentro de Access Dimensions. La máquina hace el trabajo repetitivo: lee cada documento, extrae sus datos y los cruza con la base de datos. La persona solo revisa y aprueba.</p>
+      <p data-i18n="n8n.intro">Registrar facturas de compra a mano es lento y da errores: una línea copiada mal, un artículo confundido, un precio que no cuadra… Hemos montado un flujo en n8n que hace el trabajo pesado. La IA de Claude lee las facturas y el flujo propone cómo registrarlas en el ERP. Una persona revisa la propuesta y aprueba. Nada entra en contabilidad sin que alguien lo haya validado.</p>
 
-      <h2 data-i18n="n8n.empieza.titulo">Dónde empieza</h2>
-      <p data-i18n-html="n8n.empieza.texto">Las facturas que queremos tratar se depositan en una carpeta: en un entorno profesional, una carpeta compartida del servidor; para uso individual, una carpeta local del equipo. El flujo la revisa automáticamente <strong>cada 5 minutos</strong>, y además tiene un <strong>disparador manual</strong> para lanzarlo a demanda mientras se hacen pruebas.</p>
-
-      <h2 data-i18n="n8n.flujo.titulo">El flujo</h2>
-      <p data-i18n="n8n.flujo.texto">Cada vez que se ejecuta, el recorrido es el mismo:</p>
-      <ol>
-        <li data-i18n-html="n8n.flujo.recogida"><strong>Recogida</strong>: se leen los PDF de la carpeta y se guarda una copia de cada uno para la revisión.</li>
-        <li data-i18n-html="n8n.flujo.extraccion"><strong>Extracción</strong>: cada documento pasa por la herramienta de OCR de Claude, que devuelve sus datos estructurados: cabecera, importes y líneas de artículos.</li>
-        <li data-i18n-html="n8n.flujo.tratamiento"><strong>Tratamiento</strong>: los datos extraídos se contrastan con la base de datos de Dimensions para proponer el proveedor, el código de cada artículo, la cuenta analítica, el código de IVA y el albarán de entrada.</li>
-        <li data-i18n-html="n8n.flujo.aviso"><strong>Aviso</strong>: se crea una revisión pendiente por documento y se envía un correo con todas ellas.</li>
-      </ol>
+      <h2 data-i18n="n8n.pasos.titulo">Cómo funciona, paso a paso</h2>
       <figure class="post-captura">
         <a href="../img/posts/n8n-facturas/01-flujo.png" target="_blank" rel="noopener">
-          <img src="../img/posts/n8n-facturas/01-flujo.png" data-i18n-attr="alt:n8n.flujo.alt" alt="Flujo de n8n: disparador manual y programado, lectura de los PDF, extracción, consulta a Dimensions, correo de revisión y los webhooks de la web de revisión" width="1753" height="739" loading="lazy" />
+          <img src="../img/posts/n8n-facturas/01-flujo.png" data-i18n-attr="alt:n8n.flujo.alt" alt="Flujo de n8n: disparador manual y programado, lectura de los PDF, extracción, consulta al ERP, correo de revisión y los webhooks de la web de revisión" width="1753" height="739" loading="lazy" />
         </a>
         <figcaption data-i18n="n8n.flujo.pie">El flujo completo en n8n. Arriba, el procesado de los PDF hasta el correo; debajo, los webhooks que sirven la web de revisión y registran la factura.</figcaption>
       </figure>
 
-      <h2 data-i18n="n8n.correo.titulo">El correo de revisión</h2>
-      <p data-i18n="n8n.correo.texto">El correo llega a una cuenta personal o a un buzón compartido, según quién se encargue de las compras. Muestra cada documento pendiente con su total, el número de líneas y los avisos detectados, y un botón para revisarlo.</p>
+      <h3 data-i18n="n8n.p1.titulo">1. Se deja la factura en una carpeta</h3>
+      <p data-i18n="n8n.p1.texto">El proveedor manda el PDF y lo guardamos en una carpeta compartida. No hace falta nada más. El flujo revisa la carpeta cada cierto tiempo y solo procesa los PDF nuevos: lo que ya ha leído no lo vuelve a leer.</p>
+
+      <h3 data-i18n="n8n.p2.titulo">2. La IA lee el PDF</h3>
+      <p data-i18n="n8n.p2.texto">Claude lee cada factura y extrae los datos en un formato fijo:</p>
+      <ul>
+        <li data-i18n-html="n8n.p2.cabecera"><strong>Cabecera:</strong> proveedor, NIF, número y fecha de factura, albarán y pedidos.</li>
+        <li data-i18n-html="n8n.p2.lineas"><strong>Líneas:</strong> código, descripción, cantidad, precio, descuento, IVA e importe.</li>
+        <li data-i18n-html="n8n.p2.totales"><strong>Totales:</strong> base imponible, IVA y total.</li>
+      </ul>
+      <p data-i18n="n8n.p2.idiomas">Sirve para facturas en cualquier idioma y con formatos muy distintos, de proveedores españoles y extranjeros.</p>
+
+      <h3 data-i18n="n8n.p3.titulo">3. El flujo comprueba lo que ha leído</h3>
+      <p data-i18n="n8n.p3.texto">Antes de proponer nada, el flujo valida los datos:</p>
+      <ul>
+        <li data-i18n="n8n.p3.suma">Que la suma de las líneas cuadre con la base imponible.</li>
+        <li data-i18n="n8n.p3.iva">Que el IVA sea coherente.</li>
+        <li data-i18n="n8n.p3.nif">Que el NIF tenga un formato válido.</li>
+      </ul>
+      <p data-i18n="n8n.p3.incidencia">Si algo no encaja, lo marca como incidencia para que la persona que revisa lo vea enseguida.</p>
+
+      <h3 data-i18n="n8n.p4.titulo">4. Busca cada cosa en el ERP</h3>
+      <p data-i18n="n8n.p4.texto">Con los datos de la factura, el flujo consulta el ERP para proponer:</p>
+      <ul>
+        <li data-i18n-html="n8n.p4.proveedor"><strong>El proveedor</strong>, por NIF y, si no aparece, por nombre (con aviso para corregir el NIF).</li>
+        <li data-i18n-html="n8n.p4.articulo"><strong>El artículo de cada línea</strong>, por este orden de fiabilidad: el código nacional o el del proveedor; lo que ya se confirmó en facturas anteriores de ese proveedor; los albaranes de entrada pendientes; lo que ese proveedor ha servido antes; y, como último recurso, el catálogo.</li>
+        <li data-i18n-html="n8n.p4.contabilizacion"><strong>La contabilización:</strong> la cuenta y el código de IVA que se usan habitualmente con ese proveedor, y el vencimiento según sus condiciones.</li>
+      </ul>
+
+      <h3 data-i18n="n8n.p5.titulo">5. Llega un correo con un enlace</h3>
+      <p data-i18n="n8n.p5.texto">Por cada factura llega un correo con un resumen y un enlace a la página de revisión.</p>
       <figure class="post-captura">
         <a href="../img/posts/n8n-facturas/02-correo.png" target="_blank" rel="noopener">
           <img src="../img/posts/n8n-facturas/02-correo.png" data-i18n-attr="alt:n8n.correo.alt" alt="Correo de ejemplo con dos facturas de compra pendientes de revisar, una sin avisos y otra con incidencias y artículos sin código interno, cada una con su total, número de líneas y un botón Revisar" width="1100" height="415" loading="lazy" />
@@ -101,25 +120,61 @@
         <figcaption data-i18n="n8n.correo.pie">Correo con las facturas pendientes de revisar, con datos de ejemplo.</figcaption>
       </figure>
 
-      <h2 data-i18n="n8n.revision.titulo">Revisión de cada factura</h2>
-      <p data-i18n="n8n.revision.texto1">Desde el correo se accede a cada factura por separado. La página muestra el PDF original junto a los datos extraídos, ya contrastados con lo que tenemos en la base de datos: algunos campos no coinciden tal cual, como el código que el proveedor da a un artículo frente al nuestro, y la revisión propone la equivalencia.</p>
-      <p data-i18n="n8n.revision.texto2">Si el OCR no ha reconocido bien algún campo, se corrige a mano. Al editarlo se vuelve a consultar la información interna de la base de datos con el dato ya corregido, para que el resto de la contabilización se recalcule sobre el valor bueno.</p>
+      <h3 data-i18n="n8n.p6.titulo">6. Una persona revisa en una página web</h3>
+      <p data-i18n="n8n.p6.texto">La página muestra el PDF a la izquierda y la propuesta a la derecha, todo editable:</p>
+      <ul>
+        <li data-i18n="n8n.p6.lineas">Cada línea con el artículo propuesto y de dónde sale esa propuesta (código, albarán, compras anteriores…).</li>
+        <li data-i18n="n8n.p6.avisos">Avisos por línea y un cuadre en directo de la suma de las líneas frente a la base imponible.</li>
+        <li data-i18n="n8n.p6.contabilizacion">La contabilización, con las bases y cuotas que tienen que cuadrar con la factura.</li>
+      </ul>
+      <p data-i18n="n8n.p6.bloqueo">Si falta algo imprescindible (un artículo, una cuenta, una fecha), no deja aprobar. La persona que revisa se identifica con su usuario del ERP, y ese usuario queda en el apunte.</p>
       <figure class="post-captura">
         <a href="../img/posts/n8n-facturas/03-revision.png" target="_blank" rel="noopener">
-          <img src="../img/posts/n8n-facturas/03-revision.png" data-i18n-attr="alt:n8n.revision.alt" alt="Página de revisión: a la izquierda el PDF de la factura; a la derecha la cabecera, la contabilización en Dimensions y las líneas de artículos, con los botones Rechazar y Aprobar y registrar en Dimensions" width="1700" height="1250" loading="lazy" />
+          <img src="../img/posts/n8n-facturas/03-revision.png" data-i18n-attr="alt:n8n.revision.alt" alt="Página de revisión: a la izquierda el PDF de la factura; a la derecha la cabecera, la contabilización y las líneas de artículos, con los botones Rechazar y Aprobar y registrar" width="1700" height="1250" loading="lazy" />
         </a>
-        <figcaption data-i18n="n8n.revision.pie">Revisión de una factura de ejemplo: el PDF a la izquierda y los datos para Dimensions a la derecha. Las líneas repetidas de un mismo artículo se agrupan y se avisa cuando el precio de la factura viene redondeado.</figcaption>
+        <figcaption data-i18n="n8n.revision.pie">Revisión de una factura de ejemplo: el PDF a la izquierda y la propuesta para el ERP a la derecha. Las líneas repetidas de un mismo artículo se agrupan y se avisa cuando el precio de la factura viene redondeado.</figcaption>
       </figure>
 
-      <h2 data-i18n="n8n.aprobacion.titulo">Aprobación y registro</h2>
-      <p data-i18n-html="n8n.aprobacion.texto1">Para terminar, el operario indica su nombre en <strong>Revisado por</strong> y pulsa <strong>Aprobar y registrar en Dimensions</strong>. La factura se carga en la base de datos de Access Dimensions, queda marcada como realizada y aparece un mensaje de éxito. Una factura ya registrada no se puede volver a aprobar.</p>
+      <h3 data-i18n="n8n.p7.titulo">7. Al aprobar, se registra sola</h3>
+      <p data-i18n="n8n.p7.texto">Al pulsar «Aprobar», el flujo registra la factura en el ERP con el proveedor, las líneas y la contabilización validadas. Antes comprueba que no exista ya una factura con el mismo número de ese proveedor, para no duplicarla. Si el ERP rechaza el apunte, la página muestra el motivo y la factura queda pendiente para corregirla.</p>
       <figure class="post-captura">
         <a href="../img/posts/n8n-facturas/04-registrada.png" target="_blank" rel="noopener">
           <img src="../img/posts/n8n-facturas/04-registrada.png" data-i18n-attr="alt:n8n.registrada.alt" alt="Mensaje de confirmación: Registrada en Dimensions: P90001. Apunte P90001 creado en el libro de proveedores." width="640" height="180" loading="lazy" />
         </a>
-        <figcaption data-i18n="n8n.registrada.pie">Confirmación tras aprobar: la factura queda registrada como apunte en el libro de proveedores de Dimensions.</figcaption>
+        <figcaption data-i18n="n8n.registrada.pie">Confirmación tras aprobar: la factura queda registrada como apunte en el libro de proveedores del ERP.</figcaption>
       </figure>
-      <p data-i18n-html="n8n.aprobacion.texto2">Si algo no es correcto, se puede <strong>rechazar</strong> indicando el motivo en el comentario.</p>
+
+      <h3 data-i18n="n8n.p8.titulo">8. Aprende y archiva</h3>
+      <ul>
+        <li data-i18n="n8n.p8.aprende">Cada artículo confirmado se recuerda para ese proveedor. La próxima factura sale ya asignada.</li>
+        <li data-i18n="n8n.p8.archiva">El PDF revisado, aprobado o rechazado, pasa a la carpeta de procesados.</li>
+      </ul>
+
+      <h2 data-i18n="n8n.reglas.titulo">Las reglas que marcan la diferencia</h2>
+      <p data-i18n="n8n.reglas.texto">Leer el PDF es la parte fácil. Lo que hace el flujo fiable son las reglas de negocio que hemos ido incorporando:</p>
+      <ul>
+        <li data-i18n-html="n8n.reglas.precio"><strong>El precio sale del importe, no del impreso.</strong> El precio unitario se calcula a partir del importe de la línea, la cantidad y el descuento, con los decimales que admite el ERP. Así el total cuadra al céntimo.</li>
+        <li data-i18n-html="n8n.reglas.mismo"><strong>El mismo artículo va en una sola línea.</strong> Si la factura trae el mismo producto en varias líneas, se juntan con la cantidad y el importe sumados, porque así lo exige el ERP.</li>
+        <li data-i18n-html="n8n.reglas.nunca"><strong>Nunca juntar lo que no es igual.</strong> Para emparejar por descripción, el flujo exige la misma dosis, forma y envase cuando constan. «5 mg» no es «3 mg», sobres no son comprimidos y 30 cápsulas no son 60. Si dos líneas distintas acaban con el mismo artículo, no se juntan y salen con un aviso.</li>
+        <li data-i18n-html="n8n.reglas.codigo"><strong>Código nacional desde el ERP.</strong> Si la factura no trae el código nacional del medicamento, se completa con el que consta en el ERP para ese artículo.</li>
+        <li data-i18n-html="n8n.reglas.cargos"><strong>Cargos por línea que cuadran con el total.</strong> Algunos proveedores suman a cada artículo un recargo en porcentaje, y el total del pie no coincide exactamente con la suma de los recargos de las líneas. Para esos proveedores, el flujo reparte la diferencia proporcionalmente entre las líneas para que la factura cuadre. Las líneas ajustadas se marcan en rojo para revisarlas de un vistazo.</li>
+        <li data-i18n-html="n8n.reglas.extranjeros"><strong>Proveedores extranjeros.</strong> El flujo reconoce códigos de producto de otros países y aplica la fiscalidad intracomunitaria.</li>
+      </ul>
+
+      <h2 data-i18n="n8n.seguridad.titulo">Seguridad ante todo</h2>
+      <ul>
+        <li data-i18n-html="n8n.seguridad.persona"><strong>Siempre hay una persona en medio.</strong> La IA propone y una persona decide.</li>
+        <li data-i18n-html="n8n.seguridad.pruebas"><strong>Primero, en pruebas.</strong> El registro se ha construido y validado contra una copia de pruebas del ERP. El acceso a la base real está bloqueado por configuración.</li>
+        <li data-i18n-html="n8n.seguridad.credenciales"><strong>Credenciales fuera del flujo.</strong> Las contraseñas viven en el gestor de credenciales de n8n, nunca en el propio flujo.</li>
+        <li data-i18n-html="n8n.seguridad.trazabilidad"><strong>Trazabilidad.</strong> Cada revisión queda guardada: qué leyó la IA, qué cambió quien revisó, quién aprobó y cuándo.</li>
+      </ul>
+
+      <h2 data-i18n="n8n.ganamos.titulo">Lo que ganamos</h2>
+      <ul>
+        <li data-i18n-html="n8n.ganamos.tecleo"><strong>Menos tecleo:</strong> quien revisa valida, ya no transcribe.</li>
+        <li data-i18n-html="n8n.ganamos.errores"><strong>Menos errores:</strong> cuadres automáticos y avisos donde hay dudas.</li>
+        <li data-i18n-html="n8n.ganamos.mejora"><strong>Un sistema que mejora con el uso:</strong> cada confirmación enseña al flujo para la siguiente factura.</li>
+      </ul>
     </article>
 
     <footer class="posts-pie">
