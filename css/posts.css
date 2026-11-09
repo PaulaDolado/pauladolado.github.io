@@ -1,20 +1,10 @@
-/* Estilos de las páginas de "Otros posts" (otros-posts.html y posts/).
-   Se cargan después de styles.css: reutilizan sus variables, fuentes,
-   nav y etiquetas (.tech-tag, .section-kicker) y solo deshacen lo que
-   es propio de la página principal (cursor personalizado y secciones
-   a pantalla completa). */
-
 html, body{
     cursor: auto;
 }
 .nav-link, .nav-logo a, .hamburger, .idioma-toggle{
     cursor: pointer;
 }
-/* Aquí el texto pasa por debajo del nav al hacer scroll: se le da
-   fondo para que no se mezcle con el contenido. Va en un ::before y
-   no en el propio .nav-container porque un backdrop-filter ahí haría
-   de contenedor del panel fijo del menú móvil (.nav-links) y lo
-   dejaría recortado dentro de la barra. */
+/* El texto pasa por debajo del nav al hacer scroll*/
 .nav-container::before{
     content: "";
     position: absolute;
@@ -137,8 +127,7 @@ html, body{
     gap: 6px;
 }
 
-/* Página de un post: título algo menor que el del listado, porque
-   suele ser más largo */
+/* Página de un post */
 .posts-titulo--post{
     font-size: clamp(2rem, 5vw, 3.25rem);
     line-height: 1.05;
@@ -150,8 +139,6 @@ html, body{
     gap: 1rem;
     margin-top: 1.25rem;
 }
-/* El post va en una columna centrada: cabecera, cuerpo y pie comparten
-   ancho para que todo quede alineado */
 .posts-main--post .posts-cabecera,
 .posts-main--post .post-cuerpo,
 .posts-main--post .posts-pie{
@@ -159,10 +146,7 @@ html, body{
     margin-left: auto;
     margin-right: auto;
 }
-/* Texto justificado a partir de tablet. En móvil la línea es tan corta
-   que justificar abre huecos grandes entre palabras (no todos los
-   navegadores parten palabras con guion en español), así que ahí se
-   queda alineado a la izquierda. */
+
 @media (min-width: 641px){
     .post-cuerpo p,
     .post-cuerpo li{
@@ -204,8 +188,7 @@ html, body{
     font-size: 0.9em;
 }
 
-/* Capturas: ocupan todo el ancho del contenido, con pie de foto.
-   Pulsando una se abre a tamaño completo en una pestaña nueva. */
+/* Capturas. */
 .post-captura{
     margin: 2rem 0;
 }

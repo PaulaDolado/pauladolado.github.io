@@ -3,8 +3,7 @@
    inmediato y document.fonts.ready (usado en script.js) resulta fiable. */
 
 /* ==========================================================================
-   Sistema de diseño — variables globales
-   Paleta unificada: tonos arena (fondo cálido y limpio) + granate (acento).
+   Paleta: tonos arena + granate (acento).
    ========================================================================== */
 :root {
     /* Fondos: arena, cálidos y claros, misma familia para dar ritmo */
@@ -38,8 +37,6 @@
     --font-body: "Inter", sans-serif;
     --font-impact: "Oswald", sans-serif;
 
-    /* Otros: radios más contenidos y sombra más corta para un
-       acabado más técnico/estructurado (menos "blando") */
     --radius-sm: 4px;
     --radius-md: 6px;
     --radius-lg: 10px;
@@ -165,9 +162,7 @@ section {
 .nav-link.active .button-label {
     color: var(--accent-light);
 }
-/* Selector de idioma ES / EN: un solo botón que alterna el idioma. La
-   opción activa se resalta según el lang del <html>, que actualiza
-   ScriptsJS/idioma.js. */
+/* Selector de idioma ES / EN. */
 .idioma-toggle{
     flex-shrink: 0;
     display: inline-flex;
@@ -201,9 +196,7 @@ html[lang="en"] .idioma-opcion[data-idioma="en"]{
     background: var(--accent);
     color: var(--on-accent);
 }
-/* En escritorio estrecho (969–1200px) los cinco enlaces de 165px, el
-   logo y el selector de idioma no caben: los enlaces se encogen en vez
-   de empujar el selector fuera de la pantalla. */
+/* En escritorio estrecho (969–1200px) los cinco enlaces se encogen. */
 @media (min-width: 969px) {
     .nav-links{
         min-width: 0;
@@ -244,8 +237,6 @@ html[lang="en"] .idioma-opcion[data-idioma="en"]{
     .hamburger {
         display: flex;
     }
-    /* Con los enlaces en el panel lateral, el selector de idioma se
-       queda en la barra, junto al icono del menú */
     .idioma-toggle{
         margin-left: auto;
         margin-right: 16px;
