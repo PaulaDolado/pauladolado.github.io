@@ -310,6 +310,24 @@ html[lang="en"] .idioma-opcion[data-idioma="en"]{
     flex-direction: column;
     height: 100vh;
     background: radial-gradient(circle at 50% 20%, var(--bg-secondary) 0%, var(--bg-primary) 65%);
+    /* El canvas de fondo (fondoPixeles.js) va con z-index -1: isolation
+       lo deja encima del degradado y debajo del contenido */
+    position: relative;
+    isolation: isolate;
+    overflow: hidden;
+}
+.fondo-pixeles{
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 1.6s var(--ease);
+}
+.fondo-pixeles--visible{
+    opacity: 1;
 }
 .eyebrow{
     font-family: var(--font-mono);
