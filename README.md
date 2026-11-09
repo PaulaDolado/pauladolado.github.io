@@ -2,7 +2,7 @@
 
 # Paula Dolado Aynié
 
-**Portfolio personal: Desarrolladora Full Stack e Ingeniera Informática. Proyectos, experiencia y contacto en una sola página.**
+**Portfolio personal: Técnica de Sistemas y Desarrollo e Ingeniera Informática. Proyectos, experiencia y contacto en una sola página.**
 
 [![Deploy](https://github.com/PaulaDolado/pauladolado.github.io/actions/workflows/pages/pages-build-deployment/badge.svg)](https://github.com/PaulaDolado/pauladolado.github.io/actions/workflows/pages/pages-build-deployment)
 ![HTML5](https://img.shields.io/badge/HTML5-E34F26?logo=html5&logoColor=white)

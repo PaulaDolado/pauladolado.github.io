@@ -21,8 +21,8 @@ window.TRADUCCIONES_EN = {
     'idioma.cambiar': 'View the site in Spanish',
 
     // Portada
-    'meta.titulo': 'Paula Dolado Aynié — Full Stack Developer',
-    'meta.descripcion': 'Portfolio of Paula Dolado Aynié, full stack developer and computer engineer specialising in Java, Python, React and Django.',
+    'meta.titulo': 'Paula Dolado Aynié — Systems and Development Technician',
+    'meta.descripcion': 'Portfolio of Paula Dolado Aynié, systems and development technician and computer engineer specialising in Java, Python, React and Django.',
     'inicio.eyebrow': 'Systems and Development Technician',
     'inicio.sub1': 'Higher Technician in Networked Computer Systems Administration',
     'inicio.sub2': 'Computer Engineer in Management and Information Systems',
